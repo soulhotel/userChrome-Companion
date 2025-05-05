@@ -1,5 +1,5 @@
 ## userChrome Companion
-ⓘ Toggle userChrome styles through text.
+ⓘ Toggle userChrome styles through text - Firefox Extension
 
 
 https://github.com/user-attachments/assets/dd301064-e785-466d-ab76-1179ff0cfc65
