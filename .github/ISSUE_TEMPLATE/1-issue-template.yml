@@ -1,5 +1,5 @@
 name: 🚩 Bugs, Errors, and Other Issues
-description: Report an issue to help us improve FF Ultima.
+description: Report an issue for userChrome Companion
 labels:
   - "bug"
   - "issue"
@@ -7,33 +7,24 @@ body:
   - type: markdown
     attributes:
       value: |
-        ### Before submitting, Please fill out the checklist.
+        ### Before submitting, Please go through the checklist below.
 
   - type: checkboxes
     id: confirmations
     attributes:
       label: "My Checklist:"
-      description: "![image](https://github.com/user-attachments/assets/7c3c1fb9-8080-4823-9994-23e6af91498e) <br> First time install? If you don't see this ↑ welcome message on your about:config page, follow the install guide [Steps 4-7](https://github.com/soulhotel/FF-ULTIMA/wiki/How-to-Install-the-Theme#installation)"
+      description: "Verification Checklist template"
       options:
-        - label: "I've looked at the [FF Ultima Wiki](https://github.com/soulhotel/FF-ULTIMA/wiki)."
+        - label: "a verification that needs to be checked"
           required: true
-        - label: "I've seen the welcome message on about:config."
-          required: true
-        - label: "🟠 My Browser is Firefox (Default)."
-        - label: "🟣 My Browser is Firefox (Nightly)."
-        - label: "🔵 My Browser is Firefox (Beta/Developer)."
-        - label: "⚪ My Browser is Librewolf (fork)."
-        - label: "My OS (operating system) is Windows."
-        - label: "My OS (operating system) is Linux."
-        - label: "My OS (operating system) is Mac."
-        - label: "My Browser is on the latest version."
+        - label: "a verification that doesn't need to be checked"
 
   - type: textarea
     id: issue-description
     attributes:
       label: "The Issue:"
-      description: "A detailed description of the issue. Or what you expect to happen."
-      placeholder: "A detailed description of the issue. Or what you expect to happen."
+      description: "A detailed description of the issue, bug, or report"
+      placeholder: "A detailed description of the issue, bug, or report"
     validations:
       required: true
 
