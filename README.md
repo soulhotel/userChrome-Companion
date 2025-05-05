@@ -19,9 +19,8 @@ https://github.com/user-attachments/assets/dd301064-e785-466d-ab76-1179ff0cfc65
 
 - [x] rearranging of options or tabs (drag drop)
 - [x] rearranging of options in tabs (drag drop)
-- [ ] adding options to a list of tabs (+1 behavior) (drag drop) 
+- [x] adding options to a list of tabs (+1 behavior) (drag drop) 
 - [x] nesting of tabs and options for organization of userchrome toggle's
-- [x] saving of options & tabs *and* options in tabs (position, dom structure, label preservation)
 - [ ] custom context menu
     - [ ] delete tab or delete option (trigger notify to preserve internal options)
     - [ ] rename tab or rename option 
@@ -33,12 +32,18 @@ https://github.com/user-attachments/assets/dd301064-e785-466d-ab76-1179ff0cfc65
     - [ ] reset to default
     - [ ] color scheme management
     - [ ] save settings (applies to import, color schemes and future settings - tabs and options are already saved on positioning)
+- [ ] custom notify library design
+    - [ ] input text functionality
+    - [x] yes/no summoning (calling uc-notify across script functions to handle dynamic confirmations)
+    - [ ] summon priority (query all siblings when .ucnotified to cease further manipulation until confirmation recieved)
 - [x] allowing dynamic layout's while maintaining fluid control over dom structure
 
 ⓘ Usability stage
 
 - [ ] toggle on/off application of all options via `Toggle userChrome`
 - [ ] restoration of all options previously toggled off via `Toggle userChrome`
+- [x] element identification filtering and organization
+- [x] saving of options & tabs *and* options in tabs *and* tabs in tabs (position, dom structure, label preservation)
 - [ ] toggle on/off application of individual option via mouse click
 - [ ] saving of current toggle state of all options for domload
 - [ ] import of preset's (options) through raw hosted html, like a raw file from a theme creators github page
