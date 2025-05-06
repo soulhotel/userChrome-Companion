@@ -27,16 +27,23 @@ https://github.com/user-attachments/assets/dd301064-e785-466d-ab76-1179ff0cfc65
     - [ ] rename tab or rename option
     - [ ] toggle settings 
 - [ ] settings panel design
+    - [ ] settings ui
     - [ ] allow import of options & tabs (html specific format)
     - [ ] allowing import of preset's (like presets for userChrome themes)
     - [ ] reset to default
     - [ ] color scheme management
     - [ ] save settings (applies to import, color schemes and future settings - tabs and options are already saved on positioning)
 - [ ] custom notify library design
-    - [ ] input text functionality
+    - [x] notification ui
+    - [x] input text functionality
     - [x] yes/no summoning (calling uc-notify across script functions to handle dynamic confirmations)
-    - [ ] summon priority (query all siblings when .ucnotified to cease further manipulation until confirmation recieved)
+    - [x] summon priority (query all siblings when .ucnotified to cease further manipulation until confirmation recieved)
+    - [x] dynamic summons (summon for verifications, summon for yes/no procs, summon for input/value exchanges,, etc)
 - [x] allowing dynamic layout's while maintaining fluid control over dom structure
+- [ ] edit mode
+    - [ ] edit mode, subtle ui
+    - [ ] toggle edit mode
+    - [ ] append delete/rename functions to options
 
 ⓘ Usability stage
 
