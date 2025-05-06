@@ -7,11 +7,7 @@ https://github.com/user-attachments/assets/dd301064-e785-466d-ab76-1179ff0cfc65
 
 ## End Goal:
 
-ⓘ To append *any* character to the <ins>end</ins> of the Firefox Window. This allows the use of user chrome toggle functionality without appending invisible (in your face characters) to the firefox window title
-
-- [ ] whether emoji (🟢) or letter (e) or code (91210)
-- [ ] using the post-title to trigger css styles
-
+ⓘ To append *any* character to the <ins>end</ins> of the Firefox Window. Mimicking the functionality of userChrome toggle without appending invisible (in your face characters) to the firefox window title; using post-title manipulation to trigger userChrome (css) styles
 
 ## Extension functionality
 
@@ -36,7 +32,7 @@ https://github.com/user-attachments/assets/dd301064-e785-466d-ab76-1179ff0cfc65
     - [ ] reset to default
     - [ ] color scheme management
     - [ ] save settings (applies to import, color schemes and future settings - folders and options are already saved on positioning)
-- [ ] custom notify library design (5/6/2025)
+- [x] custom notify library design (5/6/2025)
     - [x] notification ui (5/5/2025)
     - [x] input text functionality (5/65/2025)
     - [x] summon priority (query all siblings when .ucnotified to cease further manipulation until confirmation recieved) (5/6/2025)
