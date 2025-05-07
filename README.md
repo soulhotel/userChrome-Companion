@@ -32,7 +32,7 @@ https://github.com/user-attachments/assets/dd301064-e785-466d-ab76-1179ff0cfc65
     - [ ] reset to default
     - [ ] color scheme management
     - [ ] save settings (applies to import, color schemes and future settings - folders and options are already saved on positioning)
-- [x] custom notify library design (5/6/2025)
+- [x] custom notify library design (5/6/2025) [uc Notify](https://github.com/soulhotel/uc-notify)
     - [x] notification ui (5/5/2025)
     - [x] input text functionality (5/65/2025)
     - [x] summon priority (query all siblings when .ucnotified to cease further manipulation until confirmation recieved) (5/6/2025)
