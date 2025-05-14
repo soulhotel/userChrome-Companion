@@ -1,6 +1,6 @@
-## userChrome Companion
-ⓘ Toggle userChrome styles through text - Firefox Extension
+# <p align="center">A userChrome Companion . . </p>
 
+###### <p align="center">. . Firefox Extension to toggle userChrome styles through text.</p>
 
 https://github.com/user-attachments/assets/dd301064-e785-466d-ab76-1179ff0cfc65
 
