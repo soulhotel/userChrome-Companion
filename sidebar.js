@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector(".uc-toolbar-edit-mode").addEventListener("click", () => {
         window.ucNotify("With great power, comes great responsibility..","Thanks, Uncle Ben.")
+        /*exitEditMode() example*/
         const editBtn = document.querySelector('.uc-toolbar-edit-mode');
         editBtn.textContent = 'Exit Edit Mode';
         editBtn.classList.add("editting");
