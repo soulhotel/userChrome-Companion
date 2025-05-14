@@ -1,0 +1,123 @@
+/*///////////////////////////////////////////////////////////////////////////////////////\
+
+┳┳┏┓  ┳┓┏┓┏┳┓┳┏┓┓┏
+┃┃┃   ┃┃┃┃ ┃ ┃┣ ┗┫
+┗┛┗┛  ┛┗┗┛ ┻ ┻┻ ┗┛
+
+uc Notify:         https://github.com/soulhotel/userChrome-Companion
+License:           most likely MPL 2.0
+
+\////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* variables ---------------------*/
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --uc-notify-bg: rgb(23,23,23);
+        --uc-notify-fg: white;
+        --uc-notify-accent: rgb(38,38,41);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --uc-notify-bg: rgba(245,245,245);
+        --uc-notify-fg: rgb(23,23,23);
+        --uc-notify-accent: rgb(255,255,255);
+    }
+}
+
+/* main dom ----------------------*/
+
+.uc-notify {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 425px;
+    height: 200px;
+    background-color: var(--uc-notify-bg);
+    color: var(--uc-notify-fg);
+    border-radius: 14px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    box-shadow: 5px 5px 5px rgba(15, 15, 15, 0.5);
+}
+
+.uc-notify.show {
+    display: flex;
+    opacity: 1;
+}
+
+/* message -----------------------*/
+
+.uc-notify-message {
+    font-size: 18px;
+    text-align: center;
+    word-wrap: break-word;
+    white-space: normal;
+    height: 50px;
+}
+
+/* input -------------------------*/
+
+.uc-notify-input {
+    display: none;
+    justify-content: center;
+}
+
+.uc-notify-input.show {
+    display: flex;
+}
+
+.uc-notify-input input {
+    padding: 10px 30px;
+    margin: 2.5px;
+    background-color: var(--uc-notify-accent);
+    color: var(--uc-notify-fg);
+    border-radius: 10px;
+    border: var(--uc-notify-accent);
+    height: 20px;
+    cursor: pointer;
+}
+
+/* buttons -----------------------*/
+
+.uc-notify-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    height: 50px;
+}
+
+.uc-notify-sendit,
+.uc-notify-rejectit {
+    padding: 10px 30px;
+    margin: 5px;
+    background-color: var(--uc-notify-accent);
+    color: var(--uc-notify-fg);
+    border-radius: 10px;
+    cursor: pointer;
+    border: var(--uc-notify-accent);
+}
+
+.uc-notify-sendit:hover,
+.uc-notify-rejectit:hover {
+    background-color: #777;
+}
+
+/* visual priority ---------------*/
+
+.uc-notified {
+    filter: blur(8px);
+    opacity: 0.3;
+    pointer-events: none;
+}

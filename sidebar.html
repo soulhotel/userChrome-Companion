@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>userChrome Companion</title>
+    <link rel="stylesheet" href="sidebar.css" />
+</head>
+<body>
+
+    <div class="uc-sidebar">
+        <!-- a default list of options and folders - uc-opt-toggle and uc-opt-settings are untouchable -->
+        <div class="uc-options">
+            <div class="uc-opt uc-opt-toggle">Toggle userChrome</div>
+            <div class="uc-opt uc-folder uc-folder-1">
+                <div class="uc-opt uc-folder-title uc-folder-1" draggable="true">Circles</div>
+                <div class="uc-opt uc-opt-1 uc-folder-1" draggable="true">🔴</div>
+                <div class="uc-opt uc-opt-2 uc-folder-1" draggable="true">🟠</div>
+                <div class="uc-opt uc-opt-3 uc-folder-1" draggable="true">🟡</div>
+                <div class="uc-opt uc-opt-4 uc-folder-1" draggable="true">🟢</div>
+                <div class="uc-opt uc-opt-5 uc-folder-1" draggable="true">🔵</div>
+                <div class="uc-opt uc-opt-6 uc-folder-1" draggable="true">⚫️</div>
+            </div>
+            <div class="uc-opt uc-folder uc-folder-2">
+                <div class="uc-opt uc-folder-title uc-folder-2" draggable="true">Squares</div>
+                <div class="uc-opt uc-opt-7 uc-folder-2" draggable="true">🟦</div>
+                <div class="uc-opt uc-opt-8 uc-folder-2" draggable="true">🟪</div>
+                <div class="uc-opt uc-opt-9 uc-folder-2" draggable="true">⬛️</div>
+                <div class="uc-opt uc-opt-10 uc-folder-2" draggable="true">⬜️</div>
+            </div>
+            <div class="uc-opt uc-folder uc-folder-3">
+                <div class="uc-opt uc-folder-title uc-folder-3" draggable="true">Arrows</div>
+                <div class="uc-opt uc-opt-11 uc-folder-3" draggable="true">➡️</div>
+                <div class="uc-opt uc-opt-12 uc-folder-3" draggable="true">⬅️</div>
+                <div class="uc-opt uc-opt-13 uc-folder-3" draggable="true">⬆️</div>
+                <div class="uc-opt uc-opt-14 uc-folder-3" draggable="true">⬇️</div>
+                <div class="uc-opt uc-opt-15 uc-folder-3" draggable="true">🔄</div>
+                <div class="uc-opt uc-opt-16 uc-folder-3" draggable="true">🔁</div>
+            </div>
+            <div class="uc-opt uc-folder uc-folder-4">
+                <div class="uc-opt uc-folder-title uc-folder-4" draggable="true">Nature</div>
+                <div class="uc-opt uc-opt-17 uc-folder-4" draggable="true">🌎</div>
+                <div class="uc-opt uc-opt-18 uc-folder-4" draggable="true">🌙</div>
+                <div class="uc-opt uc-opt-19 uc-folder-4" draggable="true">⚡️</div>
+                <div class="uc-opt uc-opt-20 uc-folder-4" draggable="true">⭐️</div>
+                <div class="uc-opt uc-opt-21 uc-folder-4" draggable="true">🌈</div>
+                <div class="uc-opt uc-opt-22 uc-folder-4" draggable="true">🔥</div>
+            </div>
+            <div class="uc-opt uc-folder uc-folder-5">
+                <div class="uc-opt uc-folder-title uc-folder-5" draggable="true">Time</div>
+                <div class="uc-opt uc-opt-23 uc-folder-5" draggable="true">🕛</div>
+                <div class="uc-opt uc-opt-24 uc-folder-5" draggable="true">🕒</div>
+                <div class="uc-opt uc-opt-25 uc-folder-5" draggable="true">🕕</div>
+                <div class="uc-opt uc-opt-26 uc-folder-5" draggable="true">🕘</div>
+            </div>
+            <div class="uc-opt uc-folder uc-folder-6">
+                <div class="uc-opt uc-folder-title uc-folder-6" draggable="true">Other</div>
+                <div class="uc-opt uc-opt-27 uc-folder-6" draggable="true">🆙</div>
+                <div class="uc-opt uc-opt-28 uc-folder-6" draggable="true">🆕</div>
+                <div class="uc-opt uc-opt-29 uc-folder-6" draggable="true">🆓</div>
+                <div class="uc-opt uc-opt-30 uc-folder-6" draggable="true">📌</div>
+                <div class="uc-opt uc-opt-31 uc-folder-6" draggable="true">🔇</div>
+                <div class="uc-opt uc-opt-32 uc-folder-6" draggable="true">🔊</div>
+                <div class="uc-opt uc-opt-33 uc-folder-6" draggable="true">✅</div>
+                <div class="uc-opt uc-opt-34 uc-folder-6" draggable="true">❎</div>
+                <div class="uc-opt uc-opt-35 uc-folder-6" draggable="true">🚥</div>
+            </div>
+            <div class="uc-opt uc-opt-36" draggable="true">🫢</div>
+            <div class="uc-opt uc-opt-37" draggable="true">😅</div>
+            <div class="uc-opt uc-opt-39" draggable="true">🤨</div>
+            <div class="uc-opt uc-opt-settings">Settings</div>
+        </div> <!-- end, sidebar > options -->
+
+        <div class="uc-toolbar">
+            <div class="uc-toolbar-new-opt">New Tab</div>
+            <div class="uc-toolbar-new-folder">New Folder</div>
+            <div class="uc-toolbar-edit-mode">Edit Mode</div>
+        </div> <!-- end, sidebar > toolbar -->
+
+        <div class="uc-settings" style="display: none;">
+            <div class="uc-settings-header">
+                <div class="uc-settings-save">Save</div>
+                <div class="uc-settings-exit">Close</div>
+            </div>
+            <div class="uc-settings-body">
+            </div>
+        </div> <!-- end, sidebar > settings -->
+
+    </div> <!-- end sidebar -->
+
+    <script src="./sidebar.js" type="module"></script>
+</body>
+</html>

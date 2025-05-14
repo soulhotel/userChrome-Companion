@@ -1,0 +1,231 @@
+/*///////////////////////////////////////////////////////////////////////////////////////\
+
+┳┳     ┏┓┓            ┏┓           •
+┃┃┏┏┓┏┓┃ ┣┓┏┓┏┓┏┳┓┏┓  ┃ ┏┓┏┳┓┏┓┏┓┏┓┓┏┓┏┓
+┗┛┛┗ ┛ ┗┛┛┗┛ ┗┛┛┗┗┗   ┗┛┗┛┛┗┗┣┛┗┻┛┗┗┗┛┛┗
+                             ┛
+userChrome Companion: https://github.com/soulhotel/userChrome-Companion
+Wiki:                 ntt
+License:              most likely MPL 2.0
+
+\////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* variables ------------------------------------------------------------------------------- */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-scheme-background: rgb(35, 35, 42);
+        --color-scheme-border: rgb(43,42,51);
+        --color-scheme-text: white;
+        --opt-bg: rgb(43, 43, 49);
+        --opt-hover-bg: rgb(53, 53, 59);
+        --outline-drag-orange: 1px dashed rgba(255, 148, 61, 0.7);
+        --outline-drop-gray: 2px dashed #888;
+        --outline-cantdrop-red: 1px dashed rgba(255, 79, 66, 0.7);
+        --uc-notify-bg: rgb(23,23,23);
+        --uc-notify-fg: white;
+        --uc-notify-accent: rgb(38,38,41);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --color-scheme-background: #f7f7f7;
+        --color-scheme-border: #ccc;
+        --color-scheme-text: #13151a;
+        --opt-bg: #f0f0f0;
+        --opt-hover-bg: #e0e0e0;
+        --outline-drag-orange: 1px dashed rgba(255, 148, 61, 0.7);
+        --outline-drop-gray: 2px dashed #888;
+        --outline-cantdrop-red: 1px dashed rgba(255, 79, 66, 0.7);
+        --uc-notify-bg: rgba(245,245,245);
+        --uc-notify-fg: rgb(23,23,23);
+        --uc-notify-accent: rgb(255,255,255);
+    }
+}
+
+/* body, sidebar -------------------------------------------------------------------------- */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-scheme-background);
+    color: var(--color-scheme-text);
+}
+
+.uc-sidebar {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+/* uc-notify ------------------------------------------------------------------------------ */
+
+.uc-notified {}
+
+/* options -------------------------------------------------------------------------------- */
+
+.uc-options {
+    padding: 2% 2.5%;
+    border-radius: 8px;
+}
+
+.uc-opt:not(.uc-folder) {
+    display: block;
+    border: 1px solid var(--color-scheme-border);
+    padding: 10px 15px;
+    margin: 2.5% 0;
+    background-color: var(--opt-bg);
+    text-align: left;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    box-shadow: 0.1rem 0.3rem 0.4rem -0.1rem rgba(25,25,25,0.3);
+}
+.uc-opt:not(.uc-folder):hover {
+    background-color: var(--opt-hover-bg);
+}
+
+/* option being dragged around */
+.uc-opt.dragging {
+    opacity: 0.5;
+    transform: scale(0.96);
+}
+
+/* option being dropped on top of */
+.uc-opt.drop-target {
+    outline: var(--outline-drop-gray);
+}
+/* folder option where drag is not allowed */
+.uc-folder-title.cant-drop {
+    outline: var(--outline-drag-orange);
+}
+
+/* unmovable option where drag is not allowed */
+.uc-opt.uc-opt-settings.cant-drop,
+.uc-opt.uc-opt-toggle.cant-drop {
+    outline: var(--outline-cantdrop-red);
+}
+
+/* folders ----------------------------------------------------------------------------------- */
+
+.uc-folder {
+    cursor: default;
+    border-radius:10px;
+}
+.uc-folder-title:hover {
+    transform:scale(1.02);
+}
+
+.uc-folder > .uc-opt:not(.uc-folder-title) {
+    display: none !important;
+}
+
+.uc-folder.expanded > .uc-opt:not(.uc-folder-title) {
+    display: block !important;
+}
+
+.uc-folder > .uc-opt:not(.uc-folder-title) {
+    margin-left: 55px;
+}
+
+/* folder when draggable */
+.uc-folder-title.dragging {
+    opacity: 0.5;
+    transform: scale(0.94);
+    outline: var(--outline-drop-gray);
+}
+/* folder when can be dropped */
+.uc-folder-title.drop-target {
+    outline: var(--outline-drop-gray);
+}
+.uc-folder.drop-target {
+    outline: var(--outline-drag-orange);
+}
+
+/* toolbar -------------------------------------------------------------------------------- */
+
+.uc-toolbar {
+    padding: 0% 2.5% 2% 2.5%;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.uc-toolbar > div {
+    padding: 4px 14px;
+    text-align: left;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+    font-style:italic;
+}
+
+.uc-toolbar > div:hover {
+    background-color: var(--opt-hover-bg);
+    transform:scale(0.90);
+}
+
+.editting {
+    outline: var(--outline-drag-orange);
+}
+
+/* settings ------------------------------------------------------------------------------- */
+
+.uc-settings {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60%;
+    padding: 2.5%;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    background-color: color-mix(in srgb, var(--color-scheme-background) 65%, black 35%);
+    display: none;
+    flex-direction: column;
+    z-index: 99;
+    box-sizing: border-box;
+}
+
+.uc-settings-header {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+.uc-settings-save,
+.uc-settings-exit {
+    height: 80%;
+    padding: 0 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.uc-settings-save {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.uc-settings-exit {
+    background-color: #888;
+    color: white;
+}
+
+.uc-settings-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
