@@ -4,7 +4,7 @@
 
 https://github.com/user-attachments/assets/45e810a6-b4c3-42a6-b3d1-3cabc84aeca7
 
-> This is userChrome Companion (current state as of 5/31/2025). If you're familiar with userchrome toggle.. this is my attempt at recreating it (with some qol adjustments).
+> This is userChrome Companion (current state as of 5/31/2025). If you're familiar with userchrome toggle.. this is my attempt at recreating it *from scratch* (with some qol adjustments).
 
 ## End Goal
 
