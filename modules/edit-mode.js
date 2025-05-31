@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             ucOptions.removeAttribute('edit-mode');
         }
-
         const optsToEdit = [
             ...ucOptions.querySelectorAll('.uc-opt:not(.uc-opt-toggle):not(.uc-opt-settings):not(.uc-folder)'),
             ...ucOptions.querySelectorAll('.uc-folder-title')
@@ -40,18 +39,17 @@ document.addEventListener('DOMContentLoaded', () => {
         optsToEdit.forEach(opt => {
             if (editMode) {
                 opt.setAttribute('edit-mode', 'true');
-
                 if (!opt.querySelector('.edit-mode-buttons')) {
                     const btnContainer = document.createElement('div');
                     btnContainer.className = 'edit-mode-buttons';
 
-                    const delBtn = document.createElement('button');
-                    delBtn.className = 'edit-mode-delete';
-                    delBtn.textContent = '❌';
-
                     const renameBtn = document.createElement('button');
                     renameBtn.className = 'edit-mode-rename';
                     renameBtn.textContent = '✏️';
+
+                    const delBtn = document.createElement('button');
+                    delBtn.className = 'edit-mode-delete';
+                    delBtn.textContent = '❌';
 
                     btnContainer.appendChild(delBtn);
                     btnContainer.appendChild(renameBtn);
@@ -61,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 opt.removeAttribute('edit-mode');
             }
         });
-
         if (!editMode) {
             ucOptions.querySelectorAll('.edit-mode-buttons').forEach(btnContainer => btnContainer.remove());
         }
@@ -75,9 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ucOptions.addEventListener('click', (e) => {
         const delBtn = e.target.closest('.edit-mode-delete');
         if (!delBtn) return;
-
         e.stopPropagation();
-
         const opt = delBtn.closest('.uc-opt, .uc-folder-title');
         if (!opt) return;
 
@@ -87,22 +82,18 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             opt.remove();
         }
-
         // Call normalization functions (make sure they are globally accessible)
         if (typeof normalizeOptionClasses === 'function') normalizeOptionClasses();
         if (typeof normalizeFolderClasses === 'function') normalizeFolderClasses();
     });
-
+    
     /* assign functionality to rename button */
     ucOptions.addEventListener('click', (e) => {
         const renameBtn = e.target.closest('.edit-mode-rename');
         if (!renameBtn) return;
-
         e.stopPropagation();
-
         const opt = renameBtn.closest('.uc-opt, .uc-folder-title');
         if (!opt) return;
-
         if (opt.classList.contains('uc-folder-title')) {
             // Rename folder
             window.ucNotify(
