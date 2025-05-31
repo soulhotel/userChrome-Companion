@@ -2,7 +2,9 @@
 
 ###### <p align="center">. . Firefox Extension to toggle userChrome styles through text.</p>
 
+https://github.com/user-attachments/assets/45e810a6-b4c3-42a6-b3d1-3cabc84aeca7
 
+> current state as of 5/31/2025
 
 ## End Goal:
 
