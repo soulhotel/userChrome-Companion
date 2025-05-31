@@ -168,8 +168,37 @@ body {
     transform:scale(0.90);
 }
 
-.editting {
+:root:has([edit-mode="true"]) .uc-toolbar-edit-mode {
     outline: var(--outline-drag-orange);
+}
+
+.uc-opt[edit-mode="true"] {
+    background: linear-gradient(to right, var(--opt-bg) 70%, rgba(0, 0, 0, 0.05)) !important;
+    position: relative;
+}
+.uc-options[edit-mode="true"] .uc-folder {
+    background: linear-gradient(to right, rgba(0,0,0,0.1) 85%, rgba(0, 0, 0, 0.04)) !important;
+}
+
+.edit-mode-buttons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding-right: 8px;
+    pointer-events: none; /* so it doesn't block the opt itself */
+}
+
+.edit-mode-buttons > button {
+    pointer-events: auto; /* enable interaction with buttons */
+    background: none;
+    border: none;
+    color: #f88;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 /* settings ------------------------------------------------------------------------------- */
@@ -182,7 +211,7 @@ body {
     padding: 2.5%;
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
-    background-color: color-mix(in srgb, var(--color-scheme-background) 65%, black 35%);
+    background-color: color-mix(in srgb, var(--color-scheme-background) 85%, black 15%);
     display: none;
     flex-direction: column;
     z-index: 99;
@@ -229,3 +258,59 @@ body {
     padding: 10px;
 }
 
+.uc-setting-btn {
+    padding: 2% 2.5%;
+    border-radius: 8px;
+    display: block;
+    border: 1px solid var(--color-scheme-border);
+    padding: 10px 15px;
+    margin: 2.5% 0;
+    background-color: var(--opt-bg);
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    box-shadow: 0.1rem 0.3rem 0.4rem -0.1rem rgba(25,25,25,0.3);
+    &:hover {
+        background-color: var(--opt-hover-bg);
+    }
+}
+
+
+.uc-settings-presets-container.trap-card {
+    display:none;
+}
+
+.uc-settings-presets-container-options {
+    padding: 0% 2.5% 2% 2.5%;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    & > div {
+        padding: 4px 14px;
+        text-align: left;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+        white-space: nowrap;
+        font-style:italic;
+        &:hover {
+            background-color: var(--opt-hover-bg);
+            transform:scale(0.90);
+        }
+    }
+}
+
+.uc-settings-presets-container-input {
+    width: 100%;
+    height: 250px;
+    padding: 15px;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    border: 1px solid var(--color-scheme-border);
+    border-radius: 8px;
+    background-color: transparent;
+    color: var(--color-scheme-text);
+    box-sizing: border-box;
+    resize: vertical;
+}

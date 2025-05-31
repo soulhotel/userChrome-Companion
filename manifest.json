@@ -6,6 +6,11 @@
   "permissions": [
     "storage"
   ],
+  "host_permissions": [
+    "https://raw.githubusercontent.com/*",
+    "https://codeberg.org/*/*/raw/*",
+    "https://*/*"
+  ],
   "action": {
     "default_title": "userChrome Companion"
   },
