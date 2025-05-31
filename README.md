@@ -2,7 +2,6 @@
 
 ###### <p align="center">. . Firefox Extension to toggle userChrome styles through text.</p>
 
-https://github.com/user-attachments/assets/dd301064-e785-466d-ab76-1179ff0cfc65
 
 
 ## End Goal:
@@ -61,34 +60,33 @@ https://github.com/user-attachments/assets/dd301064-e785-466d-ab76-1179ff0cfc65
 - [x] import of preset's (options) through raw hosted html, like a raw file from a theme creators github page `5/30/2025` (hosted textfile better)
 - [ ] hotkey support
 
-### May 6th
+## Progression
 
-- [uc Notify](https://github.com/soulhotel/uc-notify) (Notification UI/UX kit) complete
-- Tabs renamed to Folders (logical)
-- Visual design adds subtle drop shadows. Blur background content on notify summons, spacing corrections
+> May 3-5
 
-https://github.com/user-attachments/assets/ab77a259-33a2-4977-961f-14965a69f9a2
-
-### (May 5th)
-
-- Rough draft. Drag and drop mostly complete. Notification system needed extensive work.
+Design Stage rough draft. Drag and drop mostly complete. Notification system needed extensive work.
 
 https://github.com/user-attachments/assets/dd301064-e785-466d-ab76-1179ff0cfc65
 
-### (May 31st)
+> May 6th
 
-- Sidebar Toolbar added
-- Edit Mode (Sidebar Toolbar) functionality complete
-- Spawning New Option or New Folder (Sidebar Toolbar) functionality complete
-- Settings UI complete
-- Settings Options functionality complete
-  - Presets, add to options, overwrite options, import @, import file, delete all options, 
+- [uc Notify](https://github.com/soulhotel/uc-notify) (Notification UI/UX kit) complete. Tabs renamed to Folders (logical). Options look more like tabs.
+- Visual design adds subtle drop shadows. Blur background content on notify summons
+- Spacing corrections.
+
+https://github.com/user-attachments/assets/ab77a259-33a2-4977-961f-14965a69f9a2
+
+> May 31st
+
+- Sidebar Toolbar added. Edit Mode, New Tab (option), New Folder. Edit Mode (Sidebar Toolbar) functionality complete.
+- Spawning New Option or New Folder (Sidebar Toolbar) functionality complete.
+- Settings UI complete. Settings Options functionality complete.
+  - Presets, add to options, overwrite options, import @, import file, delete all options
 - Preset Testing, adding options/folders via text parsed from files locally (like a .txt file), or globally (like a raw github link)
 
 [./presets/readme](https://github.com/soulhotel/userChrome-Companion/blob/main/presets/readme.md)
 
 https://github.com/soulhotel/userChrome-Companion/blob/b3165a4a04ec55848dd2c94544e266f83949c8ba/presets/preset-example#L1-L4
-
 
 https://github.com/user-attachments/assets/45e810a6-b4c3-42a6-b3d1-3cabc84aeca7
 
