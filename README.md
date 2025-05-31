@@ -6,11 +6,45 @@ https://github.com/user-attachments/assets/45e810a6-b4c3-42a6-b3d1-3cabc84aeca7
 
 > current state as of 5/31/2025
 
-## End Goal:
+## End Goal
 
-ⓘ To append *any* character to the <ins>end</ins> of the Firefox Window. Mimicking the functionality of userChrome toggle without appending invisible (in your face characters) to the firefox window title; using post-title manipulation to trigger userChrome (css) styles
+ⓘ To append *any* character to the <ins>end</ins> of the Firefox Window; Mimicking the functionality of userChrome toggle without appending invisible (in your face characters) to the firefox window title; Using post-title manipulation to trigger userChrome (css) styles.
 
-## Extension functionality
+Where turning two "options" on, like: `🐱 cat mode` and `🐶 dog mode`, modifies the end of the window title like so:
+- `New Tab` becomes
+- `New Tab 🐱 🐶`
+> this does not effect a Tabs' label text, for anyone new to userchrome toggle)
+
+Through turning an option on via userChrome Companion, `🐱 cat mode` and `🐶 dog mode` can be triggered in userChrome.css, like:
+```
+:root[titlemodifier*="🐱"] {
+    #navigator-toolbox {
+        display: none !important;
+    }
+}
+:root[titlemodifier*="🐶"]
+    #urlbar {
+        background-color: blue !important;
+    }
+}
+```
+And obviously each option (`🐱 cat mode` or `🐶 dog mode`) can be parsed seperately or even together via the css, like:
+```
+/* both 🐱 🐶 present in title at the same time */
+:root[titlemodifier*="🐱"][titlemodifier*="🐶"] #navigator-toolbox {
+    display: none !important;
+}
+```
+
+I think the best part about this is that Theme Creators can share/use/import their own custom options by linking to it via github, like: 
+
+[./presets/preset-example](https://github.com/soulhotel/userChrome-Companion/blob/main/presets/preset-example)
+
+![preseturl](https://github.com/user-attachments/assets/f4a4129e-88c2-4e65-8c64-68a1f30a12e9)
+
+> works with github, raw.github, codeberg, codeberg/*/raw, and potentially any other raw text links (untested)
+
+## Functionality Checklist
 
 ⓘ Design stage 
 
@@ -62,7 +96,9 @@ https://github.com/user-attachments/assets/45e810a6-b4c3-42a6-b3d1-3cabc84aeca7
 - [x] import of preset's (options) through raw hosted html, like a raw file from a theme creators github page `5/30/2025` (hosted textfile better)
 - [ ] hotkey support
 
-## Progression
+## Functionality/Progression Timeline
+
+<details><summary>Click to expand</summary>
 
 > May 3-5
 
@@ -92,5 +128,5 @@ https://github.com/soulhotel/userChrome-Companion/blob/b3165a4a04ec55848dd2c9454
 
 https://github.com/user-attachments/assets/45e810a6-b4c3-42a6-b3d1-3cabc84aeca7
 
-
+</details>
 
