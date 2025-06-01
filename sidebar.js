@@ -1,6 +1,7 @@
 import '/uc-notify/uc-notify.js';
 import '/modules/edit-mode.js';
 import '/modules/settings-module.js';
+import '/modules/toggle-mechanism.js';
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -324,6 +325,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ucOptions.insertBefore(newOpt, settingsBtn);
             bindDragEvents();
             normalizeOptionClasses();
+            window.appendToggleStates();
             saveOptionsOrder();
         },
         "Cancel",
@@ -355,6 +357,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ucOptions.insertBefore(folderWrap, settingsBtn);
             bindDragEvents();
             normalizeFolderClasses();
+            window.appendToggleStates();
             saveOptionsOrder();
             },
             "Cancel",

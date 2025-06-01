@@ -79,7 +79,6 @@ body {
     background-color: var(--opt-bg);
     text-align: left;
     border-radius: 10px;
-    cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
     box-shadow: 0.1rem 0.3rem 0.4rem -0.1rem rgba(25,25,25,0.3);
 }
@@ -108,6 +107,34 @@ body {
     outline: var(--outline-cantdrop-red);
 }
 
+/* toggled options */
+.uc-opt:not([toggle="on"]) .toggle-state {display: none !important;}
+.uc-opt[toggle="on"] .toggle-state {display: flex !important;}
+:root:has([edit-mode="true"]) .toggle-state {display: none !important;}
+.uc-opt[toggle="on"] {
+    background: linear-gradient(to right, var(--opt-bg) 70%, rgba(0, 0, 0, 0.05)) !important;
+    position: relative;
+}
+.toggle-state {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    padding-right: 2%;
+
+    pointer-events: auto;
+    background: none;
+    border: none;
+    color: green;
+    font-size: 11px;
+    cursor: pointer;
+    font-style:italic;
+    font-weight: bold;
+}
+
+
 /* folders ----------------------------------------------------------------------------------- */
 
 .uc-folder {
@@ -116,6 +143,7 @@ body {
 }
 .uc-folder-title:hover {
     transform:scale(1.02);
+    cursor: pointer;
 }
 
 .uc-folder > .uc-opt:not(.uc-folder-title) {
@@ -282,12 +310,12 @@ body {
 }
 
 .uc-settings-presets-container-options {
-    padding: 0% 2.5% 2% 2.5%;
+    padding: 0% 1% 2% 1%;
     border-radius: 8px;
     display: flex;
     flex-wrap: wrap;
     & > div {
-        padding: 4px 14px;
+        padding: 4px 10px;
         text-align: left;
         border-radius: 5px;
         cursor: pointer;

@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     delBtn.className = 'edit-mode-delete';
                     delBtn.textContent = '❌';
 
-                    btnContainer.appendChild(delBtn);
                     btnContainer.appendChild(renameBtn);
+                    btnContainer.appendChild(delBtn);
                     opt.appendChild(btnContainer);
                 }
             } else {
@@ -86,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof normalizeOptionClasses === 'function') normalizeOptionClasses();
         if (typeof normalizeFolderClasses === 'function') normalizeFolderClasses();
     });
-    
     /* assign functionality to rename button */
     ucOptions.addEventListener('click', (e) => {
         const renameBtn = e.target.closest('.edit-mode-rename');

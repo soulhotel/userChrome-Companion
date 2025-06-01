@@ -1,8 +1,21 @@
 {
   "manifest_version": 3,
   "name": "userChrome Companion",
-  "version": "0.1",
-  "description": "Toggle userChrome styles through text",
+  "version": "0.5",
+  "description": "Toggle & Manage multiple userChrome styles",
+  "icons": {
+    "48": "assets/media/icon-48.png"
+  },
+  "sidebar_action": {
+    "default_panel": "sidebar.html",
+    "default_title": "Toggle & Manage userChrome",
+    "default_icon": {
+      "48": "assets/media/icon-48.png"
+    }
+  },
+  "action": {
+    "default_title": "userChrome Companion"
+  },
   "permissions": [
     "storage"
   ],
@@ -11,17 +24,14 @@
     "https://codeberg.org/*/*/raw/*",
     "https://*/*"
   ],
-  "action": {
-    "default_title": "userChrome Companion"
+  "background": {
+    "scripts": [
+      "modules/background.js"
+    ]
   },
-  "sidebar_action": {
-    "default_panel": "sidebar.html",
-    "default_title": "userChrome Companion",
-    "default_icon": {
-      "48": "assets/media/icon-48.png"
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "userChromeCompanion@soulhotel.net"
     }
-  },
-  "icons": {
-    "48": "assets/media/icon-48.png"
   }
 }
