@@ -8,12 +8,12 @@ https://github.com/user-attachments/assets/45e810a6-b4c3-42a6-b3d1-3cabc84aeca7
 
 ## End Goal
 
-ⓘ To append *any* character to the <ins>end</ins> of the Firefox Window; Mimicking the functionality of userChrome toggle without appending invisible (in your face characters) to the firefox window title; Using post-title manipulation to trigger userChrome (css) styles.
+ⓘ To append *any* character/code/trigger to the Firefox Window; Mimicking the functionality of userChrome toggle without appending invisible (in your face characters) to the title preface; Using title manipulation to trigger userChrome (css) styles. First attempt was a failure.. So lets try this again.
 
 Where turning two "options" on, like: `🐱 cat mode` and `🐶 dog mode`, modifies the end of the window title like so:
 - `New Tab` becomes
 - `New Tab 🐱 🐶`
-> this does not effect a Tabs' label text, for anyone new to userchrome toggle)
+> this does not effect a Tabs' label text, for anyone new to userchrome toggle
 
 Through turning an option on via userChrome Companion, `🐱 cat mode` and `🐶 dog mode` can be triggered in userChrome.css, like:
 ```
@@ -42,7 +42,7 @@ I think the best part about this is that Theme Creators can share/use/import the
 
 ![preseturl](https://github.com/user-attachments/assets/f4a4129e-88c2-4e65-8c64-68a1f30a12e9)
 
-> works with github, raw.github, codeberg, codeberg/*/raw, and potentially any other raw text links (untested)
+> works with any raw text links (including github, raw.github, codeberg, codeberg/raw)
 
 ## Functionality Checklist
 
@@ -87,14 +87,15 @@ I think the best part about this is that Theme Creators can share/use/import the
 
 ⓘ Usability stage
 
+- [x] toggle on/off individual option `5/31/2025` `version bump 0.5` (ready for userchrome toggling)
 - [ ] toggle on/off application of all options via `Toggle userChrome`
-- [ ] restoration of all options previously toggled off via `Toggle userChrome`
+- [ ] save current toggle states, restore last saved toggle states via `Toggle userChrome`
 - [x] element identification filtering and organization
-- [x] saving of options & folders *and* options in folders *and* folders in folders (position, dom structure, label preservation)
-- [ ] toggle on/off application of individual option via mouse click
-- [ ] saving of current toggle state of all options for domload
+- [x] dynamic parsing of toggle state, when rearranged, saved, loaded
+- [x] toggle on/off application of individual option via mouse click `5/30/2025` (double click, and single click ON indicator)
+- [x] saving of options & folders *and* options in folders *and* folders in folders (position, dom structure, label preservation) `5/6?/2025`
 - [x] import of preset's (options) through raw hosted html, like a raw file from a theme creators github page `5/30/2025` (hosted textfile better)
-- [ ] hotkey support
+- [ ] hotkey support (visually take the place of the ON indicator)
 
 ## Functionality/Progression Timeline
 
@@ -127,6 +128,10 @@ https://github.com/user-attachments/assets/ab77a259-33a2-4977-961f-14965a69f9a2
 https://github.com/soulhotel/userChrome-Companion/blob/b3165a4a04ec55848dd2c94544e266f83949c8ba/presets/preset-example#L1-L4
 
 https://github.com/user-attachments/assets/45e810a6-b4c3-42a6-b3d1-3cabc84aeca7
+
+- Toggle on/off individual options, save/load toggle state, append to Window. `version bump to 0.5` (ready for userchrome toggling)
+
+
 
 </details>
 
