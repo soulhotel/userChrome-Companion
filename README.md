@@ -36,6 +36,8 @@ And obviously each option (`🐱 cat mode` or `🐶 dog mode`) can be parsed sep
 }
 ```
 
+> There is a possibility of changing this functionality to create/manipulate a single tab group as well. Naming it based on toggled "options" (🐱🐶⬅️🔁) and using that to toggle userchrome styles. Leaving window titles untouched. Maybe, when the api is available.
+
 I think the best part about this is that Theme Creators can share/use/import their own custom options by linking to it via github, like: 
 
 [./presets/preset-example](https://github.com/soulhotel/userChrome-Companion/blob/main/presets/preset-example)
