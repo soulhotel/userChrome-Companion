@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (existing) {
                 console.log(`${opt.textContent} is already toggled, check if you have multiple options with the same character!`);
-                window.ucNotify(`Warning: You have two options using ${char}. Find the duplicate and change it.`);
+                window.ucNotify(`Warning: You have two options using (${char}). Find the duplicate and change it.`);
                 return;
             }
 

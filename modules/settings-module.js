@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const importFileBtn = document.querySelector('.uc-settings-pco-impfile');
     const importFileInput = document.querySelector('.uc-settings-pco-impfile-input');
     const importUrlBtn = document.querySelector('.uc-settings-pco-impat');
-
     const deleteAllBtn = document.querySelector('.uc-settings-deleteall');
+    const exportBtn = document.querySelector('.uc-settings-exportcurrent');
 
     if (!ucSettings || !ucOptions || !settingsBtn || !exitBtn || !presetsBtn || !presetsContainer || !addToOptionsBtn || !presetInput) return;
 
@@ -86,6 +86,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    function exportOptionsToTextArea() {
+        const exportText = generateExportText();
+        presetInput.value = exportText;
+        presetsContainer.classList.remove('trap-card');
+    }
+    function exportOptionsToFile() {
+        const exportText = generateExportText();
+        const blob = new Blob([exportText], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.download = 'userChrome-presets.txt';
+        link.href = URL.createObjectURL(blob);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+    function generateExportText() {
+        const result = [];
+        const elements = [...ucOptions.children];
+        for (const el of elements) {
+            if (el.classList.contains('uc-opt-toggle') || el.classList.contains('uc-opt-settings')) continue;
+            if (el.classList.contains('uc-folder')) {
+                const title = el.querySelector('.uc-folder-title');
+                result.push(`Folder: ${stripToggleSuffix(title.textContent)}`);
+                const children = [...el.children].slice(1);
+                for (const child of children) {
+                    result.push(`    ${stripToggleSuffix(child.textContent)}`);
+                }
+            } else {
+                result.push(stripToggleSuffix(el.textContent));
+            }
+        }
+        return result.join('\n');
+    }
+    function stripToggleSuffix(text) {
+        return text.replace(/\s*ON$/, '');
+    }
 
     /* parsing textarea ----------------------------------------------- */
     function parsePresetText(text) {
@@ -149,6 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* settings buttons ----------------------------------------------- */
+
     settingsBtn.addEventListener("click", openSettings);
     exitBtn.addEventListener("click", closeSettings);
 
@@ -207,11 +244,13 @@ document.addEventListener('DOMContentLoaded', () => {
         );
     });
 
-
-
-
-
-
+    exportBtn.addEventListener("click", () => {
+        window.ucNotify(
+            "Export current options to",
+            "File", () => exportOptionsToFile(),
+            "Text Area", () => exportOptionsToTextArea()
+        );
+    });
 
     deleteAllBtn.addEventListener("click", () => {
         window.ucNotify(
