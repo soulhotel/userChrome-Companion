@@ -1,6 +1,11 @@
 # <p align="center">A userChrome Companion . . </p>
 
-###### <p align="center">. . Firefox Extension to toggle userChrome styles through text.</p>
+###### <p align="center">. . Firefox Extension to toggle & manage multiple userChrome styles</p>
+
+<div align="center">
+    
+![BETA | V0.5](https://img.shields.io/badge/BETA%20%7C%20V0.5-222222?style=for-the-badge&logo=github&logoColor=white&labelColor=555555)  ![BETA | V0.5](https://img.shields.io/badge/BETA%20%7C%20V0.5-blueviolet?style=for-the-badge)
+</div>
 
 https://github.com/user-attachments/assets/45e810a6-b4c3-42a6-b3d1-3cabc84aeca7
 
