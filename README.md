@@ -75,21 +75,23 @@ I think the best part about this is that Theme Creators can share/use/import the
     - [x] allowing import of preset's (like presets for userChrome themes) `5/30/2025`
     - [x] reset to default `5/30/2025`
     - [ ] color scheme management `delay to Usability Stage`
-- [x] custom notify library design [uc Notify](https://github.com/soulhotel/uc-notify) `5/6/2025` 
+- [x] custom module design [uc Notify](https://github.com/soulhotel/uc-notify) `5/6/2025` 
     - [x] notification ui `5/5/2025`
     - [x] input text functionality `5/5/2025`
     - [x] summon priority (query all siblings when .ucnotified to cease further manipulation until confirmation recieved) `5/6/2025`
     - [x] yes/no summoning (calling uc-notify across script functions to handle dynamic confirmations) `5/5/2025`
     - [x] dynamic summons (summon for verifications, summon for yes/no procs, summon for input/value exchanges, etc) `5/6/2025`
     - [x] yes/no procs binded to element interaction allowing custom sure/maybe, 1/2, y/n, developer heaven basically)  `5/6/2025`
-    - [x] input-fiend proc grabs focus on summon (type and Enter) `5/6/2025`
+    - [x] input focus grabbing on summon (type and Enter) `5/6/2025`
     - [x] safeguards `5/6/2025`
-    - [x] portability to other extensions `5/6/2025`
+    - [x] portability (to other extensions) `5/6/2025`
 - [x] allowing dynamic layout's while maintaining fluid control over dom structure
 - [x] edit mode `5/30/2025`
     - [x] edit mode, subtle ui `5/30/2025`
     - [x] toggle edit mode `5/30/2025`
     - [x] append delete/rename functions to options `5/30/2025`
+    - [ ] `6/2/2025` append hotkey button&function to the edit mode buttons
+    - [ ] `6/2/2025` .
 - [x] Visual Design (will progress over time) `5/30/2025` (it has progressed over time)
 
 ⓘ Usability stage
