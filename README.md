@@ -4,7 +4,8 @@
 
 <div align="center">
     
-![ALPHA | V0.5](https://img.shields.io/badge/ALPHA%20%7C%20V0.5-222222?style=for-the-badge&logo=github&logoColor=white&labelColor=555555)  ![ALPHA | V0.5](https://img.shields.io/badge/ALPHA%20%7C%20V0.5-blueviolet?style=for-the-badge)
+[![Firefox](https://img.shields.io/static/v1?label=%20&message=ADD-ON&color=FF7139&labelColor=555555&style=for-the-badge&logo=Firefox-Browser&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/userchrome-companion/) ![ALPHA | V0.5](https://img.shields.io/badge/ALPHA%20%7C%20V0.5-222222?style=for-the-badge&logo=github&logoColor=white&labelColor=555555) ![ALPHA | V0.5](https://img.shields.io/badge/ALPHA%20%7C%20V0.5-blueviolet?style=for-the-badge) 
+
 </div>
 
 https://github.com/user-attachments/assets/45e810a6-b4c3-42a6-b3d1-3cabc84aeca7
