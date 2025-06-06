@@ -1,22 +1,29 @@
 import '/uc-notify/uc-notify.js';
-import '/modules/edit-mode.js';
+import '/modules/resize-module.js';
+import '/modules/edit-module.js';
 import '/modules/settings-module.js';
 import '/modules/toggle-mechanism.js';
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    let settingsOpen = false;
-    let settingsSaved = true;
+/*
+ * This file is the centralized Sidebar for userChrome Companion.
+ * Through the use of imported modules, this Sidebar Style (sidebar.js, sidebar.html, sidebar.css)
+ * can be successfully stripped and reused in other extensions. And preserves the function of
+ * folders & options, drag & drop functionality, and dynamic structure & organization
+*/
 
     const ucSidebar = document.querySelector(".uc-sidebar");
-    const ucSettings = document.querySelector(".uc-settings");
+    const ucToggle = document.querySelector(".uc-opt-toggle");
     const ucOptions = document.querySelector(".uc-options");
+    const ucSettings = document.querySelector(".uc-settings");
+
     const ucNotify = document.querySelector(".uc-notify");
     const ucNotifyMessage = document.querySelector(".uc-notify-message");
     const ucNotifyYes = document.querySelector(".uc-notify-sendit");
     const ucNotifyNo = document.querySelector(".uc-notify-rejectit");
 
-    const saveBtn = document.querySelector(".uc-settings-save");
+    //const saveBtn = document.querySelector(".uc-settings-save");
     const exitBtn = document.querySelector(".uc-settings-exit");
     const settingsBtn = document.querySelector(".uc-opt-settings");
 
@@ -24,16 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const newFolderBtn = document.querySelector('.uc-toolbar-new-folder');
 
     let isNotifyVisible = false;
-
-    // notify testing ------------------------------------------------------------------------------------
-    document.querySelector(".uc-opt-toggle").addEventListener("click", () => {
-        window.ucNotify(
-            "(this is a test notification) Toggle userChrome Styles?",
-            "Sure", (val) => {browser.storage.local.set({ uchromeInput: val })},
-            "Nope", () => console.log("test notification canceled"),
-            "needinput"
-        );
-    });
 
     // load/save options ---------------------------------------------------------------------------------
     browser.storage.local.get("uc-options-order").then(data => {
@@ -43,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const children = Array.from(container.children).filter(el => el.classList.contains("uc-opt"));
             const first = children[0]; // toggle
             const last = children[children.length - 1]; // settings
-            // exclude first & last .uc-opt (toggle & settings)
+            // exclude first & last (toggle & settings)
             container.innerHTML = "";
             container.appendChild(first);
             saved.forEach(html => {
@@ -74,39 +71,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // folders -------------------------------------------------------------------------------------------
-
     // the sidebar is not always unloaded
     // so first time interaction (after being hidden) should:
     if ("requestIdleCallback" in window) {
         requestIdleCallback(() => {
             if (!document.hidden) {
                 resetExpandedFolders();
-                console.log("reset via idle callback");
+                console.log("Sidebar: reset via idle callback");
             }
         });
     } else {
         setTimeout(() => {
             if (!document.hidden) {
                 resetExpandedFolders();
-                console.log("reset via fallback timeout");
+                console.log("Sidebar: reset via fallback timeout");
             }
         }, 200);
     }
     function resetExpandedFolders() {
         document.querySelectorAll(".uc-folder.expanded").forEach(folder => {
             folder.classList.remove("expanded");
-            console.log("folder collapsed, removed .expanded", folder);
+            console.log("Sidebar: folder collapsed, removed .expanded", folder);
         });
     }
     function toggleExpanded(folder) {
         folder.classList.toggle("expanded");
-        console.log(`folder toggled, .expanded`, folder);
+        console.log(`Sidebar: folder toggled, .expanded`, folder);
     }
 
     // drag & drop ----------------------------------------------------------------------------------------
-
     let dragSrcEl = null;
-
     function handleDragStart(e) {
         const isFolderTitle = this.classList.contains("uc-folder-title");
         if (isFolderTitle) {
@@ -145,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
             target.classList.contains("uc-folder") &&
             dragSrcEl.parentElement === target
         ) {
-            console.warn("Blocked: an opt cannot swap with its parent folder");
+            console.warn("handleDrop error: an opt cannot swap with its parent folder");
             return false;
         }
         const temp = target.outerHTML;
@@ -168,7 +162,6 @@ document.addEventListener("DOMContentLoaded", () => {
         normalizeFolderClasses();
         saveOptionsOrder();
     }
-
     document.querySelectorAll(".uc-opt[draggable='true']").forEach(item => {
         item.addEventListener("dragstart", handleDragStart);
         item.addEventListener("dragenter", handleDragEnter);
@@ -193,7 +186,6 @@ document.addEventListener("DOMContentLoaded", () => {
             item.addEventListener("drop", handleDropFolder);
         });
     }
-
     // These for .uc-folder
     document.querySelectorAll(".uc-folder").forEach(folder => {
         folder.addEventListener("dragover", handleDragOverFolder);
@@ -246,11 +238,9 @@ document.addEventListener("DOMContentLoaded", () => {
             );
         }
     }
-
     bindDragEvents();
 
     // Option and Folder Dynamic organization ----------------------------------------------------------------
-
     /*
     Basically filter through all options/folders, and reassign numerical order based on placement in the dom
     this keeps number order structured instead of scrambled,
@@ -273,10 +263,9 @@ document.addEventListener("DOMContentLoaded", () => {
         numberedElements.forEach((el, index) => {
             el.classList.add(`uc-opt-${index + 1}`);
         });
-        console.log(`Renumbered ${numberedElements.length} .uc-opt blocks`);
+        console.log(`Numerical order set for ${numberedElements.length} (.uc-opt) options`);
         console.log("Option classes normalized.");
     }
-
     function normalizeFolderClasses() {
         const folderContainers = document.querySelectorAll('.uc-folder[class*="uc-folder-"]');
         folderContainers.forEach(folder => {
@@ -308,9 +297,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         console.log("Folder classes normalized.");
     }
-
-    // Toolbar New Option/New Folder -------------------------------------------------------------------------
-
+    // Buttons -----------------------------------------------------------------------------------------------
+    if (ucToggle) {
+    ucToggle.addEventListener("click", () => {
+        window.toggleRecentToggles();
+    });
+    }
     newOptBtn?.addEventListener('click', () => {
         window.ucNotify(
         "Name this option (emoji)(space)(description):",
@@ -325,7 +317,8 @@ document.addEventListener("DOMContentLoaded", () => {
             ucOptions.insertBefore(newOpt, settingsBtn);
             bindDragEvents();
             normalizeOptionClasses();
-            window.appendToggleStates();
+            window.setToggledUI();
+            window.syncToggledStates();
             saveOptionsOrder();
         },
         "Cancel",
@@ -341,7 +334,6 @@ document.addEventListener("DOMContentLoaded", () => {
             "Create",
             (name) => {
             const folderName = name.trim() || 'New Folder';
-
             const folderWrap = document.createElement('div');
             folderWrap.className = `uc-opt uc-folder uc-folder-${folderNum}`;
             const title = document.createElement('div');
@@ -357,7 +349,8 @@ document.addEventListener("DOMContentLoaded", () => {
             ucOptions.insertBefore(folderWrap, settingsBtn);
             bindDragEvents();
             normalizeFolderClasses();
-            window.appendToggleStates();
+            window.setToggledUI();
+            window.syncToggledStates();
             saveOptionsOrder();
             },
             "Cancel",

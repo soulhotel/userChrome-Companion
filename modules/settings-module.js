@@ -11,13 +11,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const importFileBtn = document.querySelector('.uc-settings-pco-impfile');
     const importFileInput = document.querySelector('.uc-settings-pco-impfile-input');
     const importUrlBtn = document.querySelector('.uc-settings-pco-impat');
-    const deleteAllBtn = document.querySelector('.uc-settings-deleteall');
+    const toggleAllBtn = document.querySelector(".uc-settings-pct-togtoggles");
     const exportBtn = document.querySelector('.uc-settings-exportcurrent');
+    const deleteAllBtn = document.querySelector('.uc-settings-deleteall');
+    const ucToggleFunctionBtn = document.querySelector('.uc-settings-opt-toggle-function');
+    const UCBtn = document.querySelector('.uc-settings-uc');
 
     if (!ucSettings || !ucOptions || !settingsBtn || !exitBtn || !presetsBtn || !presetsContainer || !addToOptionsBtn || !presetInput) return;
 
     /* settings call -------------------------------------------------- */
     function openSettings() {
+        if (ucOptions.hasAttribute('edit-mode')) return;
         ucSettings.style.display = "flex";
         ucOptions.style.opacity = "0.2";
         ucOptions.style.pointerEvents = "none";
@@ -95,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const exportText = generateExportText();
         const blob = new Blob([exportText], { type: 'text/plain' });
         const link = document.createElement('a');
-        link.download = 'userChrome-presets.txt';
+        link.download = 'userChromeCompanion-preset.txt';
         link.href = URL.createObjectURL(blob);
         document.body.appendChild(link);
         link.click();
@@ -244,6 +248,20 @@ document.addEventListener('DOMContentLoaded', () => {
         );
     });
 
+    document.querySelector('.uc-settings-pco-help')?.addEventListener('click', () => {
+    window.open('https://github.com/soulhotel/userChrome-Companion/wiki/Presets', '_blank');
+    });
+    document.querySelector('.uc-settings-pct-help')?.addEventListener('click', () => {
+    window.open('https://github.com/soulhotel/userChrome-Companion/wiki/Toggles', '_blank');
+    });
+
+
+    if (toggleAllBtn) {
+    toggleAllBtn.addEventListener("click", () => {
+        window.toggleRecentToggles();
+    });
+    }
+
     exportBtn.addEventListener("click", () => {
         window.ucNotify(
             "Export current options to",
@@ -265,4 +283,19 @@ document.addEventListener('DOMContentLoaded', () => {
             "needinput"
         );
     });
+
+    if (ucToggleFunctionBtn) {
+        ucToggleFunctionBtn.addEventListener('click', () => {
+            const defaultText = "Toggle userChrome Toggles All";
+            const altText = "Toggle userChrome Toggles Preset Chooser (soon)";
+            ucToggleFunctionBtn.textContent = ucToggleFunctionBtn.textContent === defaultText ? altText : defaultText;
+        });
+    }
+
+    if (UCBtn) {
+        UCBtn.addEventListener('click', () => {
+            window.open('https://github.com/soulhotel/userChrome-Companion', '_blank');
+        });
+    }
+
 });

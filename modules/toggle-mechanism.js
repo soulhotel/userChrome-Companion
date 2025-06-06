@@ -2,10 +2,107 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggleSelector = ".uc-opt:not(.uc-folder):not(.uc-folder-title):not(.uc-opt-settings):not(.uc-opt-toggle)";
     const toggleAttr = "toggle";
 
-    window.ucOptionsToggled = [];
-    window.appendToggleStates = appendToggleStates;
+    window.currentlyToggledOptions = [];
+    window.recentlyToggledOptions = [];
+    window.setToggledUI = setToggledUI;
+    window.syncToggledStates = syncToggledStates;
+    window.splitChar = splitChar;
 
-    function appendToggleStates() {
+
+    window.getChar = function(opt) {
+    if (!opt) return null;
+    if (opt.classList.contains('uc-opt') && !opt.classList.contains('uc-folder-title')) {
+        return window.splitChar(opt).char || null;
+    }
+    return null;
+    };
+
+    function splitChar(el) {
+        const text = Array.from(el.childNodes)
+            .filter(node => node.nodeType === Node.TEXT_NODE)
+            .map(n => n.textContent.trim())
+            .join(" ");
+        const spaceIndex = text.indexOf(" ");
+        if (spaceIndex === -1) return { char: text.trim(), label: "" };
+        return {
+            char: text.slice(0, spaceIndex).trim(),
+            label: text.slice(spaceIndex + 1).trim()
+        };
+    }
+
+    function setToggleState(opt) {
+        // safe 0 - existence
+        if (!opt || !opt.matches(toggleSelector)) return;
+        const { char, label } = splitChar(opt);
+        // safe 1 - format
+        if (!char || !label) {
+            console.log(`setToggleState: Refuse to Toggle (${opt.textContent}). It needs proper format (char)(space)(label).`);
+            window.ucNotify(`HEY 😠 (${char} ${label})?? I can't work with this.`, `Okay`);
+            return;
+        }
+        // safe 2 - duplicates
+        const allWithChar = Array.from(document.querySelectorAll(toggleSelector)).filter(el => {
+            const { char: c } = splitChar(el);
+            return c === char;
+        });
+        if (allWithChar.length > 1) {
+            console.log(`setToggleState: Refuse to Toggle (${opt.textContent}). More than one option uses (${char}).`);
+            window.ucNotify(`HEY 😠 You have multiple options using (${char}). Find the duplicates and fix them.`, `Okay`);
+            return;
+        }
+        // safe to proceed
+        const isOn = opt.getAttribute(toggleAttr) === "on";
+        const trimmedopt = opt.textContent.replace(/ON$/i, '').trim();
+        if (!isOn) {
+            window.currentlyToggledOptions.push(char);
+            window.recentlyToggledOptions = [...window.currentlyToggledOptions];
+            opt.setAttribute(toggleAttr, "on");
+            console.log("setToggleState ON:", trimmedopt);
+        } else {
+            window.currentlyToggledOptions = window.currentlyToggledOptions.filter(c => c !== char);
+            window.recentlyToggledOptions = [...window.currentlyToggledOptions];
+            opt.removeAttribute(toggleAttr);
+            console.log("setToggleState OFF:", trimmedopt);
+        }
+        syncToggledStates();
+    }
+
+    function syncToggledStates() {
+        console.log(`syncToggledStates: syncing toggled options...`);
+        const toggled = (window.currentlyToggledOptions || []).filter(Boolean);
+        window.currentlyToggledOptions = toggled;
+        window.toggleToggledOptions = window.currentlyToggledOptions.length > 0 ? "ON" : "OFF";
+        browser.storage.local.set({
+            "uc-toggled-currently": toggled,
+            "uc-toggled-recently": window.recentlyToggledOptions,
+            "uc-toggled-toggle": window.toggleToggledOptions
+        });
+        console.log("syncToggledStates: updating storage with:", toggled);
+        const toggledPrefix = toggled.join(" ");
+        browser.runtime.sendMessage({ action: "updateWindowTitles", toggledPrefix });
+        document.querySelectorAll(toggleSelector).forEach(opt => {
+            const { char, label } = splitChar(opt);
+            if (!char || !label) {
+                console.log(`syncToggledStates: invalid format (${opt.textContent}). Removing toggleAttr if present.`);
+                if (opt.hasAttribute(toggleAttr)) opt.removeAttribute(toggleAttr);
+                return;
+            }
+            const shouldBeOn = toggled.includes(char);
+            const isOn = opt.getAttribute(toggleAttr) === "on";
+            //console.log(`[CHECK] char=${char} | shouldBeOn=${shouldBeOn} | isOn=${isOn}`);
+            const trimmedopt = opt.textContent.replace(/ON$/i, '').trim();
+            if (shouldBeOn && !isOn) {
+                opt.setAttribute(toggleAttr, "on");
+                console.log(`syncToggledStates: ensuring toggle="on" for`, trimmedopt);
+            } else if (!shouldBeOn && isOn) {
+                opt.removeAttribute(toggleAttr);
+                console.log(`syncToggledStates: removing toggle="on" from`, trimmedopt);
+            }
+        });
+        setToggledUI();
+    }
+
+    function setToggledUI() {
         document.querySelectorAll(toggleSelector).forEach(opt => {
             if (!opt.querySelector('.toggle-state')) {
                 const toggleBtn = document.createElement('div');
@@ -16,87 +113,94 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Extract { char, label }: "🔥 Fire Mode" -> { 🔥, Fire Mode }
-    function splitLabel(text) {
-        const spaceIndex = text.indexOf(" ");
-        if (spaceIndex === -1) return { char: text.trim(), label: "" };
-        return {
-            char: text.slice(0, spaceIndex).trim(),
-            label: text.slice(spaceIndex + 1).trim()
-        };
-    }
+    window.toggleRecentToggles = () => {
+        const newState = window.toggleToggledOptions === "ON" ? "OFF" : "ON";
+        window.toggleToggledOptions = newState;
+        browser.storage.local.set({ "uc-toggled-toggle": newState });
 
-    browser.storage.local.get("uc-options-toggled").then(data => {
-        const toggled = data["uc-options-toggled"];
-        if (Array.isArray(toggled)) {
-            window.ucOptionsToggled = toggled;
-            document.querySelectorAll(toggleSelector).forEach(opt => {
-                const { char } = splitLabel(opt.textContent);
-                if (toggled.includes(char)) {
-                    opt.setAttribute(toggleAttr, "on");
-                }
-            });
-            console.log("restored uc-options-toggled:", toggled);
-        }
-    });
-
-    // Centralized toggle function
-    function toggleOptionElement(opt) {
-        if (!opt || !opt.matches(toggleSelector)) return;
-        const { char } = splitLabel(opt.textContent);
-        const isOn = opt.getAttribute(toggleAttr) === "on";
-        if (!isOn) {
-            // no duplicates
-            const existing = Array.from(document.querySelectorAll(`${toggleSelector}[${toggleAttr}="on"]`)).find(el => {
-                const existingChar = splitLabel(el.textContent).char;
-                return existingChar === char;
-            });
-
-            if (existing) {
-                console.log(`${opt.textContent} is already toggled, check if you have multiple options with the same character!`);
-                window.ucNotify(`Warning: You have two options using (${char}). Find the duplicate and change it.`);
-                return;
-            }
-
-            opt.setAttribute(toggleAttr, "on");
-            console.log("toggled ON:", opt.textContent);
+        if (newState === "OFF") {
+            window.currentlyToggledOptions = [];
         } else {
-            opt.removeAttribute(toggleAttr);
-            console.log("toggled OFF:", opt.textContent);
+            window.currentlyToggledOptions = [...(window.recentlyToggledOptions || [])];
         }
 
-        updateToggleState();
-    }
+        console.log(`toggleRecentToggles: toggled ${newState}`);
+        syncToggledStates();
+    };
 
-    function updateToggleState() {
-        const toggled = Array.from(document.querySelectorAll(`${toggleSelector}[${toggleAttr}="on"]`))
-            .map(el => splitLabel(el.textContent).char);
-        window.ucOptionsToggled = toggled;
-        browser.storage.local.set({ "uc-options-toggled": toggled });
-        console.log("updating storage with:", toggled);
+    window._toggleInProgress = false;
+    window.toggleRecentToggles = () => {
+        if (window._toggleInProgress) {
+            console.log("toggleRecentToggles: Wait.");
+            return;
+        }
+        window._toggleInProgress = true;
+        const ucToggle = document.querySelector(".uc-opt-toggle");
+        if (ucToggle) {
+            const togglesUpdated = document.createElement("div");
+            togglesUpdated.className = "toggle-updated";
+            togglesUpdated.textContent = "🗘";
+            ucToggle.appendChild(togglesUpdated);
+            setTimeout(() => {
+            togglesUpdated.remove();
+            }, 500);
+        }
+        // Now toggle Recents
+        const newState = window.toggleToggledOptions === "ON" ? "OFF" : "ON";
+        window.toggleToggledOptions = newState;
+        browser.storage.local.set({ "uc-toggled-toggle": newState });
+        if (newState === "OFF") {
+            window.currentlyToggledOptions = [];
+        } else {
+            window.currentlyToggledOptions = [...(window.recentlyToggledOptions || [])];
+        }
+        console.log(`toggleRecentToggles: toggled ${newState}`);
+        syncToggledStates();
+        setTimeout(() => {
+            window._toggleInProgress = false;
+        }, 1000);
+    };
 
-        const toggledPrefix = toggled.join(" ");
-        browser.runtime.sendMessage({ action: "updateWindowTitles", toggledPrefix });
-    }
-
-
+    // ----------------------------------------------------------------------------------------------------------------
 
     document.querySelector(".uc-options").addEventListener("dblclick", (e) => {
         const el = e.target.closest(toggleSelector);
-        if (el) toggleOptionElement(el);
+        if (el) setToggleState(el);
     });
-
     document.querySelector(".uc-options").addEventListener("click", (e) => {
         const toggleBtn = e.target.closest(".toggle-state");
         if (!toggleBtn) return;
         const opt = toggleBtn.closest(toggleSelector);
-        if (opt) toggleOptionElement(opt);
+        if (opt) setToggleState(opt);
+    });
+    window.toggleOptionByText = (label) => {
+        const el = Array.from(document.querySelectorAll(toggleSelector)).find(el => {
+            const { char, label: lbl } = splitChar(el);
+            return `${char} ${lbl}` === label;
+        });
+        if (el) setToggleState(el);
+    };
+
+    browser.storage.local.get([
+        "uc-toggled-currently",
+        "uc-toggled-recently",
+        "uc-toggled-toggle"
+    ]).then(data => {
+        //console.log("browser storage get: result:", data);
+        const toggled = data["uc-toggled-currently"];
+        const recent = data["uc-toggled-recently"];
+        const toggleState = data["uc-toggled-toggle"];
+        //console.log(`browser storage get: toggled`, toggled);
+        //console.log(`browser storage get: data["uc-toggled-currently"]`, data["uc-toggled-currently"]);
+        if (Array.isArray(toggled)) window.currentlyToggledOptions = toggled;
+        if (Array.isArray(recent)) {
+            window.recentlyToggledOptions = recent;
+        } else {
+            window.recentlyToggledOptions = [...window.currentlyToggledOptions];
+        }
+        window.toggleToggledOptions = toggleState || "OFF";
+
+        requestIdleCallback(syncToggledStates); // wait DOM
     });
 
-    appendToggleStates();
-
-    window.toggleOptionByText = (label) => {
-        const el = Array.from(document.querySelectorAll(toggleSelector)).find(el => el.textContent === label);
-        if (el) toggleOptionElement(el);
-    };
 });

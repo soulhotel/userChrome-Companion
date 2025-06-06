@@ -14,12 +14,18 @@ browser.runtime.onMessage.addListener((message) => {
 });
 
 browser.windows.onCreated.addListener(async (win) => {
-    // Read toggled from storage, fallback to empty array
-    const stored = await browser.storage.local.get("uc-options-toggled");
-    const toggled = stored["uc-options-toggled"] || [];
+    const stored = await browser.storage.local.get("uc-toggled-currently");
+    const toggled = stored["uc-toggled-currently"] || [];
     const toggledPrefix = toggled.join(" ");
 
     await browser.windows.update(win.id, {
         titlePreface: toggledPrefix + " "
     });
+});
+
+browser.runtime.onStartup.addListener(async () => {
+    const stored = await browser.storage.local.get("uc-toggled-currently");
+    const toggled = stored["uc-toggled-currently"] || [];
+    const toggledPrefix = toggled.join(" ");
+    updateAllWindowTitles(toggledPrefix); // No need to await here
 });
