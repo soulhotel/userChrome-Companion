@@ -103,6 +103,7 @@ I think the best part about this is that Theme Creators can share/use/import the
     - [x] saving/restoring states (dom content loaded, entering/exiting edit mode, firefox startup) `6/5/2025`
     - [ ] `Toggle userChrome` toggles all options off - through modification of "currentlyToggled", or toggles all options on - by "lastUsedToggles"
     - [ ] import toggle states
+    - [x] Safe guards to prevent corrupting of save (duplicates, bad format) `6/5/2025`
 - [x] element identification filtering and organization
 - [x] dynamic parsing of toggle state, when rearranged, saved, loaded
 - [x] toggle on/off application of individual option via mouse click `5/30/2025` (double click, and single click ON indicator)
@@ -114,27 +115,25 @@ I think the best part about this is that Theme Creators can share/use/import the
 
 <details><summary>Click to expand</summary>
 
-> May 3-5
+> May 3-5 v0.1
 
-Design Stage rough draft. Drag and drop mostly complete. Notification system needed extensive work.
+A rough draft to start off the Design Stage. Drag and drop mostly complete. A notification's system is needed for dynamic messages and inputs. I may have went overboard.
 
 https://github.com/user-attachments/assets/dd301064-e785-466d-ab76-1179ff0cfc65
 
 > May 6th
 
-- [uc Notify](https://github.com/soulhotel/uc-notify) (Notification UI/UX kit) complete. Tabs renamed to Folders (logical). Options look more like tabs.
-- Visual design adds subtle drop shadows. Blur background content on notify summons
-- Spacing corrections.
+[uc Notify](https://github.com/soulhotel/uc-notify) (Notification UI/UX kit) completed. Tabs renamed to Folders (logical). And "options" look more like tabs. Visual design adds subtle drop shadows to the list of options. And background Sidebar content is blurred (visually) upon Notify summons to simulate focus. Spacing Corrections.
 
 https://github.com/user-attachments/assets/ab77a259-33a2-4977-961f-14965a69f9a2
 
-> May 31st
+> May 31st v0.5
 
-- Sidebar Toolbar added. Edit Mode, New Tab (option), New Folder. Edit Mode (Sidebar Toolbar) functionality complete.
-- Spawning New Option or New Folder (Sidebar Toolbar) functionality complete.
-- Settings UI complete. Settings Options functionality complete.
-  - Presets, add to options, overwrite options, import @, import file, delete all options
-- Preset Testing, adding options/folders via text parsed from files locally (like a .txt file), or globally (like a raw github link)
+A Sidebar Toolbar added to the bottom of options list. It includes a New Tab (option) button, New Folder button, and Edit Mode Button. Functionality of all three buttons are complete. New Tab & New Folder allows the creation of new options and folders through notify input. Edit Mode enters Sidebar State that allows quick renaming and deletion of options in the list. All functionality complete.
+
+Settings UI complete. Presets, add to options, overwrite options, import @, import file, delete all options. Preset Testing, adding options/folders via text parsed from files locally (like a .txt file), or globally (like a raw github link) complete.
+
+Toggling on/off of individual options started. Save/load of toggle state started. Appending options character to Window Title started. `version bump to 0.5` (ready for userchrome toggling)
 
 [./presets/readme](https://github.com/soulhotel/userChrome-Companion/blob/main/presets/readme.md)
 
@@ -142,9 +141,9 @@ https://github.com/soulhotel/userChrome-Companion/blob/b3165a4a04ec55848dd2c9454
 
 https://github.com/user-attachments/assets/45e810a6-b4c3-42a6-b3d1-3cabc84aeca7
 
-- Toggle on/off individual options, save/load toggle state, append to Window. `version bump to 0.5` (ready for userchrome toggling)
+> June 5th
 
-
+Toggling organized into ui toggling of on/off state, toggling of chars in window title, syncing states across Sidebar changes (deletion of options, renaming, edit mode, sidebar open/close, firefox startup/window-creation). Safe guards.
 
 </details>
 
