@@ -10,14 +10,22 @@
 
 https://github.com/user-attachments/assets/45e810a6-b4c3-42a6-b3d1-3cabc84aeca7
 
-> This is userChrome Companion (current state as of 5/31/2025). If you're familiar with userchrome toggle.. this is my attempt at recreating it *from scratch* (with some qol adjustments).
+###### This is userChrome Companion. If you're familiar with [userChrome Toggle](https://addons.mozilla.org/en-US/firefox/addon/userchrome-toggle/). I attempted to recreate it from scratch (with some QOL adjustments).
 
 ## End Goal
 
-ⓘ To append *any* character (🐱), or code (123) or trigger (~) to the Firefox Window; Mimicking the functionality of userChrome toggle without appending invisible (in your face characters) to the title preface; Using title manipulation to trigger userChrome (css) styles. First attempt was a failure.. So lets try this again.
+ⓘ To Toggle and Manage multiple userChrome styles
+
+By appending any character `🐱`, or code `123`, or trigger `~`, to the Firefox Window, userChrome styles can be communicated with via `userChrome Companion` ↔ `userChrome`. Originally, I wanted to mimic the functionality of `userChrome Toggle` without the use of invisible characters in the title preface, by manipulating post-title title-modifier; that fell through when i realized there was a lack of API for it. But whatever.. As of userChrome Companions current state (Alpha v0.5 6/6/2025), the extension is ready for use.
 
 ## Functionality
 
+[Refer to Wiki](https://github.com/soulhotel/userChrome-Companion/wiki)
+
+<details><summary>Old Explanation</summary>
+
+
+>
 If I turn on an "option" in userChrome Companion, like: `🐱 cat mode` and `🐶 dog mode`, this will add `+1` the option to the Firefoxs Window Title:
 
 - `New Tab` in a Windows Title becomes,
@@ -66,6 +74,8 @@ I think the best part about this is that Theme Creators can share/use/import the
 ![preseturl](https://github.com/user-attachments/assets/f4a4129e-88c2-4e65-8c64-68a1f30a12e9)
 
 > works with any raw text links (including github, raw.github, codeberg, codeberg/raw)
+
+</details>
 
 ## Functionality Checklist
 
