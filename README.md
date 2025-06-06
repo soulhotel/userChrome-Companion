@@ -92,6 +92,7 @@ I think the best part about this is that Theme Creators can share/use/import the
     - [x] append delete/rename functions to options `5/30/2025`
     - [ ] `6/2/2025` append hotkey button&function to the edit mode buttons
 - [x] Visual Design (will progress over time) `5/30/2025` (it has progressed over time)
+  - [x] Resize Handling - standard Sidebar width vs extremely small width `6/6/2025`
 
 ⓘ Usability stage
 
