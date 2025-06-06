@@ -91,20 +91,24 @@ I think the best part about this is that Theme Creators can share/use/import the
     - [x] toggle edit mode `5/30/2025`
     - [x] append delete/rename functions to options `5/30/2025`
     - [ ] `6/2/2025` append hotkey button&function to the edit mode buttons
-    - [ ] `6/2/2025` .
 - [x] Visual Design (will progress over time) `5/30/2025` (it has progressed over time)
 
 ⓘ Usability stage
 
 - [x] toggle on/off individual option `5/31/2025` `version bump 0.5` (ready for userchrome toggling)
-- [ ] toggle on/off application of all options via `Toggle userChrome`
-- [ ] save current toggle states, restore last saved toggle states via `Toggle userChrome`
+    - [x] Handle visual toggles to UI (dom content loaded, entering/exiting edit mode, firefox startup) `6/5/2025`
+    - [x] Handle window titles on new windows `5/31/2025`
+    - [x] Handle window titles on firefox onStartup `6/5/2025`
+    - [x] toggle states saved as "currentlyToggled" and "lastUsedToggles" `6/5/2025`
+    - [x] saving/restoring states (dom content loaded, entering/exiting edit mode, firefox startup) `6/5/2025`
+    - [ ] `Toggle userChrome` toggles all options off - through modification of "currentlyToggled", or toggles all options on - by "lastUsedToggles"
+    - [ ] import toggle states
 - [x] element identification filtering and organization
 - [x] dynamic parsing of toggle state, when rearranged, saved, loaded
 - [x] toggle on/off application of individual option via mouse click `5/30/2025` (double click, and single click ON indicator)
 - [x] saving of options & folders *and* options in folders *and* folders in folders (position, dom structure, label preservation) `5/6?/2025`
 - [x] import of preset's (options) through raw hosted html, like a raw file from a theme creators github page `5/30/2025` (hosted textfile better)
-- [ ] hotkey support (visually take the place of the ON indicator)
+- [ ] hotkey support (visually taking the place of the ON indicator)
 
 ## Functionality/Progression Timeline
 
