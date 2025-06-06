@@ -70,6 +70,8 @@ I think the best part about this is that Theme Creators can share/use/import the
 
 ⓘ Design stage 
 
+> 5/30/2025. Mock up ready. Version bump to 0.1.
+
 - [x] drag and drop functionality `5/6/2025`
     - [x] rearranging of options or folders (drag drop) `5/5/2025`
     - [x] rearranging of options in folders (drag drop) `5/5/2025`
@@ -111,27 +113,47 @@ I think the best part about this is that Theme Creators can share/use/import the
 
 ⓘ Usability stage
 
-- [x] toggle on/off individual option `5/31/2025` `version bump 0.5` (ready for userchrome toggling)
-    - [x] Handle visual toggles to UI (dom content loaded, entering/exiting edit mode, firefox startup) `6/5/2025`
+> 5/31/2025. Alpha ready. Version bump to 0.5.
+
+- [x] Toggle `on/off` individual option(s) `5/31/2025` (double click, and single click ON indicator) 
     - [x] Handle window titles on new windows `5/31/2025`
     - [x] Handle window titles on firefox onStartup `6/5/2025`
-    - [x] toggle states saved as "currentlyToggled" and "lastUsedToggles" `6/5/2025`
+    - [x] Handle visual toggles to UI (dom content loaded, entering/exiting edit mode, firefox startup) `6/5/2025`
+    - [x] toggle states saved as "currentlyToggled" and "recentlyToggled" `6/5/2025`
     - [x] saving/restoring states (dom content loaded, entering/exiting edit mode, firefox startup) `6/5/2025`
-    - [ ] `Toggle userChrome` toggles all options off - through modification of "currentlyToggled", or toggles all options on - by "lastUsedToggles"
-    - [ ] import toggle states
     - [x] Safe guards to prevent corrupting of save (duplicates, bad format) `6/5/2025`
-- [x] element identification filtering and organization
-- [x] dynamic parsing of toggle state, when rearranged, saved, loaded
-- [x] toggle on/off application of individual option via mouse click `5/30/2025` (double click, and single click ON indicator)
+- [ ] Toggle States
+    - [x] dynamic parsing of toggle state, when rearranged, saved, loaded `6/5/2025`
+    - [x] `Toggle userChrome` works with recentlyToggled to toggle currentlyToggled on/off `6/6/2025`
+    - [x] `Toggle userChrome` recentlyToggled state saved/restored `6/6/2025`
+    - [ ] `Toggle userChrome` can be used as a recentlyToggled `on/off` switch, or a `Preset Chooser/Switcher`
 - [x] saving of options & folders *and* options in folders *and* folders in folders (position, dom structure, label preservation) `5/6?/2025`
-- [x] import of preset's (options) through raw hosted html, like a raw file from a theme creators github page `5/30/2025` (hosted textfile better)
+- [x] element identification filtering and organization `5/30?/2025`
+- [x] Import/export of preset's (options) `6/5/2025`
+    - [x] through copy/paste `5/31/2025`
+    - [x] through raw url or text files `5/31/2025`
+    - [x] Parsing format `5/31/2025`
+    - [x] Proper handling of any exported, imported, dynamic save/load `6/5/2025`
+- [ ] Import/export of preset's (toggles)
+    - [ ] through copy/paste
+    - [ ] through raw url or text files
+    - [ ] Parsing format
+    - [x] Proper handling of any exported, imported, dynamic save/load `6/5/2025`
+- [ ] Full Import/export (options & toggles)
+    - [ ] through copy/paste
+    - [ ] through raw url or text files
+    - [ ] Parsing format
+    - [x] Proper handling of any exported, imported, dynamic save/load `6/5/2025`
 - [ ] hotkey support (visually taking the place of the ON indicator)
+- [x] [Wiki References](https://github.com/soulhotel/userChrome-Companion/wiki) `6/6/2025`
 
 ## Functionality/Progression Timeline
 
 <details><summary>Click to expand</summary>
 
 >
+
+> I try to log all modifications here, the extension has only been worked on in the logged dates below.
 ```
 05/03/2025 - 05/05/2025 v0.1
 ```
@@ -166,7 +188,9 @@ https://github.com/user-attachments/assets/45e810a6-b4c3-42a6-b3d1-3cabc84aeca7
 06/05/2025 - 06/06/2025
 ```
 
-Toggling logic seperated for UI toggling on/off state & titlepreface in window, Toggling logic centralized via syncing function (globally). Toggling and Syncing are now considerate of Sidebar states & changes (like: deletion of options, renaming, edit mode, sidebar open/close, firefox startup/window-creation). Safe guards in place. Limited access to Settings when edit mode is in progress. Limited access to toggles when edit mode is in progress. Added new Presets container for toggling options (toggle all, export toggles, import toggles), not functional yet. Added new `?` to help Users who may not understand Preset containers' buttons - it sends Users to a new & relevant userChrome Companion Wiki Page. Added a Resize helper module to assist .css with shrinking elements - for smaller than standard sidebar sizes. Code organization - I definitely feel like I'm learning js now.
+Toggling logic seperated for UI toggling on/off state & titlepreface in window, Toggling logic centralized via syncing function (globally). Toggling and Syncing are now considerate of Sidebar states & changes (like: deletion of options, renaming, edit mode, sidebar open/close, firefox startup/window-creation). Safe guards in place. Limited access to Settings when edit mode is in progress. Limited access to toggles when edit mode is in progress. Added new Presets container for toggling options (toggle all, export toggles, import toggles), not functional yet. Added new `?` buttons, to help Users who may not understand Preset containers' buttons - it sends Users to a new & relevant userChrome Companion Wiki Page. Added a Resize helper module to assist .css with shrinking elements - for smaller than standard sidebar sizes. Code organization - I definitely feel like I'm learning js now.
+
+Toggle userChrome button now toggles all options `on/off` by toggling a recentlyToggled list with a currentlyToggled list, persistent globally. Eventually the functionality of the button can be switched to do a different task: Opening a Preset Switcher to quickly pick a preset list of options that you want toggled `on/off`.
 
 </details>
 
