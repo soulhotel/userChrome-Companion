@@ -1,25 +1,27 @@
 <div align="center">
 
-# A userChrome Companion . .
+# This is userChrome Companion . .
 
-###### . . Firefox Extension to toggle & manage multiple userChrome styles
+###### . . a Firefox Extension to toggle & manage multiple userChrome styles
 
 [![Firefox](https://img.shields.io/static/v1?label=%20&message=GET%20THE%20ADD-ON&color=FF7139&labelColor=555555&style=for-the-badge&logo=Firefox-Browser&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/userchrome-companion/) ![ALPHA | V0.5](https://img.shields.io/badge/ALPHA%20%7C%20V0.5-222222?style=for-the-badge&logo=github&logoColor=white&labelColor=555555) ![ALPHA | V0.5](https://img.shields.io/badge/ALPHA%20%7C%20V0.5-blueviolet?style=for-the-badge) 
 
+https://github.com/user-attachments/assets/3aeadb12-dd2a-403b-a31f-0cb5784489ba
+</div>
+<div align="right">
+
+###### Full 4k Video uncropped on [Youtube](https://www.youtube.com/watch?v=Mz7gmYP2_1A&list=PLTVs0Y4lTV56Kapji1pVjMsMqE6PAHwzl&index=1)
 </div>
 
-###### <p align="right"> Full 4k Video uncropped on [Youtube](https://www.youtube.com/watch?v=Mz7gmYP2_1A&list=PLTVs0Y4lTV56Kapji1pVjMsMqE6PAHwzl&index=1)</p>
-
-https://github.com/user-attachments/assets/3aeadb12-dd2a-403b-a31f-0cb5784489ba
-
-###### This is userChrome Companion. If you're familiar with [userChrome Toggle](https://addons.mozilla.org/en-US/firefox/addon/userchrome-toggle/). I attempted to recreate it from scratch (with some QOL adjustments).
+<!-- ----------------------------------------------------------------------------------------------------------------------------- -->
 
 ## End Goal
 
 ⓘ To Toggle and Manage multiple userChrome styles
 
+If you're familiar with [userChrome Toggle](https://addons.mozilla.org/en-US/firefox/addon/userchrome-toggle/). I attempted to recreate it from scratch (with some QOL adjustments).
 By appending any character `🐱`, or code `123`, or trigger `~`, to the Firefox Window, userChrome styles can be communicated with via `userChrome Companion` ↔ `userChrome`.
-Originally, I wanted to mimic `userChrome Toggle`, but manipulate post-title or title-modifier instead; that fell through when i realized there was a lack of API for it.
+Originally, I wanted to mimic `userChrome Toggle` but manipulate post-title or title-modifier instead; that fell through when i realized there was a lack of API for it.
 But whatever.. As of *6/6/2025* userChrome Companion (alpha) is ready to use.
 
 
@@ -97,19 +99,19 @@ I think the best part about this is that Theme Creators can share/use/import the
     - [x] nesting of folders and options for organization of userchrome toggle's `5/5/2025`
     - [x] trigger notify to dragging last option outside of folder, proceed y/n `5/6/2025`
     - [x] safeguards `5/6/2025`
-- [ ] custom context menu `delay to Usability Stage`
+- [ ] custom context menu `delayed`
     - [ ] delete folder or delete option (trigger notify to preserve internal options)
     - [ ] rename folder or rename option 
     - [ ] rename folder or rename option
     - [ ] toggle settings
     - [ ] add option to folder
-    - [ ] turn on/off `delay to Usability Stage`
+    - [ ] turn on/off
 - [ ] settings panel design `5/30/2025`
     - [x] settings ui `5/30/2025`
     - [x] allow import of options & folders (html specific format) `5/30/2025` (simple text format is better)
     - [x] allowing import of preset's (like presets for userChrome themes) `5/30/2025`
     - [x] reset to default `5/30/2025`
-    - [ ] color scheme management `delay to Usability Stage`
+    - [ ] color scheme management `delayed`
 - [x] custom module design [uc Notify](https://github.com/soulhotel/uc-notify) `5/6/2025` 
     - [x] notification ui `5/5/2025`
     - [x] input text functionality `5/5/2025`
@@ -171,7 +173,7 @@ I think the best part about this is that Theme Creators can share/use/import the
     - [ ] through raw url or text files
     - [ ] Parsing format
     - [x] Proper handling of any exported, imported, dynamic save/load `6/5/2025`
-- [ ] hotkey support (visually taking the place of the ON indicator)
+- [ ] hotkey support (visually taking the place of the ON indicator) `delayed`
 - [x] [Wiki References](https://github.com/soulhotel/userChrome-Companion/wiki) `6/6/2025`
 
 </details>
