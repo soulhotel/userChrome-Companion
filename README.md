@@ -18,7 +18,13 @@ https://github.com/user-attachments/assets/3aeadb12-dd2a-403b-a31f-0cb5784489ba
 
 ⓘ To Toggle and Manage multiple userChrome styles
 
-By appending any character `🐱`, or code `123`, or trigger `~`, to the Firefox Window, userChrome styles can be communicated with via `userChrome Companion` ↔ `userChrome`. Originally, I wanted to mimic the functionality of `userChrome Toggle` without the use of invisible characters in the title preface, by manipulating post-title title-modifier; that fell through when i realized there was a lack of API for it. But whatever.. As of userChrome Companions current state (Alpha v0.5 6/6/2025), the extension is ready for use.
+By appending any character `🐱`, or code `123`, or trigger `~`, to the Firefox Window, userChrome styles can be communicated with via `userChrome Companion` ↔ `userChrome`.
+Originally, I wanted to mimic `userChrome Toggle`, but manipulate post-title or title-modifier instead; that fell through when i realized there was a lack of API for it.
+But whatever.. As of *6/6/2025* userChrome Companion (alpha) is ready to use.
+
+
+<!-- ----------------------------------------------------------------------------------------------------------------------------- -->
+
 
 ## Functionality
 
@@ -26,15 +32,11 @@ By appending any character `🐱`, or code `123`, or trigger `~`, to the Firefox
 
 <details><summary>Old Explanation</summary>
 
-
 >
-If I turn on an "option" in userChrome Companion, like: `🐱 cat mode` and `🐶 dog mode`, this will add `+1` the option to the Firefoxs Window Title:
-
-- `New Tab` in a Windows Title becomes,
-- `New Tab 🐱 🐶`
-> this does not effect a Tabs' label text, for anyone new to userchrome toggle
-> 
-And turning an option on via userChrome Companion, `🐱 cat mode` and `🐶 dog mode` can be communicated in userChrome.css, like:
+Turning on an option *(style)* in userChrome Companion, like: `🐱 cat mode` and `🐶 dog mode`, will `+1` add the option to Firefoxs Window Title:
+- `New Tab` in the Windows Title becomes,
+- `🐱 🐶 New Tab`
+This can then be communicated with userChrome.css, like:
 ```
 :root[titlemodifier*="🐱"] {
     #navigator-toolbox {
@@ -47,7 +49,7 @@ And turning an option on via userChrome Companion, `🐱 cat mode` and `🐶 dog
     }
 }
 ```
-And obviously each option (`🐱 cat mode` or `🐶 dog mode`) can be parsed seperately or even together via the css, like:
+And obviously options (`🐱 cat mode`,`🐶 dog mode`) can be parsed seperately or together via the css, like:
 ```
 /* both 🐱 🐶 present in title at the same time */
 :root[titlemodifier*="🐱"][titlemodifier*="🐶"] {
@@ -55,8 +57,7 @@ And obviously each option (`🐱 cat mode` or `🐶 dog mode`) can be parsed sep
         display: none !important;
     }
 }
-
-/* or */
+/* or like this*/
 :root[titlemodifier*="🐱 🐶"] {
     #navigator-toolbox {
         display: none !important;
@@ -67,7 +68,8 @@ And obviously each option (`🐱 cat mode` or `🐶 dog mode`) can be parsed sep
 }
 ```
 
-> There is a possibility of changing this functionality to create/manipulate a single tab group as well. Setting the tabgroups's name based on toggled "options" (🐱🐶⬅️🔁) and using that to toggle userchrome styles with `:has`. Leaving window titles untouched. Maybe when the api is available..
+> There is a possibility of changing this functionality to create/manipulate a single tab group as well.
+> Setting the tabgroups's name based on toggled "options" (🐱🐶⬅️🔁) and using that to toggle userchrome styles with `:has`. Leaving window titles untouched. Maybe when the api is available..
 
 I think the best part about this is that Theme Creators can share/use/import their own custom options by linking to it via github, like: 
 
@@ -75,15 +77,18 @@ I think the best part about this is that Theme Creators can share/use/import the
 
 ![preseturl](https://github.com/user-attachments/assets/f4a4129e-88c2-4e65-8c64-68a1f30a12e9)
 
-> works with any raw text links (including github, raw.github, codeberg, codeberg/raw)
-
 </details>
 
-## Functionality Checklist
 
-ⓘ Design stage 
+<!-- ----------------------------------------------------------------------------------------------------------------------------- -->
 
-> 5/30/2025. Mock up ready. Version bump to 0.1.
+
+## Design Stage Progress
+
+- [ ] ⓘ Design Stage complete
+    - Draft/Mock up created. Version bump to Alpha  0.1. `5/30/2025`
+
+<details><summary>Design Stage progress</summary>
 
 - [x] drag and drop functionality `5/6/2025`
     - [x] rearranging of options or folders (drag drop) `5/5/2025`
@@ -124,9 +129,18 @@ I think the best part about this is that Theme Creators can share/use/import the
 - [x] Visual Design (will progress over time) `5/30/2025` (it has progressed over time)
   - [x] Resize Handling - standard Sidebar width vs extremely small width `6/6/2025`
 
-ⓘ Usability stage
+</details>
 
-> 5/31/2025. Alpha ready. Version bump to 0.5.
+
+<!-- ----------------------------------------------------------------------------------------------------------------------------- -->
+
+
+## Usability Stage Progress
+
+- [ ] ⓘ Usability Stage complete
+    - Main functionality started. Version bump to 0.5. `5/31/2025`
+
+<details><summary>Usability Stage progress</summary>
 
 - [x] Toggle `on/off` individual option(s) `5/31/2025` (double click, and single click ON indicator) 
     - [x] Handle window titles on new windows `5/31/2025`
@@ -160,17 +174,23 @@ I think the best part about this is that Theme Creators can share/use/import the
 - [ ] hotkey support (visually taking the place of the ON indicator)
 - [x] [Wiki References](https://github.com/soulhotel/userChrome-Companion/wiki) `6/6/2025`
 
-## Functionality/Progression Timeline
+</details>
 
-<details><summary>Click to expand</summary>
+
+<!-- ----------------------------------------------------------------------------------------------------------------------------- -->
+
+
+## Progression Journal/Timeline
+
+- Days worked on UC: 6
+    - I try to make journal progress here, with notes and video of progress
+
+<details><summary>Progression Journal/Timeline</summary>
 
 >
-
-> I try to log all modifications here, the extension has only been worked on in the logged dates below.
 ```
 05/03/2025 - 05/05/2025 v0.1
 ```
-
 A rough draft to start off the Design Stage. Drag and drop mostly complete. A notification's system is needed for dynamic messages and inputs. I may have went overboard.
 
 https://github.com/user-attachments/assets/dd301064-e785-466d-ab76-1179ff0cfc65
@@ -178,7 +198,6 @@ https://github.com/user-attachments/assets/dd301064-e785-466d-ab76-1179ff0cfc65
 ```
 05/06/2025
 ```
-
 [uc Notify](https://github.com/soulhotel/uc-notify) (Notification UI/UX kit) completed. Tabs renamed to Folders (logical). And "options" look more like tabs. Visual design adds subtle drop shadows to the list of options. And background Sidebar content is blurred (visually) upon Notify summons to simulate focus. Spacing Corrections.
 
 https://github.com/user-attachments/assets/ab77a259-33a2-4977-961f-14965a69f9a2
@@ -186,10 +205,7 @@ https://github.com/user-attachments/assets/ab77a259-33a2-4977-961f-14965a69f9a2
 ```
 05/31/2025 v0.5
 ```
-
-A Sidebar Toolbar added to the bottom of options list. It includes a New Tab (option) button, New Folder button, and Edit Mode Button. Functionality of all three buttons are complete. New Tab & New Folder allows the creation of new options and folders through notify input. Edit Mode enters Sidebar State that allows quick renaming and deletion of options in the list. All functionality complete. Settings UI complete (with Presets, add to options, overwrite options, import @, import file, delete all options). Preset Testing done, adding options/folders via text parsed from files locally (like a .txt file), or globally (like a raw github link) complete.
-
-Toggling on/off of individual options started. Save/load of toggle state started. Appending options character to Window Title started. `version bump to 0.5` (ready for userchrome toggling)
+A Sidebar Toolbar added to the bottom of options list. It includes a New Tab (option) button, New Folder button, and Edit Mode Button. Functionality of all three buttons are complete. New Tab & New Folder allows the creation of new options and folders through notify input. Edit Mode enters Sidebar State that allows quick renaming and deletion of options in the list. All functionality complete. Settings UI complete (with Presets, add to options, overwrite options, import @, import file, delete all options). Preset Testing done, adding options/folders via text parsed from files locally (like a .txt file), or globally (like a raw github link) complete. Toggling on/off of individual options started. Save/load of toggle state started. Appending options character to Window Title started. `version bump to 0.5` (ready for userchrome toggling)
 
 [./presets/readme](https://github.com/soulhotel/userChrome-Companion/blob/main/presets/readme.md)
 
@@ -200,10 +216,9 @@ https://github.com/user-attachments/assets/45e810a6-b4c3-42a6-b3d1-3cabc84aeca7
 ```
 06/05/2025 - 06/06/2025
 ```
+Toggling logic seperated for UI toggling on/off state & titlepreface in window, Toggling logic centralized via syncing function (globally). Toggling and Syncing are now considerate of Sidebar states & changes (like: deletion of options, renaming, edit mode, sidebar open/close, firefox startup/window-creation). Safe guards in place. Limited access to Settings when edit mode is in progress. Limited access to toggles when edit mode is in progress. Added new Presets container for toggling options (toggle all, export toggles, import toggles), not functional yet. Added new `?` buttons, to help Users who may not understand Preset containers' buttons - it sends Users to a new & relevant userChrome Companion Wiki Page. Added a Resize helper module to assist .css with shrinking elements - for smaller than standard sidebar sizes. Code organization - I definitely feel like I'm learning js now. Toggle userChrome button now toggles all options `on/off` by toggling a recentlyToggled list with a currentlyToggled list, persistent globally. Eventually the functionality of the button can be switched to do a different task: Opening a Preset Switcher to quickly pick a preset list of options that you want toggled `on/off`.
 
-Toggling logic seperated for UI toggling on/off state & titlepreface in window, Toggling logic centralized via syncing function (globally). Toggling and Syncing are now considerate of Sidebar states & changes (like: deletion of options, renaming, edit mode, sidebar open/close, firefox startup/window-creation). Safe guards in place. Limited access to Settings when edit mode is in progress. Limited access to toggles when edit mode is in progress. Added new Presets container for toggling options (toggle all, export toggles, import toggles), not functional yet. Added new `?` buttons, to help Users who may not understand Preset containers' buttons - it sends Users to a new & relevant userChrome Companion Wiki Page. Added a Resize helper module to assist .css with shrinking elements - for smaller than standard sidebar sizes. Code organization - I definitely feel like I'm learning js now.
-
-Toggle userChrome button now toggles all options `on/off` by toggling a recentlyToggled list with a currentlyToggled list, persistent globally. Eventually the functionality of the button can be switched to do a different task: Opening a Preset Switcher to quickly pick a preset list of options that you want toggled `on/off`.
+https://github.com/user-attachments/assets/3aeadb12-dd2a-403b-a31f-0cb5784489ba
 
 </details>
 
