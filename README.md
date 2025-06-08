@@ -8,7 +8,7 @@
 
 </div>
 
-https://github.com/user-attachments/assets/45e810a6-b4c3-42a6-b3d1-3cabc84aeca7
+https://github.com/user-attachments/assets/3aeadb12-dd2a-403b-a31f-0cb5784489ba
 
 ###### This is userChrome Companion. If you're familiar with [userChrome Toggle](https://addons.mozilla.org/en-US/firefox/addon/userchrome-toggle/). I attempted to recreate it from scratch (with some QOL adjustments).
 
