@@ -12,3 +12,4 @@ Presets Wiki:         https://github.com/soulhotel/userChrome-Companion/wiki/Pre
 
 \////////////////////////////////////////////////////////////////////////////////////////*/
 ```
+https://github.com/soulhotel/userChrome-Companion/wiki/Presets
