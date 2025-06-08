@@ -1,12 +1,14 @@
-# <p align="center">A userChrome Companion . . </p>
-
-###### <p align="center">. . Firefox Extension to toggle & manage multiple userChrome styles</p>
-
 <div align="center">
-    
+
+# A userChrome Companion . .
+
+###### . . Firefox Extension to toggle & manage multiple userChrome styles
+
 [![Firefox](https://img.shields.io/static/v1?label=%20&message=GET%20THE%20ADD-ON&color=FF7139&labelColor=555555&style=for-the-badge&logo=Firefox-Browser&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/userchrome-companion/) ![ALPHA | V0.5](https://img.shields.io/badge/ALPHA%20%7C%20V0.5-222222?style=for-the-badge&logo=github&logoColor=white&labelColor=555555) ![ALPHA | V0.5](https://img.shields.io/badge/ALPHA%20%7C%20V0.5-blueviolet?style=for-the-badge) 
 
 </div>
+
+###### <p align="right"> Full 4k Video uncropped on [Youtube](https://www.youtube.com/watch?v=Mz7gmYP2_1A&list=PLTVs0Y4lTV56Kapji1pVjMsMqE6PAHwzl&index=1)</p>
 
 https://github.com/user-attachments/assets/3aeadb12-dd2a-403b-a31f-0cb5784489ba
 
