@@ -218,6 +218,8 @@ https://github.com/user-attachments/assets/45e810a6-b4c3-42a6-b3d1-3cabc84aeca7
 ```
 Toggling logic seperated for UI toggling on/off state & titlepreface in window, Toggling logic centralized via syncing function (globally). Toggling and Syncing are now considerate of Sidebar states & changes (like: deletion of options, renaming, edit mode, sidebar open/close, firefox startup/window-creation). Safe guards in place. Limited access to Settings when edit mode is in progress. Limited access to toggles when edit mode is in progress. Added new Presets container for toggling options (toggle all, export toggles, import toggles), not functional yet. Added new `?` buttons, to help Users who may not understand Preset containers' buttons - it sends Users to a new & relevant userChrome Companion Wiki Page. Added a Resize helper module to assist .css with shrinking elements - for smaller than standard sidebar sizes. Code organization - I definitely feel like I'm learning js now. Toggle userChrome button now toggles all options `on/off` by toggling a recentlyToggled list with a currentlyToggled list, persistent globally. Eventually the functionality of the button can be switched to do a different task: Opening a Preset Switcher to quickly pick a preset list of options that you want toggled `on/off`.
 
+Full 4k Video uncropped on [Youtube](https://www.youtube.com/watch?v=Mz7gmYP2_1A&list=PLTVs0Y4lTV56Kapji1pVjMsMqE6PAHwzl&index=1)
+
 https://github.com/user-attachments/assets/3aeadb12-dd2a-403b-a31f-0cb5784489ba
 
 </details>
