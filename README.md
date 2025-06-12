@@ -180,7 +180,7 @@ I think the best part about this is that Theme Creators can share/use/import the
 
 ## Progression Journal/Timeline
 
-- Days worked on UC: 6
+- Days worked on UC: 7
     - I try to journal progress here, with notes and video of progress
 
 <details><summary>Progression Journal/Timeline</summary>
