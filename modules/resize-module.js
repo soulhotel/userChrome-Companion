@@ -13,9 +13,13 @@ function resizeToolbarButtons() {
         "uc-settings-pco-impfile": "📂",
         "uc-settings-pco-help": "?",
         "uc-settings-pct-togtoggles": "🔛",
-        "uc-settings-pct-exptoggles": "➡️",
-        "uc-settings-pct-imptoggles": "⤵️",
-        "uc-settings-pct-help": "?"
+        "uc-settings-pct-savepreset": "💾",
+        //"uc-settings-pct-exptoggles": "➡️",
+        //"uc-settings-pct-imptoggles": "⤵️",
+        "uc-settings-pct-help": "?",
+        "uc-settings-css-save": "💾",
+        "uc-settings-css-reset": "🔁",
+        "uc-settings-css-help": "?"
     };
 
     const expandedLabelReference = {
@@ -28,9 +32,13 @@ function resizeToolbarButtons() {
         "uc-settings-pco-impfile": "Import File",
         "uc-settings-pco-help": "?",
         "uc-settings-pct-togtoggles": "Toggle All",
-        "uc-settings-pct-exptoggles": "Export Toggles",
-        "uc-settings-pct-imptoggles": "Import Toggles",
-        "uc-settings-pct-help": "?"
+        "uc-settings-pct-savepreset": "Save Preset",
+        //"uc-settings-pct-exptoggles": "Export Toggles",
+        //"uc-settings-pct-imptoggles": "Import Toggles",
+        "uc-settings-pct-help": "?",
+        "uc-settings-css-save": "Save",
+        "uc-settings-css-reset": "Restore Default",
+        "uc-settings-css-help": "?"
     };
 
     const useCollapsed = window.innerWidth < 325;

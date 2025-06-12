@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const exitBtn = document.querySelector('.uc-settings-exit');
     const presetsBtn = document.querySelector('.uc-settings-presets');
     const presetsContainer = document.querySelector('.uc-settings-presets-container');
+    const cssBtn = document.querySelector('.uc-settings-css');
+    const cssContainer = document.querySelector('.uc-settings-css-container');
     const addToOptionsBtn = document.querySelector('.uc-settings-pco-add2opt');
     const presetInput = document.querySelector('.uc-settings-presets-container-input');
     const overwriteOptionsBtn = document.querySelector('.uc-settings-pco-overallopt');
@@ -12,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const importFileInput = document.querySelector('.uc-settings-pco-impfile-input');
     const importUrlBtn = document.querySelector('.uc-settings-pco-impat');
     const toggleAllBtn = document.querySelector(".uc-settings-pct-togtoggles");
+    const savePresetBtn = document.querySelector(".uc-settings-pct-savepreset");
     const exportBtn = document.querySelector('.uc-settings-exportcurrent');
     const deleteAllBtn = document.querySelector('.uc-settings-deleteall');
     const ucToggleFunctionBtn = document.querySelector('.uc-settings-opt-toggle-function');
@@ -32,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ucOptions.style.opacity = "1";
         ucOptions.style.pointerEvents = "auto";
         presetsContainer.classList.add('trap-card');
+        cssContainer.classList.add('trap-card');
     }
 
     /* organize options/folders --------------------------------------- */
@@ -112,10 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (el.classList.contains('uc-opt-toggle') || el.classList.contains('uc-opt-settings')) continue;
             if (el.classList.contains('uc-folder')) {
                 const title = el.querySelector('.uc-folder-title');
-                result.push(`Folder: ${stripToggleSuffix(title.textContent)}`);
+                result.push(`${stripToggleSuffix(title.textContent)}:`);
                 const children = [...el.children].slice(1);
                 for (const child of children) {
-                    result.push(`    ${stripToggleSuffix(child.textContent)}`);
+                    result.push(`   ${stripToggleSuffix(child.textContent)}`);
                 }
             } else {
                 result.push(stripToggleSuffix(el.textContent));
@@ -133,8 +137,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentFolder = null;
 
         for (const line of lines) {
-            if (line.startsWith('Folder:')) {
-                const folderName = line.slice(7).trim();
+            if (line.endsWith(':')) {
+                const folderName = line.slice(0, -1).trim();
                 currentFolder = addFolder(folderName);
             } else if (/^\s+/.test(line) && currentFolder) {
                 const option = line.trim();
@@ -291,6 +295,10 @@ document.addEventListener('DOMContentLoaded', () => {
             ucToggleFunctionBtn.textContent = ucToggleFunctionBtn.textContent === defaultText ? altText : defaultText;
         });
     }
+
+    cssBtn.addEventListener("click", () => {
+        cssContainer.classList.toggle('trap-card');
+    });
 
     if (UCBtn) {
         UCBtn.addEventListener('click', () => {
