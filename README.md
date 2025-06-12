@@ -223,13 +223,13 @@ https://github.com/user-attachments/assets/3aeadb12-dd2a-403b-a31f-0cb5784489ba
 ```
 06/12/2025
 ```
-Well bug fixes & bug fixes. The add-on is now on the Mozilla store 🎉. Drag & drop takes into account every possible scenario, options from root to folder, from folder to folder, from folder to root, etc; Good. Toggling on/off states are showing as persistent accross dom loads and browser restarts, option orders show as persistent, class structure remains intact; Good. Logically, importing and exporting toggles seperately from options is starting to make less sense so I'm axing the idea from the usability stage. Instead focus on what comes next. A preset switcher `✨` (that can serve as a CSS layout switcher) allowing the User to click `Toggle userChrome` (or trigger via hotkey) to open a full screen window (full sidebar) and quickly choose from a list of saved "presets", with options already set to be toggled on/off. This preset switcher view can include the ability to fine tune their list of presets, etc. For another day.
+Well bug fixes & bug fixes. The add-on is now on the Mozilla store 🎉. Drag & drop takes into account every possible scenario, options from root to folder, from folder to folder, from folder to root, etc; Good. Toggling on/off states are showing as persistent accross dom loads and browser restarts, option orders show as persistent, class structure remains intact; Good. Logically, importing and exporting toggles seperately from options is starting to make less sense so I'm axing the idea from the usability stage. Instead focus on what comes next. A preset switcher `✨` (that can serve as a CSS layout switcher) allowing the User to click `Toggle userChrome` (or trigger via hotkey) to open a full screen window (full sidebar) and quickly choose from a list of saved "presets", with options already set to be toggled on/off. This preset switcher view can include the ability to fine tune their list of presets, etc. For another day. Version bump 0.6.
 
 One last final touch for the night.. for the morning.. Mock draft of the final goal in `settings panel design` section of the Design Stage. Custom Sidebar CSS implementation:
 
 https://github.com/user-attachments/assets/7d09a38a-15d3-410e-b3e6-7e4a77c4bae1
 
-Version bump 0.6.
+Version bump 0.6.1. Next Version bump will address in organize in source CSS documentation, then the two goals above will be worked on.
 
 </details>
 
