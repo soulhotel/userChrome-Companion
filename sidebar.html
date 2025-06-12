@@ -111,8 +111,7 @@ Folder: Color Mode
                     "></textarea>
                     <div class="uc-settings-presets-container-toggles">
                         <div class="uc-settings-pct-togtoggles">Toggle All</div>
-                        <div class="uc-settings-pct-imptoggles">Import Toggles</div>
-                        <div class="uc-settings-pct-exptoggles">Export Toggles</div>
+                        <div class="uc-settings-pct-savepreset">Save Preset</div>
                         <div class="uc-settings-pct-presetsofpresets">✨</div>
                         <div class="uc-settings-pct-help">?</div>
                         <input type="file" class="uc-settings-pco-impfile-input" style="display:none !important">
@@ -121,7 +120,99 @@ Folder: Color Mode
                 <div class="uc-settings-exportcurrent uc-setting-btn">Export Options</div>
                 <div class="uc-settings-deleteall uc-setting-btn">Delete All Options</div>
                 <div class="uc-settings-opt-toggle-function uc-setting-btn">Toggle userChrome Toggles All</div>
-                <!-- uc-settings-opt-toggle-function can become: Toggle userChrome toggles Presets ✨ -->
+                <!-- uc-settings-opt-toggle-function can also toggle Presets Switcher ✨ soon -->
+                <div class="uc-settings-css uc-setting-btn">Sidebar CSS (🛠️ WIP)</div>
+                <div class="uc-settings-css-container trap-card">
+                    <div class="uc-settings-css-container-options">
+                        <div class="uc-settings-css-save">Save</div>
+                        <div class="uc-settings-css-reset">Restore Default</div>
+                        <div class="uc-settings-css-help">?</div>
+                        <input type="file" class="uc-settings-pco-impfile-input" style="display:none !important">
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <label>sidebar background color:</label>
+                        <div class="uc-css-input-pair">
+                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-background" type="text" placeholder="placeholders!">
+                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-background" type="text" placeholder="#f7f7f7">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <label>sidebar border color:</label>
+                        <div class="uc-css-input-pair">
+                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-border" type="text" placeholder="rgb(43,42,51)">
+                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-border" type="text" placeholder="#ccc">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <label>sidebar text color:</label>
+                        <div class="uc-css-input-pair">
+                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-text" type="text" placeholder="white">
+                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-text" type="text" placeholder="#13151a">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <label>option background color:</label>
+                        <div class="uc-css-input-pair">
+                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-text" type="text" placeholder="rgb(43, 43, 49)">
+                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-text" type="text" placeholder="#f0f0f0">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <label>option hover background color:</label>
+                        <div class="uc-css-input-pair">
+                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-text" type="text" placeholder="rgb(53, 53, 59)">
+                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-text" type="text" placeholder="#e0e0e0">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <label>drop on valid target outline:</label>
+                        <div class="uc-css-input-pair">
+                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-text" type="text" placeholder="2px dashed #888">
+                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-text" type="text" placeholder="2px dashed #888">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <label>drop on folder outline:</label>
+                        <div class="uc-css-input-pair">
+                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-text" type="text" placeholder="1px dashed rgba(255, 148, 61, 0.7)">
+                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-text" type="text" placeholder="1px dashed rgba(255, 148, 61, 0.7)">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <label>drag on bad target outline:</label>
+                        <div class="uc-css-input-pair">
+                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-text" type="text" placeholder="1px dashed rgba(255, 79, 66, 0.7)">
+                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-text" type="text" placeholder="1px dashed rgba(255, 79, 66, 0.7)">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <label>notify background:</label>
+                        <div class="uc-css-input-pair">
+                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-text" type="text" placeholder="rgb(23,23,23)">
+                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-text" type="text" placeholder="rgba(245,245,245)">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <label>notify text color:</label>
+                        <div class="uc-css-input-pair">
+                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-text" type="text" placeholder="white">
+                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-text" type="text" placeholder="rgb(23,23,23)">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <label>notify accent color:</label>
+                        <div class="uc-css-input-pair">
+                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-text" type="text" placeholder="rgb(38,38,41)">
+                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-text" type="text" placeholder="rgb(255,255,255)">
+                        </div>
+                    </div>
+                    <textarea class="uc-settings-css-custom-input" placeholder="(refer to Wiki for help)
+
+.uc-settings {
+    height: 80% !important;
+}
+                    "></textarea>
+                </div>
                 <div class="uc-settings-uc uc-setting-btn">UC</div>
             </div>
         </div> <!-- end, sidebar > settings -->

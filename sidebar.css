@@ -66,6 +66,7 @@ body {
 
 .uc-sidebar {
     width: 100%;
+    height: 100vh;
     box-sizing: border-box;
     padding: 0;
 }
@@ -119,6 +120,14 @@ body {
 .uc-opt.uc-opt-settings.cant-drop,
 .uc-opt.uc-opt-toggle.cant-drop {
     outline: var(--outline-cantdrop-red);
+}
+
+/* special case for unmovable settings option */
+.uc-opt-settings {
+  transition: margin-top 0.5s ease 0.5s;
+}
+.uc-opt-settings.get-out-the-way {
+  margin-top: 70px;
 }
 
 /* toggled options */
@@ -314,7 +323,7 @@ body {
 
 .uc-settings-save,
 .uc-settings-exit {
-    height: 80%;
+    height: 75%;
     padding: 0 30px;
     border-radius: 10px;
     cursor: pointer;
@@ -324,6 +333,8 @@ body {
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    transition: background ease 0.5s;
+    &:hover{background:color-mix(in srgb, rgb(255,100,100) 80%, var(--uc-notify-accent))}
 }
 
 .uc-settings-save {
@@ -361,11 +372,11 @@ body {
 }
 
 
-.uc-settings-presets-container.trap-card {
+.trap-card {
     display:none;
 }
 
-.uc-settings-presets-container-options, .uc-settings-presets-container-toggles {
+.uc-settings-presets-container-options, .uc-settings-presets-container-toggles, .uc-settings-css-container-options {
     padding: 0% 1% 2% 1%;
     border-radius: 8px;
     display: flex;
@@ -397,6 +408,44 @@ body {
     padding: 15px;
     font-size: 1.2rem;
     line-height: 1.5;
+    border: 1px solid var(--color-scheme-border);
+    border-radius: 8px;
+    background-color: transparent;
+    color: var(--color-scheme-text);
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.uc-settings-css-value {
+    display:inline;
+    line-height: 1.5;
+    & label {}
+    & .uc-css-input-pair {
+        width:100%;
+        align-content:center;
+        flex-wrap: wrap;
+        display: flex;
+    }
+    & .uc-css-input-dark, & .uc-css-input-light {
+        min-width:40px;
+        width:42%;
+        max-width:300px;
+        padding: 0px 3px;
+        border: 1px solid var(--color-scheme-border);
+        border-radius: 4px;
+        background-color: transparent;
+        color: var(--color-scheme-text);
+        box-sizing: border-box;
+    }
+}
+
+.uc-settings-css-custom-input {
+    margin-top:
+    width: 100%;
+    height: 250px;
+    padding: 15px;
+    font-size: 1.2rem;
+    line-height: 1;
     border: 1px solid var(--color-scheme-border);
     border-radius: 8px;
     background-color: transparent;

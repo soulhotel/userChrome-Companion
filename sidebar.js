@@ -186,6 +186,43 @@ document.addEventListener("DOMContentLoaded", () => {
             item.addEventListener("drop", handleDropFolder);
         });
     }
+
+    // when dragging out of bounds ------------------------------------------------------------------------
+    ucOptions.addEventListener("dragover", (e) => {
+        e.preventDefault();
+    });
+    ucOptions.addEventListener("drop", (e) => {
+        e.preventDefault();
+        const draggedOpt = document.querySelector(".dragging");
+        if (!draggedOpt || !draggedOpt.classList.contains("uc-opt")) return;
+        const sourceFolder = draggedOpt.closest(".uc-folder");
+        const isFromFolder = !!sourceFolder;
+        const dropTarget = e.target;
+        const isDroppingOnRoot = dropTarget === ucOptions || dropTarget.classList.contains("uc-options");
+        if (!isDroppingOnRoot) return;
+        if (!isFromFolder) return;
+        const optCount = sourceFolder.querySelectorAll(".uc-opt").length;
+        const isLastOpt = optCount === 2;
+        const proceedMove = () => {
+            ucOptions.insertBefore(draggedOpt, settingsBtn);
+            draggedOpt.classList.remove(...Array.from(draggedOpt.classList).filter(cls => /^uc-folder-\d+$/.test(cls)));
+            normalizeFolderClasses();
+            normalizeOptionClasses();
+            saveOptionsOrder();
+            window.setToggledUI?.();
+            window.syncToggledStates?.();
+        };
+        if (isLastOpt) {
+            window.ucNotify(
+                "Moving the last option out of this folder will delete the folder..",
+                "Move It", () => { proceedMove(); sourceFolder.remove(); },
+                "Keep Folder", () => {}
+            );
+        } else {
+            proceedMove();
+        }
+    });
+
     // These for .uc-folder
     document.querySelectorAll(".uc-folder").forEach(folder => {
         folder.addEventListener("dragover", handleDragOverFolder);
@@ -216,6 +253,14 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
         const sourceFolder = draggedOpt.closest(".uc-folder");
+        if (!sourceFolder) {
+            // Option came from outside a folder — allow direct move
+            folder.appendChild(draggedOpt);
+            folder.classList.remove("drop-target");
+            normalizeFolderClasses();
+            saveOptionsOrder();
+            return;
+        }
         const optCount = sourceFolder.querySelectorAll(".uc-opt").length;
         const isLastOpt = optCount === 2;
         const proceedMove = () => {
