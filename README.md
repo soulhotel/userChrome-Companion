@@ -4,7 +4,7 @@
 
 ###### . . a Firefox Extension to toggle & manage multiple userChrome styles
 
-[![Firefox](https://img.shields.io/static/v1?label=%20&message=GET%20THE%20ADD-ON&color=FF7139&labelColor=555555&style=for-the-badge&logo=Firefox-Browser&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/userchrome-companion/) ![ALPHA | V0.5](https://img.shields.io/badge/ALPHA%20%7C%20V0.5-222222?style=for-the-badge&logo=github&logoColor=white&labelColor=555555) ![ALPHA | V0.5](https://img.shields.io/badge/ALPHA%20%7C%20V0.5-blueviolet?style=for-the-badge) 
+[![Firefox](https://img.shields.io/static/v1?label=%20&message=GET%20THE%20ADD-ON&color=FF7139&labelColor=555555&style=for-the-badge&logo=Firefox-Browser&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/userchrome-companion/) ![ALPHA | V0.6](https://img.shields.io/badge/ALPHA%20%7C%20V0.5-222222?style=for-the-badge&logo=github&logoColor=white&labelColor=555555) ![ALPHA | V0.6](https://img.shields.io/badge/ALPHA%20%7C%20V0.5-blueviolet?style=for-the-badge) 
 
 https://github.com/user-attachments/assets/3aeadb12-dd2a-403b-a31f-0cb5784489ba
 </div>
@@ -22,7 +22,7 @@ https://github.com/user-attachments/assets/3aeadb12-dd2a-403b-a31f-0cb5784489ba
 If you're familiar with [userChrome Toggle](https://addons.mozilla.org/en-US/firefox/addon/userchrome-toggle/). I attempted to recreate it from scratch (with some QOL adjustments).
 By appending any character `🐱`, or code `123`, or trigger `~`, to the Firefox Window, userChrome styles can be communicated with via `userChrome Companion` ↔ `userChrome`.
 Originally, I wanted to mimic `userChrome Toggle` but manipulate post-title or title-modifier instead; that fell through when i realized there was a lack of API for it.
-But whatever.. As of *6/6/2025* userChrome Companion (alpha) is ready to use.
+But whatever.. As of *6/6/2025* userChrome Companion (alpha 0.6) is ready to use.
 
 
 <!-- ----------------------------------------------------------------------------------------------------------------------------- -->
@@ -102,7 +102,6 @@ I think the best part about this is that Theme Creators can share/use/import the
 - [ ] custom context menu `delayed`
     - [ ] delete folder or delete option (trigger notify to preserve internal options)
     - [ ] rename folder or rename option 
-    - [ ] rename folder or rename option
     - [ ] toggle settings
     - [ ] add option to folder
     - [ ] turn on/off
@@ -111,7 +110,8 @@ I think the best part about this is that Theme Creators can share/use/import the
     - [x] allow import of options & folders (html specific format) `5/30/2025` (simple text format is better)
     - [x] allowing import of preset's (like presets for userChrome themes) `5/30/2025`
     - [x] reset to default `5/30/2025`
-    - [ ] color scheme management `delayed`
+    - [ ] ~~color scheme management `delayed`~~
+    - [ ] Sidebar CSS - section to tweak sidebar appearance via internal css variables, colors, borders, shadows, etc.
 - [x] custom module design [uc Notify](https://github.com/soulhotel/uc-notify) `5/6/2025` 
     - [x] notification ui `5/5/2025`
     - [x] input text functionality `5/5/2025`
@@ -155,7 +155,8 @@ I think the best part about this is that Theme Creators can share/use/import the
     - [x] dynamic parsing of toggle state, when rearranged, saved, loaded `6/5/2025`
     - [x] `Toggle userChrome` works with recentlyToggled to toggle currentlyToggled on/off `6/6/2025`
     - [x] `Toggle userChrome` recentlyToggled state saved/restored `6/6/2025`
-    - [ ] `Toggle userChrome` can be used as a recentlyToggled `on/off` switch, or a `Preset Chooser/Switcher`
+    - [x] `Toggle userChrome` can be used as a recentlyToggled `on/off` switch `6/6/2025`
+    - [ ] `Toggle userChrome` can be switched to work as `Preset Chooser/Switcher` `delayed`
 - [x] saving of options & folders *and* options in folders *and* folders in folders (position, dom structure, label preservation) `5/6?/2025`
 - [x] element identification filtering and organization `5/30?/2025`
 - [x] Import/export of preset's (options) `6/5/2025`
@@ -163,12 +164,7 @@ I think the best part about this is that Theme Creators can share/use/import the
     - [x] through raw url or text files `5/31/2025`
     - [x] Parsing format `5/31/2025`
     - [x] Proper handling of any exported, imported, dynamic save/load `6/5/2025`
-- [ ] Import/export of preset's (toggles)
-    - [ ] through copy/paste
-    - [ ] through raw url or text files
-    - [ ] Parsing format
-    - [x] Proper handling of any exported, imported, dynamic save/load `6/5/2025`
-- [ ] Full Import/export (options & toggles)
+- [ ] Full Import/export (options & toggles) `this will be handled via the "Preset Chooser/Switcher"`
     - [ ] through copy/paste
     - [ ] through raw url or text files
     - [ ] Parsing format
@@ -223,6 +219,17 @@ Toggling logic seperated for UI toggling on/off state & titlepreface in window, 
 Full 4k Video uncropped on [Youtube](https://www.youtube.com/watch?v=Mz7gmYP2_1A&list=PLTVs0Y4lTV56Kapji1pVjMsMqE6PAHwzl&index=1)
 
 https://github.com/user-attachments/assets/3aeadb12-dd2a-403b-a31f-0cb5784489ba
+
+```
+06/12/2025
+```
+Well bug fixes & bug fixes. The add-on is now on the Mozilla store 🎉. Drag & drop takes into account every possible scenario, options from root to folder, from folder to folder, from folder to root, etc; Good. Toggling on/off states are showing as persistent accross dom loads and browser restarts, option orders show as persistent, class structure remains intact; Good. Logically, importing and exporting toggles seperately from options is starting to make less sense so I'm axing the idea from the usability stage. Instead focus on what comes next. A preset switcher `✨` (that can serve as a CSS layout switcher) allowing the User to click `Toggle userChrome` (or trigger via hotkey) to open a full screen window (full sidebar) and quickly choose from a list of saved "presets", with options already set to be toggled on/off. This preset switcher view can include the ability to fine tune their list of presets, etc. For another day.
+
+One last final touch for the night.. for the morning.. Mock draft of the final goal in `settings panel design` section of the Design Stage. Custom Sidebar CSS implementation:
+
+https://github.com/user-attachments/assets/7d09a38a-15d3-410e-b3e6-7e4a77c4bae1
+
+Version bump 0.6.
 
 </details>
 
