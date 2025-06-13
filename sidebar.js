@@ -2,6 +2,7 @@ import '/uc-notify/uc-notify.js';
 import '/modules/resize-module.js';
 import '/modules/edit-module.js';
 import '/modules/settings-module.js';
+import '/modules/settings-CSS.js';
 import '/modules/toggle-mechanism.js';
 
 document.addEventListener("DOMContentLoaded", () => {

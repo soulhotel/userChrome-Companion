@@ -300,6 +300,10 @@ document.addEventListener('DOMContentLoaded', () => {
         cssContainer.classList.toggle('trap-card');
     });
 
+    document.querySelector('.uc-settings-css-help')?.addEventListener('click', () => {
+    window.open('https://github.com/soulhotel/userChrome-Companion/wiki/Sidebar-CSS', '_blank');
+    });
+
     if (UCBtn) {
         UCBtn.addEventListener('click', () => {
             window.open('https://github.com/soulhotel/userChrome-Companion', '_blank');

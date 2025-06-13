@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>userChrome Companion</title>
-    <link rel="stylesheet" href="sidebar.css" />
+    <link rel="stylesheet" href="css/sidebar.css" />
 </head>
 <body>
 
@@ -129,89 +129,247 @@ Folder: Color Mode
                         <div class="uc-settings-css-help">?</div>
                         <input type="file" class="uc-settings-pco-impfile-input" style="display:none !important">
                     </div>
-                    <div class="uc-settings-css-value">
-                        <label>sidebar background color:</label>
-                        <div class="uc-css-input-pair">
-                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-background" type="text" placeholder="placeholders!">
-                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-background" type="text" placeholder="#f7f7f7">
-                        </div>
-                    </div>
-                    <div class="uc-settings-css-value">
-                        <label>sidebar border color:</label>
-                        <div class="uc-css-input-pair">
-                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-border" type="text" placeholder="rgb(43,42,51)">
-                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-border" type="text" placeholder="#ccc">
-                        </div>
-                    </div>
-                    <div class="uc-settings-css-value">
-                        <label>sidebar text color:</label>
-                        <div class="uc-css-input-pair">
-                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-text" type="text" placeholder="white">
-                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-text" type="text" placeholder="#13151a">
-                        </div>
-                    </div>
-                    <div class="uc-settings-css-value">
-                        <label>option background color:</label>
-                        <div class="uc-css-input-pair">
-                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-text" type="text" placeholder="rgb(43, 43, 49)">
-                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-text" type="text" placeholder="#f0f0f0">
-                        </div>
-                    </div>
-                    <div class="uc-settings-css-value">
-                        <label>option hover background color:</label>
-                        <div class="uc-css-input-pair">
-                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-text" type="text" placeholder="rgb(53, 53, 59)">
-                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-text" type="text" placeholder="#e0e0e0">
-                        </div>
-                    </div>
-                    <div class="uc-settings-css-value">
-                        <label>drop on valid target outline:</label>
-                        <div class="uc-css-input-pair">
-                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-text" type="text" placeholder="2px dashed #888">
-                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-text" type="text" placeholder="2px dashed #888">
-                        </div>
-                    </div>
-                    <div class="uc-settings-css-value">
-                        <label>drop on folder outline:</label>
-                        <div class="uc-css-input-pair">
-                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-text" type="text" placeholder="1px dashed rgba(255, 148, 61, 0.7)">
-                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-text" type="text" placeholder="1px dashed rgba(255, 148, 61, 0.7)">
-                        </div>
-                    </div>
-                    <div class="uc-settings-css-value">
-                        <label>drag on bad target outline:</label>
-                        <div class="uc-css-input-pair">
-                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-text" type="text" placeholder="1px dashed rgba(255, 79, 66, 0.7)">
-                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-text" type="text" placeholder="1px dashed rgba(255, 79, 66, 0.7)">
-                        </div>
-                    </div>
-                    <div class="uc-settings-css-value">
-                        <label>notify background:</label>
-                        <div class="uc-css-input-pair">
-                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-text" type="text" placeholder="rgb(23,23,23)">
-                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-text" type="text" placeholder="rgba(245,245,245)">
-                        </div>
-                    </div>
-                    <div class="uc-settings-css-value">
-                        <label>notify text color:</label>
-                        <div class="uc-css-input-pair">
-                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-text" type="text" placeholder="white">
-                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-text" type="text" placeholder="rgb(23,23,23)">
-                        </div>
-                    </div>
-                    <div class="uc-settings-css-value">
-                        <label>notify accent color:</label>
-                        <div class="uc-css-input-pair">
-                            ☾ <input class="uc-css-input-dark" data-var="--color-scheme-text" type="text" placeholder="rgb(38,38,41)">
-                            ☀️ <input class="uc-css-input-light" data-var="--color-scheme-text" type="text" placeholder="rgb(255,255,255)">
-                        </div>
-                    </div>
-                    <textarea class="uc-settings-css-custom-input" placeholder="(refer to Wiki for help)
 
-.uc-settings {
-    height: 80% !important;
-}
-                    "></textarea>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">sidebar background color:</div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☾</div>
+                            <input class="uc-css-input-dark" data-var="--uc-sb-background" type="text">
+                        </div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☀️</div>
+                            <input class="uc-css-input-light" data-var="--uc-sb-background" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">sidebar border color:</div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☾</div>
+                            <input class="uc-css-input-dark" data-var="--uc-sb-borders" type="text">
+                        </div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☀️</div>
+                            <input class="uc-css-input-light" data-var="--uc-sb-borders" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">sidebar text color:</div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☾</div>
+                            <input class="uc-css-input-dark" data-var="--uc-sb-text" type="text">
+                        </div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☀️</div>
+                            <input class="uc-css-input-light" data-var="--uc-sb-text" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">option background color:</div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☾</div>
+                            <input class="uc-css-input-dark" data-var="--uc-opt-bg" type="text">
+                        </div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☀️</div>
+                            <input class="uc-css-input-light" data-var="--uc-opt-bg" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">option hover background color:</div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☾</div>
+                            <input class="uc-css-input-dark" data-var="--uc-opt-hover-bg" type="text">
+                        </div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☀️</div>
+                            <input class="uc-css-input-light" data-var="--uc-opt-hover-bg" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">option text color:</div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☾</div>
+                            <input class="uc-css-input-dark" data-var="--uc-opt-text" type="text">
+                        </div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☀️</div>
+                            <input class="uc-css-input-light" data-var="--uc-opt-text" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">drop on valid target outline:</div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☾</div>
+                            <input class="uc-css-input-dark" data-var="--outline-drop-gray" type="text">
+                        </div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☀️</div>
+                            <input class="uc-css-input-light" data-var="--outline-drop-gray" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">drop on folder outline:</div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☾</div>
+                            <input class="uc-css-input-dark" data-var="--outline-drag-orange" type="text">
+                        </div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☀️</div>
+                            <input class="uc-css-input-light" data-var="--outline-drag-orange" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">drag on bad target outline:</div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☾</div>
+                            <input class="uc-css-input-dark" data-var="--outline-cantdrop-red" type="text">
+                        </div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☀️</div>
+                            <input class="uc-css-input-light" data-var="--outline-cantdrop-red" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">notify background:</div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☾</div>
+                            <input class="uc-css-input-dark" data-var="--uc-notify-bg" type="text">
+                        </div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☀️</div>
+                            <input class="uc-css-input-light" data-var="--uc-notify-bg" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">notify text color:</div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☾</div>
+                            <input class="uc-css-input-dark" data-var="--uc-notify-fg" type="text" >
+                        </div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☀️</div>
+                            <input class="uc-css-input-light" data-var="--uc-notify-fg" type="text" >
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">notify accent color:</div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☾</div>
+                            <input class="uc-css-input-dark" data-var="--uc-notify-accent" type="text" >
+                        </div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☀️</div>
+                            <input class="uc-css-input-light" data-var="--uc-notify-accent" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">sidebar accent color:</div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☾</div>
+                            <input class="uc-css-input-dark" data-var="--uc-accent-color" type="text">
+                        </div>
+                        <div class="uc-css-input-row">
+                            <div class="uc-css-mode-label">☀️</div>
+                            <input class="uc-css-input-light" data-var="--uc-accent-color" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">settings panel color:</div>
+                        <div class="uc-css-input-row">
+                            <input class="uc-css-input" data-var="--uc-settings-background" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">settings panel height:</div>
+                        <div class="uc-css-input-row">
+                            <input class="uc-css-input" data-var="--uc-settings-height" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">sidebar padding:</div>
+                        <div class="uc-css-input-row">
+                            <input class="uc-css-input" data-var="--uc-sb-padding" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">sidebar border radius:</div>
+                        <div class="uc-css-input-row">
+                            <input class="uc-css-input" data-var="--uc-sb-border-radius" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">option padding:</div>
+                        <div class="uc-css-input-row">
+                            <input class="uc-css-input" data-var="--uc-opt-padding" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">option margin:</div>
+                        <div class="uc-css-input-row">
+                            <input class="uc-css-input" data-var="--uc-opt-margin" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">option border radius:</div>
+                        <div class="uc-css-input-row">
+                            <input class="uc-css-input" data-var="--uc-opt-border-radius" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">option box shadow:</div>
+                        <div class="uc-css-input-row">
+                            <input class="uc-css-input" data-var="--uc-opt-box-shadow" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">option dragging opacity:</div>
+                        <div class="uc-css-input-row">
+                            <input class="uc-css-input" data-var="--uc-opt-dragging-opacity" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">option toggled ON:</div>
+                        <div class="uc-css-input-row">
+                            <input class="uc-css-input" data-var="--uc-opt-toggled-on" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">folder border radius:</div>
+                        <div class="uc-css-input-row">
+                            <input class="uc-css-input" data-var="--uc-folder-border-radius" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">folder indentation:</div>
+                        <div class="uc-css-input-row">
+                            <input class="uc-css-input" data-var="--uc-folder-opt-indent" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">folder dragging opacity:</div>
+                        <div class="uc-css-input-row">
+                            <input class="uc-css-input" data-var="--uc-folder-dragging-opacity" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">toolbar padding:</div>
+                        <div class="uc-css-input-row">
+                            <input class="uc-css-input" data-var="--uc-toolbar-padding" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">toolbar button padding:</div>
+                        <div class="uc-css-input-row">
+                            <input class="uc-css-input" data-var="--uc-toolbar-btn-padding" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">toolbar button border radius:</div>
+                        <div class="uc-css-input-row">
+                            <input class="uc-css-input" data-var="--uc-toolbar-btn-border-radius" type="text">
+                        </div>
+                    </div>
+                    <textarea class="uc-settings-css-custom-input" placeholder="This area does nothing.. for now."></textarea>
                 </div>
                 <div class="uc-settings-uc uc-setting-btn">UC</div>
             </div>
