@@ -4,7 +4,7 @@
 
 ###### . . a Firefox Extension to toggle & manage multiple userChrome styles
 
-[![Firefox](https://img.shields.io/static/v1?label=%20&message=GET%20THE%20ADD-ON&color=FF7139&labelColor=555555&style=for-the-badge&logo=Firefox-Browser&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/userchrome-companion/) ![ALPHA | V0.6](https://img.shields.io/badge/ALPHA%20%7C%20V0.6-222222?style=for-the-badge&logo=github&logoColor=white&labelColor=555555) ![ALPHA | V0.6](https://img.shields.io/badge/ALPHA%20%7C%20V0.6-blueviolet?style=for-the-badge) 
+[![Firefox](https://img.shields.io/static/v1?label=%20&message=GET%20THE%20ADD-ON&color=FF7139&labelColor=555555&style=for-the-badge&logo=Firefox-Browser&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/userchrome-companion/) ![ALPHA | V0.7](https://img.shields.io/badge/ALPHA%20%7C%20V0.7-222222?style=for-the-badge&logo=github&logoColor=white&labelColor=555555) ![ALPHA | V0.7](https://img.shields.io/badge/ALPHA%20%7C%20V0.7-blueviolet?style=for-the-badge) 
 
 https://github.com/user-attachments/assets/3aeadb12-dd2a-403b-a31f-0cb5784489ba
 </div>
@@ -230,6 +230,14 @@ One last final touch for the night.. for the morning.. Mock draft of the final g
 https://github.com/user-attachments/assets/7d09a38a-15d3-410e-b3e6-7e4a77c4bae1
 
 Version bump 0.6.1. Next Version bump will address in organize in source CSS documentation, then the two goals above will be worked on.
+
+```
+06/13/2025
+```
+
+Well damn. The frustration in getting this working. After figuring out a successful 140 lines of code settings-CSS.js now fully handles the ability to fully theme userChrome Companion's sidebar via the existing Variables. Persistance is good. Version bump to 0.7
+
+https://github.com/user-attachments/assets/0a73f28b-ff07-435f-8b0d-46bf5b3da564
 
 </details>
 
