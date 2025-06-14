@@ -49,6 +49,7 @@ License:              MPL 2.0 https://github.com/soulhotel/userChrome-Companion/
 :root {
     --uc-sb-padding: 2% 2.5%;
     --uc-sb-border-radius: 8px;
+    --uc-opt-fsize: 1em;
     --uc-opt-padding: 10px 15px;
     --uc-opt-margin: 2.5% 0;
     --uc-opt-border-radius: 10px;
@@ -59,6 +60,7 @@ License:              MPL 2.0 https://github.com/soulhotel/userChrome-Companion/
     --uc-folder-opt-indent: 55px;
     --uc-folder-dragging-opacity: 0.5;
     --uc-toolbar-padding: 0% 2.5% 2% 2.5%;
+    --uc-toolbar-btn-hover-bg: var(--uc-opt-hover-bg);
     --uc-toolbar-btn-padding: 4px 14px;
     --uc-toolbar-btn-border-radius: 5px;
     --uc-settings-background: color-mix(in srgb, var(--uc-sb-background) 65%, rgb(25,25,25) 35%);
@@ -105,6 +107,7 @@ body {
 
 .uc-opt:not(.uc-folder) {
     display: block;
+    font-size: var(--uc-opt-fsize);
     border: 1px solid var(--uc-sb-borders);
     padding: var(--uc-opt-padding);
     margin: var(--uc-opt-margin);
@@ -266,7 +269,7 @@ body {
     font-style:italic;
 }
 .uc-toolbar > div:hover {
-    background-color: var(--uc-opt-hover-bg);
+    background-color: var(--uc-toolbar-hover-bg);
     transform:scale(0.90);
 }
 
@@ -417,9 +420,9 @@ body {
 }
 .uc-settings-presets-container-input {
     width: 100%;
-    height: 250px;
+    height: 225px;
     padding: 15px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.5;
     border: 1px solid var(--uc-sb-borders);
     border-radius: 8px;
@@ -437,7 +440,7 @@ body {
     margin-bottom:15px;
     & .uc-css-value-label {
         font-weight:600;
-        margin-bottom: 2px;
+        margin-bottom: 0;
     }
 }
 .uc-css-input-row {
@@ -465,9 +468,9 @@ body {
 }
 
 .uc-settings-css-custom-input {
-    margin-top: 0.5%;
+    margin: 0 0 2.5% 0;
     width: 100%;
-    height: 250px;
+    height: 110px;
     padding: 15px;
     font-size: 1.2rem;
     line-height: 1;
@@ -477,4 +480,13 @@ body {
     color: var(--uc-sb-text);
     box-sizing: border-box;
     resize: vertical;
+}
+
+/* misc */
+.uc-toolbar,
+.uc-setting-btn,
+.uc-settings-presets-container-options,
+.uc-settings-presets-container-toggles,
+.uc-settings-css-container-options {
+    user-select: none;
 }

@@ -253,10 +253,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.querySelector('.uc-settings-pco-help')?.addEventListener('click', () => {
-    window.open('https://github.com/soulhotel/userChrome-Companion/wiki/Presets', '_blank');
+        window.open('https://github.com/soulhotel/userChrome-Companion/wiki/Presets', '_blank');
     });
     document.querySelector('.uc-settings-pct-help')?.addEventListener('click', () => {
-    window.open('https://github.com/soulhotel/userChrome-Companion/wiki/Toggles', '_blank');
+        window.open('https://github.com/soulhotel/userChrome-Companion/wiki/Toggles', '_blank');
     });
 
 
@@ -291,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (ucToggleFunctionBtn) {
         ucToggleFunctionBtn.addEventListener('click', () => {
             const defaultText = "Toggle userChrome Toggles All";
-            const altText = "Toggle userChrome Toggles Preset Chooser (soon)";
+            const altText = "Toggle userChrome Toggles ✨ Preset Chooser (soon)";
             ucToggleFunctionBtn.textContent = ucToggleFunctionBtn.textContent === defaultText ? altText : defaultText;
         });
     }
@@ -301,7 +301,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.querySelector('.uc-settings-css-help')?.addEventListener('click', () => {
-    window.open('https://github.com/soulhotel/userChrome-Companion/wiki/Sidebar-CSS', '_blank');
+        window.open('https://github.com/soulhotel/userChrome-Companion/wiki/Sidebar-CSS', '_blank');
+    });
+
+    document.querySelector('.uc-settings-css-closesection')?.addEventListener('click', () => {
+        cssContainer.classList.toggle('trap-card');
     });
 
     if (UCBtn) {

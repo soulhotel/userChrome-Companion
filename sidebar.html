@@ -104,10 +104,10 @@
                     </div>
                     <textarea class="uc-settings-presets-container-input" placeholder="(examples)
 🐱 Turn on Cat Mode
-~ Auto-hide Sidebar
-Folder: Color Mode
-    🌙 Turn on Dark Theme
-    🔆 Turn on Light Theme
+~ Autohide Sidebar
+Theme Folder:
+   🌙 Turn on Dark Theme
+   🔆 Turn on Light Theme
                     "></textarea>
                     <div class="uc-settings-presets-container-toggles">
                         <div class="uc-settings-pct-togtoggles">Toggle All</div>
@@ -117,11 +117,11 @@ Folder: Color Mode
                         <input type="file" class="uc-settings-pco-impfile-input" style="display:none !important">
                     </div>
                 </div>
-                <div class="uc-settings-exportcurrent uc-setting-btn">Export Options</div>
+                <div class="uc-settings-exportcurrent uc-setting-btn">Export All Options</div>
                 <div class="uc-settings-deleteall uc-setting-btn">Delete All Options</div>
                 <div class="uc-settings-opt-toggle-function uc-setting-btn">Toggle userChrome Toggles All</div>
                 <!-- uc-settings-opt-toggle-function can also toggle Presets Switcher ✨ soon -->
-                <div class="uc-settings-css uc-setting-btn">Sidebar CSS (🛠️ WIP)</div>
+                <div class="uc-settings-css uc-setting-btn">Sidebar CSS</div>
                 <div class="uc-settings-css-container trap-card">
                     <div class="uc-settings-css-container-options">
                         <div class="uc-settings-css-save">Save</div>
@@ -298,6 +298,12 @@ Folder: Color Mode
                         </div>
                     </div>
                     <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">option height (font size):</div>
+                        <div class="uc-css-input-row">
+                            <input class="uc-css-input" data-var="--uc-opt-fsize" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
                         <div class="uc-css-value-label">option padding:</div>
                         <div class="uc-css-input-row">
                             <input class="uc-css-input" data-var="--uc-opt-padding" type="text">
@@ -358,6 +364,12 @@ Folder: Color Mode
                         </div>
                     </div>
                     <div class="uc-settings-css-value">
+                        <div class="uc-css-value-label">toolbar button hover background:</div>
+                        <div class="uc-css-input-row">
+                            <input class="uc-css-input" data-var="--uc-toolbar-btn-hover-bg" type="text">
+                        </div>
+                    </div>
+                    <div class="uc-settings-css-value">
                         <div class="uc-css-value-label">toolbar button padding:</div>
                         <div class="uc-css-input-row">
                             <input class="uc-css-input" data-var="--uc-toolbar-btn-padding" type="text">
@@ -370,6 +382,11 @@ Folder: Color Mode
                         </div>
                     </div>
                     <textarea class="uc-settings-css-custom-input" placeholder="This area does nothing.. for now."></textarea>
+                    <div class="uc-settings-css-container-options">
+                        <div class="uc-settings-css-save">Save</div>
+                        <div class="uc-settings-css-closesection">Close Section</div>
+                        <div class="uc-settings-css-reset">Restore Default</div>
+                    </div>
                 </div>
                 <div class="uc-settings-uc uc-setting-btn">UC</div>
             </div>

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "userChrome Companion",
-  "version": "0.7",
+  "version": "0.7.1",
   "description": "Toggle & Manage multiple userChrome styles",
   "icons": {
     "48": "assets/media/icon-48.png"
