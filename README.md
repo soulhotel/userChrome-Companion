@@ -4,13 +4,13 @@
 
 ###### . . a Firefox Extension to toggle & manage multiple userChrome styles
 
-[![Firefox](https://img.shields.io/static/v1?label=%20&message=GET%20THE%20ADD-ON&color=FF7139&labelColor=555555&style=for-the-badge&logo=Firefox-Browser&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/userchrome-companion/) ![ALPHA | V0.7](https://img.shields.io/badge/ALPHA%20%7C%20V0.7-222222?style=for-the-badge&logo=github&logoColor=white&labelColor=555555) ![ALPHA | V0.7](https://img.shields.io/badge/ALPHA%20%7C%20V0.7-blueviolet?style=for-the-badge) 
+[![Firefox](https://img.shields.io/static/v1?label=%20&message=GET%20THE%20ADD-ON&color=FF7139&labelColor=555555&style=for-the-badge&logo=Firefox-Browser&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/userchrome-companion/) ![ALPHA | V0.7.1](https://img.shields.io/badge/ALPHA%20%7C%20V0.7.1-222222?style=for-the-badge&logo=github&logoColor=white&labelColor=555555) ![ALPHA | V0.7.1](https://img.shields.io/badge/ALPHA%20%7C%20V0.7.1-blueviolet?style=for-the-badge) 
 
 https://github.com/user-attachments/assets/3aeadb12-dd2a-403b-a31f-0cb5784489ba
 </div>
 <div align="right">
 
-###### Full 4k Video uncropped on [Youtube](https://www.youtube.com/watch?v=Mz7gmYP2_1A&list=PLTVs0Y4lTV56Kapji1pVjMsMqE6PAHwzl&index=1)
+###### Full 4k Video uncropped on [Youtube](https://www.youtube.com/watch?v=uJ9PGm4buCo&list=PLTVs0Y4lTV56Kapji1pVjMsMqE6PAHwzl&index=1)
 </div>
 
 <!-- ----------------------------------------------------------------------------------------------------------------------------- -->
