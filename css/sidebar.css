@@ -269,7 +269,7 @@ body {
     font-style:italic;
 }
 .uc-toolbar > div:hover {
-    background-color: var(--uc-toolbar-hover-bg);
+    background-color: var(--uc-toolbar-btn-hover-bg);
     transform:scale(0.90);
 }
 
@@ -407,7 +407,7 @@ body {
         font-style:italic;
         font-size:0.95em;
         &:hover {
-            background-color: var(--uc-opt-hover-bg);
+            background-color: var(--uc-toolbar-btn-hover-bg);
             transform:scale(0.90);
         }
     }
