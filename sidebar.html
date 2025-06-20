@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="css/sidebar.css" />
 </head>
 <body>
-
+    <div class="uc-tooltip" id="ucToolTip"></div>
+    <div class="uc-context-menu" id="ucContextMenu"></div>
     <div class="uc-sidebar">
         <!-- a default list of options and folders - uc-opt-toggle and uc-opt-settings are untouchable -->
         <div class="uc-options">
-            <div class="uc-opt uc-opt-toggle">Toggle userChrome</div>
+            <div class="uc-opt uc-opt-toggle" tooltip="Toggle all activated styles to ON/OFF">Toggle userChrome</div>
             <div class="uc-opt uc-folder uc-folder-1">
                 <div class="uc-opt uc-folder-title uc-folder-1" draggable="true">Circles</div>
                 <div class="uc-opt uc-opt-1 uc-folder-1" draggable="true">🔴 red.setting</div>

@@ -4,13 +4,13 @@
 
 ###### . . a Firefox Extension to toggle & manage multiple userChrome styles
 
-[![Firefox](https://img.shields.io/static/v1?label=%20&message=GET%20THE%20ADD-ON&color=FF7139&labelColor=555555&style=for-the-badge&logo=Firefox-Browser&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/userchrome-companion/) ![ALPHA | V0.7.2](https://img.shields.io/badge/ALPHA%20%7C%20V0.7.2-222222?style=for-the-badge&logo=github&logoColor=white&labelColor=555555) ![ALPHA | V0.7.2](https://img.shields.io/badge/ALPHA%20%7C%20V0.7.2-blueviolet?style=for-the-badge) 
+[![Firefox](https://img.shields.io/static/v1?label=%20&message=GET%20THE%20ADD-ON&color=FF7139&labelColor=555555&style=for-the-badge&logo=Firefox-Browser&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/userchrome-companion/) ![ALPHA | V0.7](https://img.shields.io/badge/ALPHA%20%7C%20V0.7-222222?style=for-the-badge&logo=github&logoColor=white&labelColor=555555) ![ALPHA | V0.7](https://img.shields.io/badge/ALPHA%20%7C%20V0.7-blueviolet?style=for-the-badge) 
 
 https://github.com/user-attachments/assets/3aeadb12-dd2a-403b-a31f-0cb5784489ba
 </div>
 <div align="right">
 
-###### Full 4k Video uncropped on [Youtube](https://www.youtube.com/watch?v=uJ9PGm4buCo&list=PLTVs0Y4lTV56Kapji1pVjMsMqE6PAHwzl&index=1)
+###### Full 4k Video uncropped on [Youtube](https://www.youtube.com/watch?v=Mz7gmYP2_1A&list=PLTVs0Y4lTV56Kapji1pVjMsMqE6PAHwzl&index=1)
 </div>
 
 <!-- ----------------------------------------------------------------------------------------------------------------------------- -->
@@ -87,7 +87,7 @@ I think the best part about this is that Theme Creators can share/use/import the
 
 ## Design Stage Progress
 
-- [ ] ⓘ Design Stage complete
+- [x] ⓘ Design Stage complete `6/19/2025`
     - Draft/Mock up created. Version bump to Alpha  0.1. `5/30/2025`
 
 <details><summary>Design Stage progress</summary>
@@ -99,19 +99,19 @@ I think the best part about this is that Theme Creators can share/use/import the
     - [x] nesting of folders and options for organization of userchrome toggle's `5/5/2025`
     - [x] trigger notify to dragging last option outside of folder, proceed y/n `5/6/2025`
     - [x] safeguards `5/6/2025`
-- [ ] custom context menu `delayed`
-    - [ ] delete folder or delete option (trigger notify to preserve internal options)
-    - [ ] rename folder or rename option 
-    - [ ] toggle settings
-    - [ ] add option to folder
-    - [ ] turn on/off
-- [ ] settings panel design `5/30/2025`
+- [x] custom context menu `delayed` `6/19/2025`
+    - [x] delete folder or delete option (trigger notify to preserve internal options) `6/18/2025`
+    - [x] rename folder or rename option `6/19/2025`
+    - [x] toggle settings `6/18/2025`
+    - [x] add option to folder `6/19/2025`
+    - [x] turn on/off toggles `6/18/2025`
+- [x] settings panel design `5/30/2025`
     - [x] settings ui `5/30/2025`
     - [x] allow import of options & folders (html specific format) `5/30/2025` (simple text format is better)
     - [x] allowing import of preset's (like presets for userChrome themes) `5/30/2025`
     - [x] reset to default `5/30/2025`
     - [ ] ~~color scheme management `delayed`~~
-    - [ ] Sidebar CSS - section to tweak sidebar appearance via internal css variables, colors, borders, shadows, etc.
+    - [x] Sidebar CSS - section to tweak sidebar appearance via internal css variables, colors, borders, shadows, etc. `6/13/2025`
 - [x] custom module design [uc Notify](https://github.com/soulhotel/uc-notify) `5/6/2025` 
     - [x] notification ui `5/5/2025`
     - [x] input text functionality `5/5/2025`
@@ -127,7 +127,7 @@ I think the best part about this is that Theme Creators can share/use/import the
     - [x] edit mode, subtle ui `5/30/2025`
     - [x] toggle edit mode `5/30/2025`
     - [x] append delete/rename functions to options `5/30/2025`
-    - [ ] `6/2/2025` append hotkey button&function to the edit mode buttons
+    - [ ] `6/2/2025` append hotkey button&function to the edit mode buttons `delayed`
 - [x] Visual Design (will progress over time) `5/30/2025` (it has progressed over time)
   - [x] Resize Handling - standard Sidebar width vs extremely small width `6/6/2025`
 
@@ -180,7 +180,7 @@ I think the best part about this is that Theme Creators can share/use/import the
 
 ## Progression Journal/Timeline
 
-- Days worked on UC: 7
+- Days worked on UC: 9
     - I try to journal progress here, with notes and video of progress
 
 <details><summary>Progression Journal/Timeline</summary>
@@ -234,10 +234,23 @@ Version bump 0.6.1. Next Version bump will address in organize in source CSS doc
 ```
 06/13/2025
 ```
-
-Well damn. The frustration in getting this working. After figuring out a successful 140 lines of code settings-CSS.js now fully handles the ability to fully theme userChrome Companion's sidebar via the existing Variables. Persistance is good. Version bump to 0.7
+The frustration in getting this working. After a while of figuring this out blindfolded.. settings-CSS.js now fully handles the ability to fully theme userChrome Companion's sidebar via the existing Variables. Persistance is good. Version bump to 0.7
 
 https://github.com/user-attachments/assets/0a73f28b-ff07-435f-8b0d-46bf5b3da564
+
+```
+06/18/2025 - 06/19/2025
+```
+Settings CSS - `option height`, `toolbar button hover background`, & `settings height` are now controllable metrics. Custom context menu (right click menu) design started.
+
+Context menu design finalized. Population of menu items, good. Consistent targetting, good.
+
+Source has been organized a bit, the functions for the edit-module are now well defined so that they can be reused elsewhere (like the context menu). Functions for new option, new folder, and toggling have also been well defined for use in the context menu (example: Right click -> Toggle All ON, on a folder). Design Stage can be considered - Complete. Version bump to 0.8.
+
+Completing this project relies on:
+- Keybind functionality - 0.9
+- Full Import/exports (with toggle states intact) (may require rethinking how I append elements between states) - 1.0
+- A Preset Switcher (last priority) - x
 
 </details>
 

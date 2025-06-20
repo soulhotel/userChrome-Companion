@@ -17,8 +17,8 @@ License:              MPL 2.0 https://github.com/soulhotel/userChrome-Companion/
         --uc-sb-background: rgb(35, 35, 42);
         --uc-sb-borders: rgb(43,42,51);
         --uc-sb-text: white;
-        --uc-opt-bg: rgb(43, 43, 49);
-        --uc-opt-hover-bg: rgb(53, 53, 59);
+        --uc-opt-bg: rgb(43, 43, 50);
+        --uc-opt-hover-bg: rgb(55, 55, 62);
         --uc-opt-text: var(--uc-sb-text);
         --outline-drag-orange: 1px dashed rgba(255, 148, 61, 0.7);
         --outline-drop-gray: 2px dashed #888;
@@ -40,7 +40,7 @@ License:              MPL 2.0 https://github.com/soulhotel/userChrome-Companion/
         --outline-drag-orange: 1px dashed rgba(255, 148, 61, 0.7);
         --outline-drop-gray: 2px dashed #888;
         --outline-cantdrop-red: 1px dashed rgba(255, 79, 66, 0.7);
-        --uc-notify-bg: rgba(245,245,245);
+        --uc-notify-bg: rgba(240,240,240);
         --uc-notify-fg: rgb(23,23,23);
         --uc-notify-accent: rgb(255,255,255);
         --uc-accent-color: #525e70;
@@ -63,7 +63,7 @@ License:              MPL 2.0 https://github.com/soulhotel/userChrome-Companion/
     --uc-toolbar-btn-hover-bg: var(--uc-opt-hover-bg);
     --uc-toolbar-btn-padding: 4px 14px;
     --uc-toolbar-btn-border-radius: 5px;
-    --uc-settings-background: color-mix(in srgb, var(--uc-sb-background) 65%, rgb(25,25,25) 35%);
+    --uc-settings-background: color-mix(in srgb, var(--uc-sb-background) 90%, black 10%);
     --uc-settings-height: 70%;
 }
 
@@ -120,7 +120,7 @@ body {
     @media (max-width: 48px) {padding: 10px 12px; letter-spacing: 0.2em;}
     border-radius: var(--uc-opt-border-radius);
     transition: background-color 0.2s ease, transform 0.2s ease;
-    box-shadow: var(--uc--opt-box-shadow);
+    box-shadow: var(--uc-opt-box-shadow);
 }
 .uc-opt:not(.uc-folder):hover {
     background-color: var(--uc-opt-hover-bg);
@@ -290,7 +290,7 @@ body {
     background: none;
     border: none;
     color: #f88;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
     &:hover {transform:scale(0.9);}
 }
@@ -482,7 +482,64 @@ body {
     resize: vertical;
 }
 
-/* misc */
+/* context menu --------------------------------------------------------------------------- */
+
+.uc-context-menu {
+    position: absolute;
+    display: none;
+    z-index: 9998;
+    background: var(--uc-settings-background);
+    border: 1px solid var(--uc-sb-borders);
+    border-radius: 10px;
+    box-shadow: var(--uc-opt-box-shadow);
+    padding: 1px;
+    min-width: 170px;
+    max-width: 250px;
+    font-size: 14px;
+}
+
+.uc-context-menu-item {
+    padding: 9px 12px;
+    margin:5px;
+    cursor: pointer;
+    white-space: nowrap;
+    color: var(--uc-sb-text);
+    border-radius: var(--uc-toolbar-btn-border-radius);
+    transition: background 0.1s ease 0s;
+}
+
+.uc-context-menu-item:hover {
+    background-color: var(--uc-opt-hover-bg);
+    color: var(--uc-accent-color);
+}
+
+/* tooltip -------------------------------------------------------------------------------- */
+
+.uc-tooltip {
+    position: absolute;
+    display: none;
+    z-index: 9999;
+    background: var(--uc-settings-background);
+    border: 1px solid var(--uc-sb-borders);
+    border-radius: var(--uc-toolbar-btn-border-radius);
+    box-shadow: var(--uc-opt-box-shadow);
+    margin-block: 1px;
+    padding-block: 4px;
+    min-width: 170px;
+    max-width: 80%;
+    min-height: 0;
+    max-height:
+    font-size: 12px;
+    font-style:italic;
+    white-space: nowrap;
+    color: var(--uc-sb-text);
+    pointer-events: none;
+}
+
+
+
+/* misc ------------------------------------------------------------------------------------ */
+
 .uc-toolbar,
 .uc-setting-btn,
 .uc-settings-presets-container-options,

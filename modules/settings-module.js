@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!ucSettings || !ucOptions || !settingsBtn || !exitBtn || !presetsBtn || !presetsContainer || !addToOptionsBtn || !presetInput) return;
 
+    window.openSettings = openSettings;
+
     /* settings call -------------------------------------------------- */
     function openSettings() {
         if (ucOptions.hasAttribute('edit-mode')) return;

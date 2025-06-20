@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.setToggledUI = setToggledUI;
     window.syncToggledStates = syncToggledStates;
     window.splitChar = splitChar;
-
+    window.setToggleState = setToggleState;
 
     window.getChar = function(opt) {
     if (!opt) return null;

@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 */
 
     const ucSidebar = document.querySelector(".uc-sidebar");
+    const menu = document.getElementById('ucContextMenu');
     const ucToggle = document.querySelector(".uc-opt-toggle");
     const ucOptions = document.querySelector(".uc-options");
     const ucSettings = document.querySelector(".uc-settings");
@@ -344,34 +345,30 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Folder classes normalized.");
     }
     // Buttons -----------------------------------------------------------------------------------------------
-    if (ucToggle) {
-    ucToggle.addEventListener("click", () => {
-        window.toggleRecentToggles();
-    });
-    }
-    newOptBtn?.addEventListener('click', () => {
+
+    function createNewOption(insertBeforeElement = settingsBtn, container = ucOptions) {
         window.ucNotify(
-        "Name this option (emoji)(space)(description):",
-        "Create",
-        (val) => {
-            if (!val) return;
-            const optNum = getNextOptNumber();
-            const newOpt = document.createElement('div');
-            newOpt.className = `uc-opt uc-opt-${optNum}`;
-            newOpt.draggable = true;
-            newOpt.textContent = val;
-            ucOptions.insertBefore(newOpt, settingsBtn);
-            bindDragEvents();
-            normalizeOptionClasses();
-            window.setToggledUI();
-            window.syncToggledStates();
-            saveOptionsOrder();
-        },
-        "Cancel",
-        () => {},
-        "needinput"
+            "Name this option (emoji)(space)(description):",
+            "Create",
+            (val) => {
+                if (!val) return;
+                const optNum = getNextOptNumber();
+                const newOpt = document.createElement('div');
+                newOpt.className = `uc-opt uc-opt-${optNum}`;
+                newOpt.draggable = true;
+                newOpt.textContent = val;
+                container.insertBefore(newOpt, insertBeforeElement);
+                bindDragEvents();
+                normalizeOptionClasses();
+                window.setToggledUI();
+                window.syncToggledStates();
+                saveOptionsOrder();
+            },
+            "Cancel",
+            () => {},
+            "needinput"
         );
-    });
+    }
     newFolderBtn?.addEventListener('click', () => {
         const folderNum = getNextFolderNumber();
         const optNum = getNextOptNumber();
@@ -419,10 +416,124 @@ document.addEventListener("DOMContentLoaded", () => {
         return used.length ? Math.max(...used) + 1 : 1;
     }
 
+    // Buttons -----------------------------------------------------------------------------------------------
+
+    if (ucToggle) {
+    ucToggle.addEventListener("click", () => {
+        window.toggleRecentToggles();
+    });
+    }
+    newOptBtn?.addEventListener('click', () => createNewOption());
+
     /* need these globally for any other script that manipulates positioning */
     window.bindDragEvents = bindDragEvents;
     window.normalizeOptionClasses = normalizeOptionClasses;
     window.normalizeFolderClasses = normalizeFolderClasses;
     window.saveOptionsOrder = saveOptionsOrder;
+
+
+    // Context Menu -----------------------------------------------------------------------------------------
+
+    document.addEventListener('click', () => { menu.style.display = 'none'; });
+
+    document.addEventListener('contextmenu', e => {
+        const el = e.target;
+        if (el.closest('.uc-toolbar, .uc-settings')) return;
+
+        let target = null;
+        let contextType = null;
+
+        if (el.classList.contains('uc-folder-title') || el.closest('.uc-folder-title')) {
+            target = el.closest('.uc-folder-title');
+            contextType = 'contextFolderTitle';
+        } else if (el.classList.contains('uc-opt-toggle') || el.closest('.uc-opt-toggle')) {
+            target = el.closest('.uc-opt-toggle');
+            contextType = 'contextToggle';
+        } else if (el.classList.contains('uc-opt-settings') || el.closest('.uc-opt-settings')) {
+            target = el.closest('.uc-opt-settings');
+            contextType = 'contextSettings';
+        } else if (
+            (el.classList.contains('uc-opt') || el.closest('.uc-opt')) &&
+            !el.classList.contains('uc-folder') &&
+            !el.classList.contains('uc-folder-title') &&
+            !el.classList.contains('uc-opt-toggle') &&
+            !el.classList.contains('uc-opt-settings')
+        ) {
+            target = el.closest('.uc-opt');
+            contextType = 'contextOpt';
+        } else if (el.closest('.uc-sidebar')) {
+            target = el.closest('.uc-sidebar');
+            contextType = 'contextSidebar';
+        } else { return; }
+
+        e.preventDefault();
+        menu.innerHTML = '';
+        const items = [];
+
+        switch (contextType) {
+            case 'contextFolderTitle':
+                items.push(
+                    { label: 'Toggle All ON', action: () => {
+                        const folder = target.closest('.uc-folder');
+                        if (!folder) return;
+                        const options = folder.querySelectorAll('.uc-opt:not(.uc-folder-title)');
+                        options.forEach(opt => setToggleState(opt));
+                    }},
+                    { label: 'Rename Folder', action: () => renameOption(target) },
+                    { label: 'Delete Folder', action: () => deleteOption(target) },
+                    { label: 'Insert New Option', action: () => {
+                        const folderContainer = target.closest('.uc-folder');
+                        createNewOption(target.nextSibling, folderContainer);
+                    }}
+                );
+                break;
+            case 'contextOpt':
+                items.push(
+                    { label: 'Toggle ON', action: () => setToggleState(target) },
+                    { label: 'Rename Option', action: () => renameOption(target) },
+                    { label: 'Delete Option', action: () => deleteOption(target) },
+                    { label: 'Set Keybind (soon)', action: () => placeholder(target) }
+                );
+                break;
+            case 'contextToggle':
+                items.push(
+                    { label: 'Toggle All Options', action: () => window.toggleRecentToggles() }
+                );
+                break;
+            case 'contextSettings':
+                items.push(
+                    { label: 'Open Settings', action: () => window.openSettings() }
+                );
+                break;
+            case 'contextSidebar':
+                items.push(
+                    { label: 'New Option', action: () => createNewOption() },
+                    { label: 'New Folder', action: () => newFolderBtn() }
+                );
+                break;
+        }
+        /* always */
+        if (!['contextSettings', 'contextToggle'].includes(contextType)) {
+            items.push(
+                { label: 'Edit Mode', action: () => window.enterEditMode() },
+                { label: 'Open Settings', action: () => window.openSettings() }
+            );
+        }
+        items.forEach(item => {
+            const div = document.createElement('div');
+            div.textContent = item.label;
+            div.className = 'uc-context-menu-item';
+            div.addEventListener('click', () => {
+                menu.style.display = 'none';
+                item.action();
+            });
+            menu.appendChild(div);
+        });
+        menu.style.top = `${e.clientY}px`;
+        menu.style.left = `${e.clientX}px`;
+        menu.style.display = 'block';
+    });
+
+
 
 });
