@@ -32,63 +32,14 @@ But whatever.. As of *6/6/2025* userChrome Companion (alpha 0.6) is ready to use
 
 [Refer to Wiki](https://github.com/soulhotel/userChrome-Companion/wiki)
 
-<details><summary>Old Explanation</summary>
-
->
-Turning on an option *(style)* in userChrome Companion, like: `🐱 cat mode` and `🐶 dog mode`, will `+1` add the option to Firefoxs Window Title:
-- `New Tab` in the Windows Title becomes,
-- `🐱 🐶 New Tab`
-This can then be communicated with userChrome.css, like:
-```
-:root[titlemodifier*="🐱"] {
-    #navigator-toolbox {
-        display: none !important;
-    }
-}
-:root[titlemodifier*="🐶"]
-    #urlbar {
-        background-color: transparent !important;
-    }
-}
-```
-And obviously options (`🐱 cat mode`,`🐶 dog mode`) can be parsed seperately or together via the css, like:
-```
-/* both 🐱 🐶 present in title at the same time */
-:root[titlemodifier*="🐱"][titlemodifier*="🐶"] {
-    #navigator-toolbox {
-        display: none !important;
-    }
-}
-/* or like this*/
-:root[titlemodifier*="🐱 🐶"] {
-    #navigator-toolbox {
-        display: none !important;
-    }
-    #urlbar {
-        background-color: transparent !important;
-    }
-}
-```
-
-> There is a possibility of changing this functionality to create/manipulate a single tab group as well.
-> Setting the tabgroups's name based on toggled "options" (🐱🐶⬅️🔁) and using that to toggle userchrome styles with `:has`. Leaving window titles untouched. Maybe when the api is available..
-
-I think the best part about this is that Theme Creators can share/use/import their own custom options by linking to it via github, like: 
-
-[./presets/preset-example](https://github.com/soulhotel/userChrome-Companion/blob/main/presets/preset-example)
-
-![preseturl](https://github.com/user-attachments/assets/f4a4129e-88c2-4e65-8c64-68a1f30a12e9)
-
-</details>
-
-
 <!-- ----------------------------------------------------------------------------------------------------------------------------- -->
 
 
 ## Design Stage Progress
 
-- [x] ⓘ Design Stage complete `6/19/2025`
+- [x] ⓘ Design Stage complete
     - Draft/Mock up created. Version bump to Alpha  0.1. `5/30/2025`
+    - Design State complete. Version bump to Alpha 0.8. `6/19/2025`
 
 <details><summary>Design Stage progress</summary>
 
@@ -110,7 +61,7 @@ I think the best part about this is that Theme Creators can share/use/import the
     - [x] allow import of options & folders (html specific format) `5/30/2025` (simple text format is better)
     - [x] allowing import of preset's (like presets for userChrome themes) `5/30/2025`
     - [x] reset to default `5/30/2025`
-    - [ ] ~~color scheme management `delayed`~~
+    - [x] ~~color scheme management `delayed`~~
     - [x] Sidebar CSS - section to tweak sidebar appearance via internal css variables, colors, borders, shadows, etc. `6/13/2025`
 - [x] custom module design [uc Notify](https://github.com/soulhotel/uc-notify) `5/6/2025` 
     - [x] notification ui `5/5/2025`
@@ -127,7 +78,7 @@ I think the best part about this is that Theme Creators can share/use/import the
     - [x] edit mode, subtle ui `5/30/2025`
     - [x] toggle edit mode `5/30/2025`
     - [x] append delete/rename functions to options `5/30/2025`
-    - [ ] `6/2/2025` append hotkey button&function to the edit mode buttons `delayed`
+    - [x] ~~`6/2/2025` append hotkey button&function to the edit mode buttons `moved to usability state`~~
 - [x] Visual Design (will progress over time) `5/30/2025` (it has progressed over time)
   - [x] Resize Handling - standard Sidebar width vs extremely small width `6/6/2025`
 
