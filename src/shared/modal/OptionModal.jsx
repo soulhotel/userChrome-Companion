@@ -91,7 +91,7 @@ export default function OptionModal({ target, onClose }) {
         type="text"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        placeholder="this option does this"
+        placeholder="This option hides the nav bar"
       />
 
       <span className="muted bold">pref</span>
@@ -99,7 +99,7 @@ export default function OptionModal({ target, onClose }) {
         type="text"
         value={pref}
         onChange={(e) => setPref(e.target.value)}
-        placeholder="ultima.theme.default"
+        placeholder="navbar.autohide"
       />
 
       {error && <div className="modal-error">{error}</div>}
