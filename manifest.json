@@ -32,8 +32,8 @@
   ],
   "browser_specific_settings": {
     "gecko": {
-      "id": "userChromeCompanion@soulhotel.net"
-    },
-    "data_collection_permissions": { "required": ["none"] }
+      "id": "userChromeCompanion@soulhotel.net",
+      "data_collection_permissions": { "required": ["none"] }
+    }
   }
 }

@@ -36,9 +36,10 @@ function copyStatic() {
 
   const assetsSrc = path.join(ROOT, "src/shared/assets");
   if (fs.existsSync(assetsSrc)) {
+    const skipFiles = new Set([path.join(assetsSrc, "demo2.gif")]);
     fs.cpSync(assetsSrc, path.join(distDir, "shared/assets"), {
       recursive: true,
-      filter: (p) => !p.endsWith(".jsx"),
+      filter: (p) => !p.endsWith(".jsx") && !skipFiles.has(p),
     });
   } else {
     console.warn("copyStatic: skipped missing src/assets");

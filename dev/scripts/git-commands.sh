@@ -10,11 +10,12 @@ s. git status
 p. git pull
 1. git add . && git commit -m
 2. git push
+3. git tag
 
 If your git is configured to commit messages through external text editor, then:
 
-3. git add . && git commit
-4. git add . && git commit && git push
+4. git add . && git commit
+5. git add . && git commit && git push
 "
     read -rp "Enter an option > " option
 
@@ -36,9 +37,13 @@ If your git is configured to commit messages through external text editor, then:
             git push
             ;;
         3)
-            git add . && git commit
+            read -rp "Tag name (1.0, 5.4, etc): " tag
+            git tag "$tag"
             ;;
         4)
+            git add . && git commit
+            ;;
+        5)
             git add . && git commit && git push
             ;;
         *)
