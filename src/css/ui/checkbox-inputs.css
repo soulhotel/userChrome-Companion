@@ -1,0 +1,11 @@
+input[type="checkbox"] {
+  appearance: none;
+  width: 14px; height: 14px;
+  padding: 0;
+  border: 4px solid var(--border-color);
+  outline: 1px solid rgba(20,20,20,0.2);
+  border-radius: 50%;
+  background: none;
+  &:checked { background: var(--accent-color) }
+  &:checked:hover { opacity: 0.8 }
+}

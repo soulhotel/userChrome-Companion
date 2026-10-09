@@ -1,0 +1,34 @@
+/*///////////////////////////////////////////////////////////////////////////////////////\
+
+┳┳     ┏┓┓            ┏┓           •
+┃┃┏┏┓┏┓┃ ┣┓┏┓┏┓┏┳┓┏┓  ┃ ┏┓┏┳┓┏┓┏┓┏┓┓┏┓┏┓
+┗┛┛┗ ┛ ┗┛┛┗┛ ┗┛┛┗┗┗   ┗┛┗┛┛┗┗┣┛┗┻┛┗┗┗┛┛┗
+                             ┛
+userChrome Companion: https://github.com/soulhotel/userChrome-Companion
+Wiki:                 https://github.com/soulhotel/userChrome-Companion/wiki
+License:              MPL 2.0 https://github.com/soulhotel/userChrome-Companion/blob/main/LICENSE
+
+\////////////////////////////////////////////////////////////////////////////////////////*/
+
+* {box-sizing: border-box;border: none;background: none; margin: 0; padding: 0;}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: var(--font-size);
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease;
+    color: var(--foreground-color);
+}
+
+/* ------------------------------------------------ */
+
+.modal,
+.toolbar,
+.setting-btn,
+.settings-presets-container-options,
+.settings-presets-container-toggles,
+.settings-css-container-options,
+[settings]
+ {
+    user-select: none;
+}

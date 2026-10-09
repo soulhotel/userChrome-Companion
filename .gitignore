@@ -1,0 +1,19 @@
+node_modules/
+
+dist/
+out/
+
+.env
+.env.local
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+# *.log
+npm-debug.log*
+
+# old src/ snap shot this into a branch
+
+# pkg/

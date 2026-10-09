@@ -1,0 +1,177 @@
+/* options & folders */
+.option-tree {
+    padding: var(--sidebar-padding);
+    border-radius: var(--border-radius);
+    padding-bottom: 50px; /* so scrolling to bottom leaves no obstruction from toolbar */
+}
+
+/* ------------------------------------------------ */
+
+.tree-item {
+    display: flex; flex-direction: column;
+    position: relative;
+    font-size: var(--opt-font-size);
+    padding: var(--opt-padding);
+    margin: var(--opt-margin);
+    background-color: var(--opt-background);
+    color: var(--foreground-color);
+    outline: 1px solid transparent;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: var(--opt-border-radius);
+    transition: all 0.2s ease;
+    box-shadow: var(--opt-box-shadow);
+    cursor: default;
+    &:hover {
+        background-color: var(--opt-hover-background);
+        outline: 1px solid var(--outline-color);
+    }
+    &[data-on="true"] {
+        .toggle-indicator {display: flex;}
+        background: linear-gradient(to right, var(--opt-background) 70%, rgba(0, 0, 0, 0.05)) !important;
+        &:hover {background: linear-gradient(to right, var(--opt-hover-background) 70%, rgba(0, 0, 0, 0.05)) !important;}
+    }
+    &.selected:not(.dragging) {
+        outline: 1px solid var(--outline-color);
+    }
+    &.dragging {
+        opacity: var(--opt-dragging-opacity);
+        outline: 1px solid var(--accent-color);
+        transform: scale(0.96);
+    }
+    @media (max-width: 48px) {
+        padding: 10px 12px;
+        letter-spacing: 0.2em;
+    }
+}
+
+/* ------------------------------------------------ */
+
+.option-card {
+    .option-desc {
+        margin-block: 5px 0;
+        white-space: wrap;
+        /*overflow: hidden; text-overflow: "..   "*/
+    }
+    .option-bottom-row {
+        display: flex;
+        align-content: center;
+        gap: 6px;
+        font-size: calc(var(--font-size) - 0.15rem);
+        overflow: hidden; text-overflow: "..   "
+    }
+    .conflict-indicator {
+        color: rgba(255, 148, 61, 0.7);
+    }
+}
+
+/* ------------------------------------------------ */
+
+.folder-card {
+    font-size: var(--font-size);
+    & .folder-title {
+        display: flex;
+        justify-content: space-between;
+        white-space: wrap;
+        /*overflow: hidden; text-overflow: "..   "*/
+    }
+    &[data-open="true"] {
+        /*.folder-title {text-decoration: underline;}*/
+        background-color: transparent;
+        outline: 1px solid var(--outline-color);
+        .folder-chevron { transform: rotate(180deg); }
+    }
+    & .folder-chevron {
+        padding: 0;
+        opacity: 0.1;
+        pointer-events: none;
+        transition: transform 0.4s ease;
+        background: transparent !important;
+    }
+    & .option-card:not(.folder) {
+        margin-left: var(--folder-opt-indent);
+    }
+    & .drop-target {
+        outline: var(--outline-drag-orange);
+    }
+}
+
+/* ------------------------------------------------ */
+
+.toggle-indicator {
+    display: none;
+    position: absolute;
+    inset: 0 0 0 auto;
+    align-items: center;
+    background: transparent !important;
+    color: var(--accent-color);
+    font-size: 11px;
+    cursor: pointer;
+    font-style:italic;
+    font-weight: 700;
+    padding-inline: 10px;
+}
+
+.toggle-updated {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    padding-right: 2%;
+    pointer-events: none;
+    background: none;
+    border: none;
+    color: var(--foreground-color);
+    font-size: 11px;
+    font-style:italic;
+    font-weight: bold;
+}
+
+/* ------------------------------------------------ */
+
+.drag-placeholder {
+  padding: var(--opt-padding);
+  margin: var(--opt-margin);
+  outline: 1px dashed var(--accent-color);
+  border-radius: var(--opt-border-radius);
+}
+:root:has(.option-card.dragging) {
+    .drag-placeholder {
+        height: 60px;
+    }
+}
+:root:has(.folder.dragging) {
+    .drag-placeholder {
+        height: 40px;
+    }
+}
+.folder-card:has(.drag-placeholder) {
+    .drag-placeholder {
+        margin-left: var(--folder-opt-indent);
+    }
+}
+.folder-card[data-open="false"][data-drop-inside="true"] {
+    outline: 1px dashed var(--accent-color) !important;
+}
+.option-card.dragging,
+.folder-card.dragging,
+.separator.dragging {
+  display: none !important;
+}
+
+/* ------------------------------------------------ */
+
+.separator {
+  display: block;
+  height: 10px;
+  background: color-mix(in srgb, var(--accent-color), transparent 60%);
+  border-radius: 10px;
+  margin: 12px 0;
+}
+.folder-card .separator {
+    margin-left: var(--folder-opt-indent);
+}

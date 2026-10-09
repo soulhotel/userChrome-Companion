@@ -1,0 +1,37 @@
+.preset-card {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    position: relative;
+    margin-bottom: 5px;
+    &:hover {
+        border: 1px solid var(--outline-color);
+    }
+    &[data-selected="true"] {
+        border: 1px solid var(--outline-color);
+    }
+    .preset-card-name {
+        font-size: calc(var(--font-size) + 0.2rem);
+    }
+    .preset-card-link {
+        color: var(--accent-color);
+        text-decoration: underline;
+        font-size: calc(var(--font-size) - 0.2rem);
+        cursor: pointer;
+    }
+    .preset-card-delete {
+        position: absolute;
+        inset: 8px 8px auto auto;
+        width: 28px; height: 28px;
+        padding: 3px 1px;
+    }
+}
+
+
+.preset-card-create {
+    align-content: center;
+    text-align: center;
+    height: 60px;
+}

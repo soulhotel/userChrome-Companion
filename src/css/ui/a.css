@@ -1,0 +1,7 @@
+a {
+    color: var(--accent-color);
+    text-decoration: underline;
+    &:visited {
+        color: var(--accent-color);
+    }
+}

@@ -1,37 +1,39 @@
 {
   "manifest_version": 3,
   "name": "userChrome Companion",
-  "version": "0.8",
+  "version": "1.0",
   "description": "Toggle & Manage multiple userChrome styles",
   "icons": {
-    "48": "assets/media/icon-48.png"
-  },
-  "sidebar_action": {
-    "default_panel": "sidebar.html",
-    "default_title": "Toggle & Manage userChrome",
-    "default_icon": {
-      "48": "assets/media/icon-48.png"
-    }
+    "48": "shared/assets/icon-128-cf.svg",
+    "128": "shared/assets/icon-128-cf.svg"
   },
   "action": {
     "default_title": "userChrome Companion"
   },
+  "sidebar_action": {
+    "default_panel": "sidebar.html",
+    "default_title": "userChrome Companion",
+    "default_icon": {
+      "48": "shared/assets/icon-48-cf.svg"
+    }
+  },
+  "options_ui": {
+    "page": "settings.html",
+    "open_in_tab": true
+  },
+  "background": { "scripts": ["global/background.js"] },
   "permissions": [
     "storage"
   ],
   "host_permissions": [
     "https://raw.githubusercontent.com/*",
     "https://codeberg.org/*/*/raw/*",
-    "https://*/*"
+    "https://api.github.com/*"
   ],
-  "background": {
-    "scripts": [
-      "modules/background.js"
-    ]
-  },
   "browser_specific_settings": {
     "gecko": {
       "id": "userChromeCompanion@soulhotel.net"
-    }
+    },
+    "data_collection_permissions": { "required": ["none"] }
   }
 }

@@ -1,0 +1,27 @@
+.context-menu {
+    position: fixed;
+    z-index: 9998;
+    background: var(--layered-background);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: var(--opt-box-shadow);
+    padding: 1px;
+    min-width: 170px;
+    max-width: 250px;
+    font-size: 14px;
+}
+
+.context-menu-item {
+    padding: 9px 12px;
+    margin:5px;
+    cursor: pointer;
+    white-space: nowrap;
+    color: var(--foreground-color);
+    border-radius: var(--btn-border-radius);
+    transition: background 0.1s ease 0s;
+}
+
+.context-menu-item:hover {
+    background-color: var(--opt-hover-background);
+    color: var(--accent-color);
+}

@@ -1,0 +1,13 @@
+select { 
+    appearance: base-select; 
+    border-radius: calc(var(--border-radius) * 0.6);
+    outline: 1px solid var(--outline-color);
+    color: var(--foreground-color) !important;
+    padding: 5px 8px;
+    &:open { outline: 2px solid var(--accent-color) }
+    &:open::picker-icon { transform: rotate(180deg); }
+    &::picker-icon { color: var(--muted-foreground-color); transition: transform 2s ease;}
+}
+
+
+

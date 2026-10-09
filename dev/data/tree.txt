@@ -1,0 +1,82 @@
+.
+├── CHANGELOG.md
+├── claude.md
+├── dev
+│   ├── data
+│   │   ├── tree.txt
+│   │   └── userChromeCompanion.json
+│   ├── docs
+│   │   ├── preset-example
+│   │   └── readme.md
+│   ├── onboarding1-2.png
+│   ├── onboarding2-2.png
+│   └── scripts
+│       ├── 0-index.sh
+│       ├── build.js
+│       ├── pkg.sh
+│       ├── tree.sh
+│       └── tree.txt
+├── dist
+│   ├── assets
+│   │   ├── icon-48.png
+│   │   └── icon.png
+│   ├── background
+│   │   ├── background.js
+│   │   └── titlepreface-bridge.js
+│   ├── css
+│   │   └── sidebar.css
+│   ├── data
+│   │   └── userChromeCompanion.json
+│   ├── index.html
+│   ├── index.js
+│   └── manifest.json
+├── manifest.json
+├── package.json
+├── package-lock.json
+├── pkg
+│   └── userchrome-companion.xpi
+├── README.md
+└── src
+    ├── assets
+    │   ├── icon-48.png
+    │   ├── icon.png
+    │   └── Svg.jsx
+    ├── background
+    │   ├── background.js
+    │   └── titlepreface-bridge.js
+    ├── components
+    │   ├── ContextMenu.jsx
+    │   ├── FolderCard.jsx
+    │   ├── FolderModal.jsx
+    │   ├── Modal.jsx
+    │   ├── OnboardingModal.jsx
+    │   ├── OptionCard.jsx
+    │   ├── OptionModal.jsx
+    │   ├── OptionsList.jsx
+    │   ├── Separator.jsx
+    │   ├── Settings
+    │   │   ├── ConfigSection.jsx
+    │   │   ├── CSSThemeSection.jsx
+    │   │   ├── PresetsSection.jsx
+    │   │   └── SettingsPanel.jsx
+    │   ├── Toolbar.jsx
+    │   └── Tooltip.jsx
+    ├── config
+    │   ├── config.js
+    │   ├── initialState.js
+    │   └── store.jsx
+    ├── css
+    │   └── sidebar.css
+    ├── index.html
+    ├── index.jsx
+    ├── lib
+    │   ├── conflictResolver.js
+    │   ├── db.js
+    │   ├── dragDrop.jsx
+    │   ├── presetSchema.js
+    │   ├── reducer.js
+    │   ├── syncPreset.js
+    │   └── titlePreface.js
+    └── Sidebar.jsx
+
+19 directories, 61 files

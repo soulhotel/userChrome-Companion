@@ -1,0 +1,82 @@
+/*///////////////////////////////////////////////////////////////////////////////////////\
+
+┳┳     ┏┓┓            ┏┓           •
+┃┃┏┏┓┏┓┃ ┣┓┏┓┏┓┏┳┓┏┓  ┃ ┏┓┏┳┓┏┓┏┓┏┓┓┏┓┏┓
+┗┛┛┗ ┛ ┗┛┛┗┛ ┗┛┛┗┗┗   ┗┛┗┛┛┗┗┣┛┗┻┛┗┗┗┛┛┗
+                             ┛
+userChrome Companion: https://github.com/soulhotel/userChrome-Companion
+Wiki:                 https://github.com/soulhotel/userChrome-Companion/wiki
+License:              MPL 2.0 https://github.com/soulhotel/userChrome-Companion/blob/main/LICENSE
+
+\////////////////////////////////////////////////////////////////////////////////////////*/
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: rgb(35, 35, 42);
+        --foreground-color: white;
+        --opt-background: rgb(43, 42, 51);
+        --opt-hover-background: color-mix(in srgb, var(--opt-background), grey 5%);
+        --opt-foreground-color: var(--foreground-color);
+        --opt-selected-border: var(--accent-color);
+        --btn-background: rgb(35, 35, 42);
+        --btn-hover-background: rgb(35, 35, 42);
+        --border-color: rgb(43,42,51);
+        --outline-color: rgba(150, 150, 155, 0.2);
+        --outline-drag-orange: 1px dashed rgba(255, 148, 61, 0.7);
+        --outline-drop-gray: 2px dashed #888;
+        --outline-cantdrop-red: 1px dashed rgba(255, 79, 66, 0.7);
+        --accent-color: #7ea6e6;
+    }
+}
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-color: rgb(242, 242, 248);
+        --foreground-color: #13151a;
+        --opt-background: rgb(250, 250, 255);
+        --opt-hover-background: color-mix(in srgb, var(--opt-background), grey 5%);
+        --opt-hover-background: var(--btn-hover-background);
+        --opt-foreground-color: var(--foreground-color);
+        --opt-selected-border: var(--accent-color);
+        --btn-background: #e0e0e0;
+        --btn-hover-background: #e0e0e0;
+        --border-color: #ccc;
+        --outline-color: rgba(150, 150, 155, 0.2);
+        --outline-drag-orange: 1px dashed rgba(255, 148, 61, 0.7);
+        --outline-drop-gray: 2px dashed #888;
+        --outline-cantdrop-red: 1px dashed rgba(255, 79, 66, 0.7);
+        --accent-color: #525e70;
+    }
+}
+:root {
+    --muted-foreground-color: color-mix(in srgb, var(--foreground-color) 60%, transparent);
+    --layered-background: color-mix(in srgb, var(--background-color) 95%, grey);
+    --modal-background: color-mix(in srgb, var(--background-color) 80%, black);
+    --settings-background: color-mix(in srgb, var(--background-color) 90%, grey);
+}
+
+:root {
+    --font-size: 1rem;
+    --sidebar-padding: 2% 3.5%;
+    --opt-padding: 10px 15px;
+    --toolbar-padding: 5px 0 5px 0;
+    --settings-padding: 2.5%;
+    --border-radius: 10px;
+    --opt-border-radius: calc(var(--border-radius) - 2px);
+    --toolbar-border-radius: calc(var(--border-radius) + 2px);
+    --settings-border-radius: calc(var(--border-radius) + 2px);
+    --btn-border-radius: calc(var(--border-radius) - 1px);
+    --opt-font-size: calc(var(--font-size) - 0.1rem);
+    --opt-padding: 10px 15px;
+    --opt-margin: 10px 0;
+    --opt-border-radius: 10px;
+    --opt-box-shadow: 0.15rem 0.3rem 0.3rem -0.1rem rgba(0,0,0,0.4);
+    --opt-dragging-opacity: 0.5;
+    --error-color: rgb(188, 64, 64);
+    --folder-opt-indent: 14px;
+    --folder-dragging-opacity: 0.5;
+    --btn-padding: 4px 14px;
+    --btn-hover-bg: var(--opt-hover-background);
+    --modal-background: color-mix(in srgb, var(--background-color) 80%, black);
+    --settings-background: color-mix(in srgb, var(--background-color) 90%, grey);
+    --settings-height: 70%;
+}

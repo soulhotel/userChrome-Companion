@@ -1,0 +1,5 @@
+code:not(pre code) {
+    border-radius: 2px;
+    padding-inline: 4px;
+    background: color-mix(in srgb, var(--accent-color), transparent 80%);
+}

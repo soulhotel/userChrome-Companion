@@ -1,0 +1,16 @@
+{
+  "name": "userchrome-companion",
+  "version": "1.0",
+  "private": true,
+  "scripts": {
+    "build": "node dev/scripts/build.js",
+    "watch": "node dev/scripts/build.js --watch"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  },
+  "dependencies": {
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
+  }
+}

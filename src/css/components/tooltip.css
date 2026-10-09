@@ -1,0 +1,21 @@
+.tooltip {
+    z-index: 9999;
+    position: fixed;
+    max-width: 80%;
+    white-space: normal;
+    margin-block: 1px;
+    padding: 8px 10px;
+    background: var(--layered-background);
+    border: 1px solid var(--border-color);
+    border-radius: var(--btn-border-radius);
+    box-shadow: var(--opt-box-shadow);
+    min-height: 0;
+    font-size: calc(var(--font-size) - 0.2rem);
+    font-style: italic;
+    color: var(--foreground-color);
+    pointer-events: none;
+}
+.tooltip ul {
+  margin: 4px 0 0;
+  padding-left: 16px;
+}

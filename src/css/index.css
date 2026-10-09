@@ -1,0 +1,39 @@
+/*///////////////////////////////////////////////////////////////////////////////////////\
+
+┳┳     ┏┓┓            ┏┓           •
+┃┃┏┏┓┏┓┃ ┣┓┏┓┏┓┏┳┓┏┓  ┃ ┏┓┏┳┓┏┓┏┓┏┓┓┏┓┏┓
+┗┛┛┗ ┛ ┗┛┛┗┛ ┗┛┛┗┗┗   ┗┛┗┛┛┗┗┣┛┗┻┛┗┗┗┛┛┗
+                             ┛
+userChrome Companion: https://github.com/soulhotel/userChrome-Companion
+Wiki:                 https://github.com/soulhotel/userChrome-Companion/wiki
+License:              MPL 2.0 https://github.com/soulhotel/userChrome-Companion/blob/main/LICENSE
+
+\////////////////////////////////////////////////////////////////////////////////////////*/
+
+@import './theme.css';
+@import './ui.css';
+
+/*---------------------------------------------*/
+/*general ui rules*/
+
+@import './ui/flex-path.css';   @import './ui/scrollbars.css';
+/*@import './ui/spans.css';*/   @import './ui/selects.css';
+@import './ui/text-inputs.css'; @import './ui/checkbox-inputs.css'; 
+@import './ui/modals.css';      @import './ui/buttons.css';
+@import './ui/scrollbars.css';  /*@import './ui/load-spin.css';*/
+@import './ui/dividers.css';    @import './ui/font-styles.css';
+@import './ui/code.css';        @import './ui/a.css';
+
+/*---------------------------------------------*/
+/*component specific styles*/
+
+@import './components/sidebar.css';
+@import './components/settings.css';
+
+@import './components/options.css';
+@import './components/toolbar.css';
+@import './components/contextmenu.css';
+@import './components/tooltip.css';
+@import './components/modals.css';
+@import './components/presetcard.css';
+@import './components/presetpreview.css';

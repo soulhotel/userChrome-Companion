@@ -1,0 +1,49 @@
+/*all modals*/
+
+.modal {
+    input[type="text"] {
+        width: 100%;
+    }
+    span {
+        align-self: center;
+        text-align: left;
+        width: 100%;
+    }
+    input[type="checkbox"] {
+        align-self: center;
+    }
+}
+
+/*onboarding modal*/
+
+.onboarding-modal {
+    max-height: 90vh;
+    .onboarding-import-buttons button {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        * {text-align: center;}
+    }
+    .onboarding-link-input {
+        align-items: center;
+    }
+}
+
+.onboarding-demo {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+/* option modal*/
+
+.conflict-tags {
+    padding: 5px;
+    border-radius: 33px;
+}
+.conflict-tag {
+    border-radius: 33px;
+    border: 1px solid var(--border-color);
+    padding: 5px;
+    button {margin-left: 2.5px; padding: 1px 5px;}
+}

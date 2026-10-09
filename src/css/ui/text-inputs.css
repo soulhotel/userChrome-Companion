@@ -1,0 +1,8 @@
+input[type="text"] {
+  padding: 8px;
+  border-radius: calc(var(--border-radius) * 0.6);
+  outline: 1px solid var(--border-color);
+  background: color-mix(in srgb, var(--layered-background-color), transparent 60%);
+  color: var(--foreground-color);
+  font-size: var(--font-size);
+}

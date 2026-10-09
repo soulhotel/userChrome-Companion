@@ -1,0 +1,32 @@
+.toolbar {
+    position: fixed;
+    bottom: 0; left: 0;
+    width: 100%;
+    backdrop-filter: blur(25px);
+    --btn-background: transparent;
+}
+.toolbar-container {
+    padding: var(--toolbar-padding);
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: auto;
+    margin-inline: 15px;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px dashed var(--outline-color);
+    /*bit sloppy but we'll see ^*/
+    @media (max-width: 50px) {
+        flex-direction: column;
+    }
+}
+.toolbar-btn {
+    display: flex;
+    width: 32px; height: 32px; 
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 10px;
+    &.active {
+        color: var(--accent-color);
+    }
+}

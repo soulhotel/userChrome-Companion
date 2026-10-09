@@ -1,0 +1,19 @@
+/* [sidebar] = root */
+[sidebar] .sidebar { display: flex; flex-direction: column; height: 100vh; width: 100%;}
+
+/* ------------------------------------------------ */
+
+[sidebar] {
+    @media (max-width: 360px) {--font-size: 0.85rem;}
+}
+
+[sidebar][as-page] {
+    #root {
+        display: grid;
+        place-items: center;
+    }
+    .sidebar {
+        min-width: 300px;
+        max-width: 800px;
+    }
+}

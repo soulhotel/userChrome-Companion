@@ -1,0 +1,14 @@
+
+/* styles are applied as data-style attribution on root, applied through css */
+
+[data-style*="glassy"] {
+
+--toolbar-padding: 1%;
+
+    .toolbar {
+        margin: 2%;
+        border-radius: var(--border-radius);   
+        border-top: 1px solid var(--border-color);
+        box-shadow: var(--opt-box-shadow); 
+    }
+}

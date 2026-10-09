@@ -1,0 +1,7 @@
+.muted {
+    color: var(--muted-foreground-color);
+}
+
+.bold {
+    font-weight: 700;
+}
