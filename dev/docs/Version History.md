@@ -1,4 +1,4 @@
-### <ins> userChrome Companion 1.0
+### <ins> userChrome Companion 1.0 - 1.1
 
 ### <ins> Change Log
 userChrome Companion has been completely refactored.

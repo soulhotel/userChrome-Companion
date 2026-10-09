@@ -142,7 +142,10 @@ export default function PresetsSection({ openCreatePresetModal, onCreatePresetMo
       {error && <div className="modal-error">{error}</div>}
 
       <flex-row class="preset-list-section">
-        <span>Select a Preset</span>
+        <span>
+          Select a Preset
+          <b className="muted" title="You can also quick-select a preset from the ☰ Toolbar button."> 🛈 </b>
+        </span>
         <div className="preset-list">
           {config.savedPresets.map((preset) => (
             <PresetCard

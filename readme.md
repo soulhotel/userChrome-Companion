@@ -1,16 +1,10 @@
-# Wip
-
-userChrome Companion has been completely refactored, and is prepping for a 1.0 release.
-
----
-
 <div align="center">
 
 # This is userChrome Companion ...
 
 ###### ... a Firefox Extension to toggle & manage multiple userChrome styles
 
-[![Firefox](https://img.shields.io/static/v1?label=%20&message=GET%20THE%20ADD-ON&color=FF7139&labelColor=555555&style=for-the-badge&logo=Firefox-Browser&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/userchrome-companion/) ![VERSION | 1.0](https://img.shields.io/badge/VERSION%20%7C%201.0-222222?style=for-the-badge&logo=github&logoColor=white&labelColor=555555)
+[![Firefox](https://img.shields.io/static/v1?label=%20&message=GET%20THE%20ADD-ON&color=FF7139&labelColor=555555&style=for-the-badge&logo=Firefox-Browser&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/userchrome-companion/) ![VERSION | 1.1](https://img.shields.io/badge/VERSION%20%7C%201.0-222222?style=for-the-badge&logo=github&logoColor=white&labelColor=555555)
 
 <img
     src="src/shared/assets/demo2.gif"
