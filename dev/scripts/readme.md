@@ -1,0 +1,1 @@
+Just run index.js, then you can quick select a script to run. scripts will figure out the correct operating directory.

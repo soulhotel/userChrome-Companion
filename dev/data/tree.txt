@@ -1,82 +1,145 @@
 .
-├── CHANGELOG.md
-├── claude.md
+├── changelog.md
 ├── dev
 │   ├── data
 │   │   ├── tree.txt
-│   │   └── userChromeCompanion.json
+│   │   ├── ucc.json
+│   │   └── userchromejs
+│   │       ├── firefox
+│   │       │   ├── config.js
+│   │       │   └── defaults
+│   │       │       └── pref
+│   │       │           └── config-prefs.js
+│   │       ├── scripts
+│   │       │   ├── extensionBridgeChild.ucc.sys.mjs
+│   │       │   ├── extensionBridgeParent.ucc.sys.mjs
+│   │       │   └── extensionBridge.ucc.uc.js
+│   │       └── utils
+│   │           ├── BootstrapLoader.js
+│   │           ├── chrome.manifest
+│   │           ├── ChromeManifest.sys.mjs
+│   │           ├── hookFunction.mjs
+│   │           ├── RDFDataSource.sys.mjs
+│   │           ├── RDFManifestConverter.sys.mjs
+│   │           ├── userChrome.js
+│   │           ├── versionInfo.json
+│   │           └── xPref.sys.mjs
 │   ├── docs
-│   │   ├── preset-example
-│   │   └── readme.md
-│   ├── onboarding1-2.png
-│   ├── onboarding2-2.png
+│   │   └── Version History.md
 │   └── scripts
 │       ├── 0-index.sh
 │       ├── build.js
+│       ├── buildnrun.sh
+│       ├── git-commands.sh
 │       ├── pkg.sh
+│       ├── readme.md
 │       ├── tree.sh
-│       └── tree.txt
-├── dist
-│   ├── assets
-│   │   ├── icon-48.png
-│   │   └── icon.png
-│   ├── background
-│   │   ├── background.js
-│   │   └── titlepreface-bridge.js
-│   ├── css
-│   │   └── sidebar.css
-│   ├── data
-│   │   └── userChromeCompanion.json
-│   ├── index.html
-│   ├── index.js
-│   └── manifest.json
+│       └── versionhistory.sh
+├── LICENSE
 ├── manifest.json
 ├── package.json
 ├── package-lock.json
 ├── pkg
-│   └── userchrome-companion.xpi
-├── README.md
+│   └── userChromeCompanion@soulhotel.net.xpi
+├── readme.md
 └── src
-    ├── assets
-    │   ├── icon-48.png
-    │   ├── icon.png
-    │   └── Svg.jsx
-    ├── background
-    │   ├── background.js
-    │   └── titlepreface-bridge.js
-    ├── components
-    │   ├── ContextMenu.jsx
-    │   ├── FolderCard.jsx
-    │   ├── FolderModal.jsx
-    │   ├── Modal.jsx
-    │   ├── OnboardingModal.jsx
-    │   ├── OptionCard.jsx
-    │   ├── OptionModal.jsx
-    │   ├── OptionsList.jsx
-    │   ├── Separator.jsx
-    │   ├── Settings
-    │   │   ├── ConfigSection.jsx
-    │   │   ├── CSSThemeSection.jsx
-    │   │   ├── PresetsSection.jsx
-    │   │   └── SettingsPanel.jsx
-    │   ├── Toolbar.jsx
-    │   └── Tooltip.jsx
     ├── config
     │   ├── config.js
     │   ├── initialState.js
-    │   └── store.jsx
+    │   ├── state.jsx
+    │   └── storage.js
     ├── css
-    │   └── sidebar.css
-    ├── index.html
-    ├── index.jsx
-    ├── lib
-    │   ├── conflictResolver.js
-    │   ├── db.js
-    │   ├── dragDrop.jsx
-    │   ├── presetSchema.js
+    │   ├── components
+    │   │   ├── contextmenu.css
+    │   │   ├── modals.css
+    │   │   ├── options.css
+    │   │   ├── presetcard.css
+    │   │   ├── presetpreview.css
+    │   │   ├── settings.css
+    │   │   ├── sidebar.css
+    │   │   ├── toolbar.css
+    │   │   └── tooltip.css
+    │   ├── index.css
+    │   ├── styles
+    │   │   └── glassy.css
+    │   ├── theme.css
+    │   ├── ui
+    │   │   ├── a.css
+    │   │   ├── buttons.css
+    │   │   ├── checkbox-inputs.css
+    │   │   ├── code.css
+    │   │   ├── dividers.css
+    │   │   ├── flex-path.css
+    │   │   ├── font-styles.css
+    │   │   ├── modals.css
+    │   │   ├── scrollbars.css
+    │   │   ├── selects.css
+    │   │   └── text-inputs.css
+    │   └── ui.css
+    ├── global
+    │   ├── background.js
+    │   ├── events.js
+    │   ├── readme.md
     │   ├── reducer.js
-    │   ├── syncPreset.js
-    │   └── titlePreface.js
-    └── Sidebar.jsx
+    │   ├── useConnection.js
+    │   ├── usePrefBridge.js
+    │   └── useTreeSync.js
+    ├── settings
+    │   ├── component
+    │   │   ├── AboutSection.jsx
+    │   │   ├── AppBehaviorSection.jsx
+    │   │   ├── ConfigSection.jsx
+    │   │   ├── DataSection.jsx
+    │   │   ├── ExtSection.jsx
+    │   │   └── PresetsSection.jsx
+    │   ├── index.jsx
+    │   └── utils
+    │       └── ioMethods.js
+    ├── settings.html
+    ├── settings.index.jsx
+    ├── shared
+    │   ├── assets
+    │   │   ├── demo2.gif
+    │   │   ├── demo.gif
+    │   │   ├── icon-128-cf.svg
+    │   │   ├── icon-128.png
+    │   │   ├── icon-48-cc.svg
+    │   │   ├── icon-48-cf.svg
+    │   │   └── Svg.jsx
+    │   ├── components
+    │   │   ├── ContextMenu.jsx
+    │   │   ├── PresetCard.jsx
+    │   │   ├── PresetPreview.jsx
+    │   │   └── Tooltip.jsx
+    │   ├── modal
+    │   │   ├── ConnectionModal.jsx
+    │   │   ├── CreatePresetModal.jsx
+    │   │   ├── FolderModal.jsx
+    │   │   ├── ImportPresetModal.jsx
+    │   │   ├── index.jsx
+    │   │   ├── OnboardingModal.jsx
+    │   │   ├── OptionModal.jsx
+    │   │   ├── SelectPresetModal.jsx
+    │   │   └── SyncPresetModal.jsx
+    │   └── utils
+    │       ├── conflictResolver.js
+    │       ├── presetSchema.js
+    │       ├── presetSourcing.js
+    │       ├── queryList.js
+    │       ├── syncPreset.js
+    │       ├── userjsParser.js
+    │       └── versionCheck.js
+    ├── sidebar
+    │   ├── components
+    │   │   ├── FolderCard.jsx
+    │   │   ├── OptionCard.jsx
+    │   │   ├── OptionsList.jsx
+    │   │   ├── Separator.jsx
+    │   │   └── Toolbar.jsx
+    │   ├── index.jsx
+    │   └── utils
+    │       └── dragDrop.jsx
+    ├── sidebar.html
+    └── sidebar.index.jsx
 
-19 directories, 61 files
+30 directories, 113 files

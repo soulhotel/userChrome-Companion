@@ -10,7 +10,7 @@ userChrome Companion has been completely refactored, and is prepping for a 1.0 r
 
 ###### ... a Firefox Extension to toggle & manage multiple userChrome styles
 
-[![Firefox](https://img.shields.io/static/v1?label=%20&message=GET%20THE%20ADD-ON&color=FF7139&labelColor=555555&style=for-the-badge&logo=Firefox-Browser&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/userchrome-companion/) ![ALPHA | V0.7](https://img.shields.io/badge/ALPHA%20%7C%20V0.7-222222?style=for-the-badge&logo=github&logoColor=white&labelColor=555555) ![ALPHA | V0.7](https://img.shields.io/badge/ALPHA%20%7C%20V0.7-blueviolet?style=for-the-badge) 
+[![Firefox](https://img.shields.io/static/v1?label=%20&message=GET%20THE%20ADD-ON&color=FF7139&labelColor=555555&style=for-the-badge&logo=Firefox-Browser&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/userchrome-companion/) ![VERSION | 1.0](https://img.shields.io/badge/ALPHA%20%7C%20V0.7-222222?style=for-the-badge&logo=github&logoColor=white&labelColor=555555)
 
 <img
     src="src/shared/assets/demo2.gif"
@@ -26,7 +26,7 @@ userChrome Companion has been completely refactored, and is prepping for a 1.0 r
 ## Overview
 
 <p>
-    userChrome Companion is a <a href="#">Firefox extension</a> built to bridge the gap between userChrome & custom -moz-preferences (about:config). In short, it lets you toggle/manage/organize preset list of preferences. UCC was originally created to provide a more smooth & comfortable experience for FF Ultima users. But it is not exclusive to one theme.
+    userChrome Companion is a <a href="https://addons.mozilla.org/en-US/firefox/addon/userchrome-companion/">Firefox extension</a> built to bridge the gap between userChrome & custom -moz-preferences (about:config). In short, it lets you toggle/manage/organize preset list of preferences. UCC was originally created to provide a more smooth & comfortable experience for FF Ultima users. But it is not exclusive to one theme.
 </p>
 <ul>
     <li>Any theme that utilizes <code>-moz-pref</code>'s (user.js), can be used with this extension.</li>
@@ -73,9 +73,9 @@ If you are a user of FF Ultima, you can also skip these steps. Setup is automati
 ---
 
 If you do not have userChromeJS setup, follow the steps below:
-- dev/data/userchromejs/firefox/* -> your firefox directory
-- dev/data/userchromejs/scripts/ -> your chrome folder
-- dev/data/userchromejs/utils/   -> your chrome folder.
+- [dev/data/userchromejs/firefox/](https://github.com/soulhotel/userChrome-Companion/tree/main/dev/userchromejs)* -> your firefox directory
+- [dev/data/userchromejs/scripts/](https://github.com/soulhotel/userChrome-Companion/tree/main/dev/userchromejs) -> your chrome folder
+- [dev/data/userchromejs/utils/](https://github.com/soulhotel/userChrome-Companion/tree/main/dev/userchromejs)   -> your chrome folder.
 
 1. Everything `inside of the firefox folder` goes into your firefox install directory.
 2. the `scripts folder` sits inside of your chrome folder.
