@@ -7,7 +7,8 @@ export default function ConnectionModal({ onRetry, onDismiss }) {
       <p>
         You can exit (x) this popup and continue for now (presets, settings, sidebar still work),
         but preferences can't be turned on/off until this is resolved.
-        Make sure userChrome JS is properly installed, then retry the connection when ready.
+        Make sure userChrome JS is <a href="https://github.com/soulhotel/userChrome-Companion#setup">properly installed</a>, 
+        then retry the connection when ready.
       </p>
     </Modal>
   );
