@@ -35,7 +35,7 @@
     border-radius: var(--border-radius);
 }
 
-/* option modal*/
+/*option modal*/
 
 .conflict-tags {
     padding: 5px;
@@ -47,3 +47,8 @@
     padding: 5px;
     button {margin-left: 2.5px; padding: 1px 5px;}
 }
+
+/*sync modal*/
+
+.diff-added { color: #80dc85; }
+.diff-removed { color: #f35151; }
