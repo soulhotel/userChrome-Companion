@@ -4,7 +4,7 @@ import { parseUserJs } from "./userjsParser";
 const LOCAL_TESTING_REDIRECTS = {
   "https://raw.githubusercontent.com/soulhotel/FF-ULTIMA/main/ucc.json": "data/ucc.json",
 };
-const USE_LOCAL_TESTING = true;
+const USE_LOCAL_TESTING = false;
 
 export function resolvePresetUrl(link) {
   if (USE_LOCAL_TESTING && LOCAL_TESTING_REDIRECTS[link]) {
