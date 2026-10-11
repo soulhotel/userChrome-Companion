@@ -71,7 +71,7 @@
         { "pref": "ultima.bookmarks.autohide",                  "description": "Make bookmakrs bar autohide off hover",           "conflicts": ["ultima.bookmarks.float"] },
         { "pref": "ultima.bookmarks.float",                     "description": "Make bookmarks bar float and autohide",           "conflicts": ["ultima.bookmarks.autohide"] },
         { "pref": "ultima.bookmarks.centered",                  "description": "Center bookmarks bar content", "on": true },
-        { "pref": "ultima.bookmarks.compact",                   "description": "Reduce the height of the bookmarks toolbar" },
+        { "pref": "ultima.bookmarks.compact",                   "description": "Reduce the height of the bookmarks toolbar", "on": true },
         { "pref": "ultima.bookmarks.scrollable",                "description": "Scrollable Bookmarks Bar (shift+scroll, horizontal scroll)" },
         { "pref": "ultima.bookmarks.hide.icons",                "description": "Hide bookmark toolbar website favicons" },
         { "pref": "ultima.bookmarks.text-lowercase",            "description": "Makes bookmark text lowercase", "on": true },
@@ -246,6 +246,7 @@
         { "pref": "ultima.newtab.rounded",                      "description": "Theme New Tab Page (rounded theme)" },
         { "pref": "ultima.enable.youtube-theme",                "description": "Theme Youtube", "on": true },
         { "pref": "ultima.youtube.reduce.transparency",         "description": "Reduce transparency for Youtube theme" },
+        { "pref": "ultima.youtube.bigger.settings.menu",        "description": "Force Youtube video player settings menu bigger height", "on": true },
         { "pref": "ultima.enable.reddit-theme",                 "description": "Theme Reddit", "on": true }
       ]
     },
@@ -270,14 +271,14 @@
     {
       "folder": "userChrome JS",
       "options": [
-        { "pref": "ucc.chrome.watcher",                         "description": "Watch & Live Reload userChrome chrome/ folder" },
-        { "pref": "ucc.clear.restart",                          "description": "Fully Restart Firefox" },
-        { "pref": "ucc.navbar.menu",                            "description": "Enable Navbar Styles menu in nav bar", "on": true },
-        { "pref": "ucc.navbar.btn",                             "description": "Enable Navbar autohide buttons in nav bar" },
-        { "pref": "ucc.container.picker",                       "description": "Tab Container Picker in URL Bar" },
-        { "pref": "ucc.expandonhover.toggle",                   "description": "Right click vertical tabs for an expand on hover toggle" },
-        { "pref": "ucc.memory.usage",                           "description": "Adds Memory Usage statistics to the Nav Bar" }
+        { "pref": "ffu.chrome.watcher",                         "description": "Watch & Live Reload userChrome chrome/ folder" },
+        { "pref": "ffu.clear.restart",                          "description": "Fully Restart Firefox" },
+        { "pref": "ffu.navbar.menu",                            "description": "Enable Navbar Styles menu in nav bar", "on": true },
+        { "pref": "ffu.navbar.btn",                             "description": "Enable Navbar autohide buttons in nav bar" },
+        { "pref": "ffu.container.picker",                       "description": "Tab Container Picker in URL Bar" },
+        { "pref": "ffu.expandonhover.toggle",                   "description": "Right click vertical tabs for an expand on hover toggle" },
+        { "pref": "ffu.memory.usage",                           "description": "Adds Memory Usage statistics to the Nav Bar" }
       ]
-    }    
+    }
   ]
 }
