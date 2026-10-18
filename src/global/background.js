@@ -1,5 +1,5 @@
 import { loadPersistedConfig } from "../config/storage";
-import { defaultConfig, openModeLS } from "../config/config";
+import { defaultConfig } from "../config/config";
 
 browser.action.onClicked.addListener(() => {
   let mode = defaultConfig.openMode;

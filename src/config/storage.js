@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { defaultConfig, openModeLS } from "./config";
+import { defaultConfig } from "./config";
 
 const DB_NAME = "userChromeCompanion";
 const DB_VERSION = 1;
