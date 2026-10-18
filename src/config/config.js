@@ -11,5 +11,5 @@ export const defaultConfig = {
   ],
 };
 
-// probably dont need to do it this way, storage and background can either just 
+// probably dont need to do it this way, storage and background can just read/write the value
 export const openModeLS = "openModeLocallyStored";
