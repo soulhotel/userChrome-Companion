@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { defaultConfig } from "./config";
+import { defaultConfig, openModeLS } from "./config";
 
 const DB_NAME = "userChromeCompanion";
 const DB_VERSION = 1;
@@ -90,6 +90,12 @@ export function useHydration({ dispatch, patchConfig, state, config }) {
   useEffect(() => {
     if (!loaded) return;
     saveConfig(config);
+  }, [loaded, config]);
+
+  useEffect(() => {
+    if (!loaded) return;
+    saveConfig(config);
+    try { if (config.openMode) localStorage.setItem("openMode", config.openMode); } catch {}
   }, [loaded, config]);
 
   return { loaded, hydratedTreeRef };

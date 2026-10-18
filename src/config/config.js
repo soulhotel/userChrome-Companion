@@ -10,3 +10,6 @@ export const defaultConfig = {
     { name: "FF Ultima", link: "https://raw.githubusercontent.com/soulhotel/FF-ULTIMA/main/ucc.json", snapshot: null },
   ],
 };
+
+// probably dont need to do it this way, storage and background can either just 
+export const openModeLS = "openModeLocallyStored";
