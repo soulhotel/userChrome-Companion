@@ -60,13 +60,7 @@
 > If you are a user of FF Ultima, you can also skip these steps. Setup is automatically handled through theme install.
 
 1. If you have userChromeJS (autoconfig) already setup, skip to step 3.
-2. If you do not have userChromeJS setup, follow the steps below:
-    - [dev/data/userchromejs/firefox/](https://github.com/soulhotel/userChrome-Companion/tree/main/dev/userchromejs)* -> your firefox directory
-    - [dev/data/userchromejs/scripts/](https://github.com/soulhotel/userChrome-Companion/tree/main/dev/userchromejs) -> your chrome folder
-    - [dev/data/userchromejs/utils/](https://github.com/soulhotel/userChrome-Companion/tree/main/dev/userchromejs)   -> your chrome folder.
-    1. Everything `inside of the firefox folder` goes into your firefox install directory.
-    2. the `scripts folder` sits inside of your chrome folder.
-    3. The `utils folder` also sits inside of your chrome folder.
-3. With userChromeJS setup, copy the extensionbridge files from the [`scripts folder`](https://github.com/soulhotel/userChrome-Companion/tree/main/dev/userchromejs) into your userChromejs scripts folder.
+2. If you do not have userChromeJS setup, follow these steps to [setup fx-autoconfig](https://github.com/MrOtherGuy/fx-autoconfig#install).
+3. With userChromeJS setup, copy the extensions support bridge files from the [`scripts folder`](https://github.com/soulhotel/userChrome-Companion/tree/main/dev/userchromejs/scripts/) into your userChromejs scripts folder.
 Once these files are in place, you'll need to restart Firefox via `about:support`s `Clear startup cache`.
 4. From there you can grab the extension from the [Firefox Add-on store](https://addons.mozilla.org/en-US/firefox/addon/userchrome-companion/), if you haven't already.
