@@ -23,6 +23,7 @@ License:              MPL 2.0 https://github.com/soulhotel/userChrome-Companion/
 @import './ui/scrollbars.css';  /*@import './ui/load-spin.css';*/
 @import './ui/dividers.css';    @import './ui/font-styles.css';
 @import './ui/code.css';        @import './ui/a.css';
+@import './ui/highlight.css';
 
 /*---------------------------------------------*/
 /*component specific styles*/

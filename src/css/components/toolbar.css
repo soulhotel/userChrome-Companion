@@ -13,12 +13,17 @@
     margin-inline: 15px;
     justify-content: center;
     align-items: center;
-    border-top: 1px dashed var(--outline-color);
     /*bit sloppy but we'll see ^*/
     @media (max-width: 50px) {
         flex-direction: column;
     }
 }
+
+.toolbar .toolbar-container:first-of-type {
+    border-top: 1px dashed var(--outline-color);
+}
+
+
 .toolbar-btn {
     display: flex;
     width: 32px; height: 32px; 
@@ -28,5 +33,22 @@
     border-radius: 10px;
     &.active {
         color: var(--accent-color);
+    }
+}
+
+.search-container {
+    .searchbar {
+        position: relative;
+        flex-grow: 1;
+    }
+    .searchbar input {
+        width: 100%;
+    }
+    .searchbar .searchbar-btn-group {
+        position: absolute;
+        top: 0; right: 0; 
+    }
+    .searchbar-btn-group {
+        display: flex;
     }
 }

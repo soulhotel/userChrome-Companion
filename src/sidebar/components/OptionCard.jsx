@@ -1,21 +1,23 @@
 import { useAppState, useAppDispatch, useConfig } from "../../config/state";
 import { useDraggable, useDropZone } from "../utils/dragDrop";
+import { useSearch } from "../utils/search";
 import { useTooltip } from "../../shared/components/Tooltip";
+import Highlight from "../../shared/components/Highlight";
 import { getConflictTargets } from "../../shared/utils/conflictResolver";
-import { CircleIcon } from "../../shared/assets/Svg";
+import { CircleIcon, FolderIcon } from "../../shared/assets/Svg";
 
-export default function OptionCard({ item, onContextMenu, onEditRequest }) {
+export default function OptionCard({ item, folders, onContextMenu, onEditRequest }) {
   const state = useAppState();
   const dispatch = useAppDispatch();
   const [config] = useConfig();
   const drag = useDraggable(item.id);
   const drop = useDropZone(item.id, "split");
   const { showTooltip, hideTooltip } = useTooltip();
+  const { terms } = useSearch();
   const opt = state.optionsByPref[item.pref];
   const isSelected = state.selectedId === item.id;
-  const isOn = opt.on && !state.toggleAllOff;
-
   if (!opt) return null;
+  const isOn = opt.on && !state.toggleAllOff;
 
   function handleToggle(e) {
     e.stopPropagation();
@@ -54,9 +56,13 @@ export default function OptionCard({ item, onContextMenu, onEditRequest }) {
       onDragOver={drop.onDragOver}
       onDrop={drop.onDrop}
     >
-      <div className="option-desc">{opt.description || "title preface option"}</div>
+      <div className="option-desc">
+        {opt.description ? <Highlight text={opt.description} terms={terms} /> : "title preface option"}
+      </div>
       <div className="option-bottom-row">
-        <span className="option-pref">{item.pref}</span>
+        <span className="option-pref">
+          <Highlight text={item.pref} terms={terms} />
+        </span>
         {hasConflicts && (
           <span
             className="conflict-indicator"
@@ -73,6 +79,11 @@ export default function OptionCard({ item, onContextMenu, onEditRequest }) {
             }}
             onMouseLeave={hideTooltip}
           >C
+          </span>
+        )}
+        {folders?.length > 0 && (
+          <span className="folder-indicator" title={`In folder: ${folders.join(", ")}`}>
+            <FolderIcon width={16} height={16}/>
           </span>
         )}
       </div>

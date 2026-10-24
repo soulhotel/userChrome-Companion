@@ -9,6 +9,8 @@ import OptionModal from "../shared/modal/OptionModal";
 import FolderModal from "../shared/modal/FolderModal";
 import OptionsList from "./components/OptionsList";
 import Toolbar from "./components/Toolbar";
+import SearchList from "./components/SearchList";
+import { useSearch } from "./utils/search";
 import ContextMenu from "../shared/components/ContextMenu";
 import { applyPresetDelta } from "../shared/utils/presetSourcing";
 import { checkLinkedPresets } from "../shared/utils/syncPreset";
@@ -25,6 +27,7 @@ export default function Sidebar() {
   const [syncPrompts, setSyncPrompts] = useState([]);
 
   const [showPresetModal, setShowPresetModal] = useState(false);
+  const { isSearching } = useSearch();
 
   useEffect(() => {
     if (!config.hasOnboarded || connected !== true) return;
@@ -63,7 +66,11 @@ export default function Sidebar() {
 
   return (
     <div className="sidebar" onClick={() => setContextMenu(null)} onContextMenu={(e) => e.preventDefault()}>
-      <OptionsList onContextMenu={handleContextMenu} onEditRequest={setEditTarget} />
+      {isSearching ? (
+        <SearchList onContextMenu={handleContextMenu} onEditRequest={setEditTarget} />
+      ) : (
+        <OptionsList onContextMenu={handleContextMenu} onEditRequest={setEditTarget} />
+      )}
       <Toolbar
         onNewOption={() => setEditTarget({ type: "new-option" })}
         onNewFolder={() => setEditTarget({ type: "new-folder" })}

@@ -1,0 +1,4 @@
+mark {
+    color: color-mix(var(--foreground-color), var(--accent-color));
+    text-decoration: underline;
+}

@@ -1,5 +1,6 @@
 import { useRef, useState, useLayoutEffect } from "react";
 import { useAppDispatch } from "../../config/state";
+import { useSearch } from "../../sidebar/utils/search";
 
 const MARGIN = 8;
 
@@ -7,6 +8,7 @@ export default function ContextMenu({ x, y, item, onEditRequest, onClose }) {
   const dispatch = useAppDispatch();
   const menuRef = useRef(null);
   const [pos, setPos] = useState(null);
+  const { isSearching } = useSearch();
 
   useLayoutEffect(() => {
     const el = menuRef.current;
@@ -48,7 +50,9 @@ export default function ContextMenu({ x, y, item, onEditRequest, onClose }) {
       <div className="context-menu-item" onClick={edit}>
         {item.type === "folder" ? "Edit Folder" : "Edit Option"}
       </div>
-      <div className="context-menu-item" onClick={addSeparator}>Add Separator After</div>
+      {!isSearching && (
+        <div className="context-menu-item" onClick={addSeparator}>Add Separator After</div>
+      )}
       <div className="context-menu-item" onClick={deleteItem}>
         {item.type === "folder" ? "Delete Folder" : "Delete Option"}
       </div>

@@ -1,5 +1,5 @@
 /* options & folders */
-.option-tree {
+.option-tree, .option-list {
     padding: var(--sidebar-padding);
     border-radius: var(--border-radius);
     padding-bottom: 50px; /* so scrolling to bottom leaves no obstruction from toolbar */

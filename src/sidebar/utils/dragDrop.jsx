@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useCallback } from "react";
 import { useAppState, useAppDispatch } from "../../config/state";
+import { useSearch } from "./search";
 
 const DragContext = createContext(null);
 
@@ -96,6 +97,10 @@ export const useDragDrop = () => useContext(DragContext);
 
 export function useDraggable(id) {
   const { draggedId, startDrag, clearDrag } = useDragDrop();
+  const { isSearching } = useSearch();
+  if (isSearching) {
+    return { draggable: false, isDragging: false, onDragStart: undefined, onDragEnd: undefined };
+  }
   return {
     draggable: true,
     isDragging: draggedId === id,
@@ -110,7 +115,9 @@ export function useDraggable(id) {
 
 export function useDropZone(id, mode = "split") {
   const { setPlaceholderNear, setPlaceholderInside, commitDrop } = useDragDrop();
-
+  const { isSearching } = useSearch();
+  if (isSearching) return { onDragOver: undefined, onDrop: undefined };
+  
   function onDragOver(e) {
     e.preventDefault();
     e.stopPropagation();
