@@ -72,6 +72,7 @@
     │   │   ├── dividers.css
     │   │   ├── flex-path.css
     │   │   ├── font-styles.css
+    │   │   ├── highlight.css
     │   │   ├── modals.css
     │   │   ├── scrollbars.css
     │   │   ├── selects.css
@@ -109,6 +110,7 @@
     │   │   └── Svg.jsx
     │   ├── components
     │   │   ├── ContextMenu.jsx
+    │   │   ├── Highlight.jsx
     │   │   ├── PresetCard.jsx
     │   │   ├── PresetPreview.jsx
     │   │   └── Tooltip.jsx
@@ -135,12 +137,15 @@
     │   │   ├── FolderCard.jsx
     │   │   ├── OptionCard.jsx
     │   │   ├── OptionsList.jsx
+    │   │   ├── SearchBar.jsx
+    │   │   ├── SearchList.jsx
     │   │   ├── Separator.jsx
     │   │   └── Toolbar.jsx
     │   ├── index.jsx
     │   └── utils
-    │       └── dragDrop.jsx
+    │       ├── dragDrop.jsx
+    │       └── search.jsx
     ├── sidebar.html
     └── sidebar.index.jsx
 
-30 directories, 114 files
+30 directories, 119 files
